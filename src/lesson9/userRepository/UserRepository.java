@@ -1,10 +1,9 @@
 package lesson9.userRepository;
 
-public class UserRepository extends User {
+public class UserRepository {
     private User[] users;
 
-    public UserRepository(long id, String name, String sessionId, User[] users) {
-        super(id, name, sessionId);
+    public UserRepository(User[] users) {
         this.users = users;
     }
 

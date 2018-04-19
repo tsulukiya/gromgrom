@@ -36,5 +36,8 @@ public class UserRepository {
     public User[] getUsers() {
         return users;
     }
+
+    public UserRepository() {
+    }
 }
 

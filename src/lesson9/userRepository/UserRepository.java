@@ -24,6 +24,7 @@ public class UserRepository {
         long[] id = new long[users.length];
         for (int i = 0; i < users.length; i++) {
             id[i] = users[i].getId();
+
         }
         return id;
     }
@@ -40,9 +41,6 @@ public class UserRepository {
 
     public User[] getUsers() {
         return users;
-    }
-
-    public UserRepository() {
     }
 }
 

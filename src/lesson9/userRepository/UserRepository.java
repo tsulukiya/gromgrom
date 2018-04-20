@@ -21,7 +21,7 @@ public class UserRepository {
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null) {
                 id[i] = users[i].getId();
-            } else return null;
+            }
         }
         return id;
     }

@@ -21,7 +21,7 @@ public class UserRepository {
         for (int i = 0; i < users.length; i++) {
                 id[i] = users[i].getId();
         }
-        return id;
+        return null;
     }
 
     public String getUserNameById(long id) {

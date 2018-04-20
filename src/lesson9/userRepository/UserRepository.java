@@ -10,7 +10,7 @@ public class UserRepository {
     public String[] getUserNames() {
         int a = 0;
         for (int i = 0; i < users.length; i++) {
-            if (users[i] != null)
+            if (users[i] == null)
                 a++;
         }
         String[] names = new String[users.length - a];

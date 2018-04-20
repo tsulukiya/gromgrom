@@ -16,11 +16,11 @@ public class UserRepository {
         return names;
     }
 
-    public String[] getUserIds() {
-        String[] id = new String[users.length];
+    public long[] getUserIds() {
+        long[] id = new long[users.length];
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null)
-                id[i] = users[i].getSessionId();
+                id[i] = users[i].getId();
         }
         return id;
     }

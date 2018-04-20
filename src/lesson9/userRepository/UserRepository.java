@@ -8,14 +8,10 @@ public class UserRepository {
     }
 
     public String[] getUserNames() {
-        int a = 0;
+        String[] names = new String[users.length];
         for (int i = 0; i < users.length; i++) {
-            if (users[i] == null)
-                a++;
-        }
-        String[] names = new String[users.length - a];
-        for (int i = 0; i < users.length - a; i++) {
-            names[i] = users[i].getName();
+            if (users[i] != null)
+                names[i] = users[i].getName();
         }
         return names;
     }

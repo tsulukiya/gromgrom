@@ -19,7 +19,8 @@ public class UserRepository {
     public long[] getUserIds() {
         long[] id = new long[users.length];
         for (int i = 0; i < users.length; i++) {
-            id[i] = users[i].getId();
+            if (users[i] != null)
+                id[i] = users[i].getId();
 
         }
         return id;
@@ -28,9 +29,10 @@ public class UserRepository {
     public String getUserNameById(long id) {
         String nameUser = null;
         for (User user : users) {
-            if (user.getId() == id) {
-                nameUser = user.getName();
-            }
+            if (users != null)
+                if (user.getId() == id) {
+                    nameUser = user.getName();
+                }
         }
         return nameUser;
     }

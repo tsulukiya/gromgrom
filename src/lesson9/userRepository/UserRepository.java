@@ -19,9 +19,7 @@ public class UserRepository {
     public long[] getUserIds() {
         long[] id = new long[users.length];
         for (int i = 0; i < users.length; i++) {
-            if (users[i] != null)
                 id[i] = users[i].getId();
-
         }
         return id;
     }

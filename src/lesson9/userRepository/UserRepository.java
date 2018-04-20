@@ -13,7 +13,6 @@ public class UserRepository {
         for (int i = 0; i < users.length; i++) {
             if (users[i].getName() != null)
                 names[i] = users[i].getName();
-            else names[i] = null;
 
         }
         return names;

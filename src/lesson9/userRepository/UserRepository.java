@@ -11,9 +11,10 @@ public class UserRepository {
 
         String[] names = new String[users.length];
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getName() != null) {
+            if (users[i].getName() != null)
                 names[i] = users[i].getName();
-            } else names[i] = null;
+            else names[i] = null;
+
         }
         return names;
     }

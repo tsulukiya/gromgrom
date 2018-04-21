@@ -129,7 +129,8 @@ public class UserRepository {
 
     public User update(User user) {
         User user1 = findById(user.getId());
-        if (user1 == null) {
+        
+        if (user1 != null) {
 
             for (int i = 0; i < users.length; i++) {
 

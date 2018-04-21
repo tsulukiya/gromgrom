@@ -103,19 +103,24 @@ public class UserRepository {
 
 
     public User save(User user) {
-        User user1 = null;
+        User user1 = findById(user.getId());
 
-        if (findById(user.getId()) == null) {
-            user1 = null;
-        } else {
+        if (user1 == null) {
+
             for (int i = 0; i < users.length; i++) {
 
-                if (users[i] == null) {
-                    users[i] = user;
-                    user1 = users[i];
+                if (user != null) {
+
+                    if (users[i] == null) {
+                        users[i] = user;
+                        user1 = users[i];
+                    }
+                    break;
                 }
-                break;
             }
+
+        } else {
+            user1 = null;
         }
         return user1;
     }

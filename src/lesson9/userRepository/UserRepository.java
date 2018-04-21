@@ -114,8 +114,9 @@ public class UserRepository {
                     if (users[i] == null) {
                         users[i] = user;
                         user1 = users[i];
+                        break;
                     }
-                    
+
                 }
             }
 

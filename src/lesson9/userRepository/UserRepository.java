@@ -1,5 +1,7 @@
 package lesson9.userRepository;
 
+import lesson9.userRepository.User;
+
 public class UserRepository {
     private User[] users;
 

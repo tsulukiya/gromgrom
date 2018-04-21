@@ -115,7 +115,7 @@ public class UserRepository {
                         users[i] = user;
                         user1 = users[i];
                     }
-                    break;
+                    
                 }
             }
 

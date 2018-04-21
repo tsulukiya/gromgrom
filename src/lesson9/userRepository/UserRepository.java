@@ -159,6 +159,7 @@ public class UserRepository {
                     if (users[i] == findById(id))
                         users[i] = null;
                 }
+                break;
             }
         }
     }

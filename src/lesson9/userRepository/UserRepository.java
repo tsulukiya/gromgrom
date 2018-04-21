@@ -130,12 +130,9 @@ public class UserRepository {
     public User update(User user) {
         User user1 = findById(user.getId());
 
-        if (user1 != null) {
-
+        if (user1 == null) {
             for (int i = 0; i < users.length; i++) {
-
                 if (users[i] != null) {
-
                     if (users[i] == user) {
                         users[i] = user;
                         user1 = users[i];
@@ -143,7 +140,6 @@ public class UserRepository {
                 }
                 break;
             }
-
         } else {
             user1 = null;
         }

@@ -46,6 +46,17 @@ public class UserRepository {
         return nameUser;
     }
 
+    public User user(String name) {
+        User user1 = null;
+        for (User user : users) {
+            if (user.getName() == name) {
+                user1 = user;
+                break;
+            }
+        }
+        return user1;
+    }
+
     public User[] getUsers() {
         return users;
     }

@@ -50,34 +50,40 @@ public class UserRepository {
     public User getUserByName(String name) {
         User user1 = null;
         for (User user : users) {
-            if (user.getName() == name) {
-                user1 = user;
-                break;
+            if (user != null) {
+                if (user.getName() == name) {
+                    user1 = user;
+                    break;
+                }
             }
         }
-        return (user1 != null) ? user1 : null;
+        return user1;
     }
 
     public User getUserById(long id) {
         User user1 = null;
         for (User user : users) {
-            if (user.getId() == id) {
-                user1 = user;
-                break;
+            if (user != null) {
+                if (user.getId() == id) {
+                    user1 = user;
+                    break;
+                }
             }
         }
-        return (user1 != null) ? user1 : null;
+        return user1;
     }
 
     public User getUserBySessionId(String sessionId) {
         User user1 = null;
         for (User user : users) {
-            if (user.getSessionId() == sessionId) {
-                user1 = user;
-                break;
+            if (user != null) {
+                if (user.getSessionId() == sessionId) {
+                    user1 = user;
+                    break;
+                }
             }
         }
-        return (user1 != null) ? user1 : null;
+        return user1;
     }
 
 

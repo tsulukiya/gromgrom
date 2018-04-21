@@ -152,14 +152,14 @@ public class UserRepository {
     }
 
     public void delete(long id) {
-        User user1 = findById(id);
 
-        for (User user : users) {
-            if (user != null) {
-                if (user1 == user)
-                    user = null;
-
-            } break;
+        if (findById(id) == null) {
+            for (int i = 0; i < users.length; i++) {
+                if (users[i] != null) {
+                    if (users[i] == findById(id))
+                        users[i] = null;
+                }
+            }
         }
     }
 

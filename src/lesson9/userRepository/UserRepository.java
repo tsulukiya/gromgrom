@@ -102,7 +102,7 @@ public class UserRepository {
     }
 
 
-    private User save(User user) {
+    public User save(User user) {
         User user1 = null;
 
         if ((findById(user.getId()) != null) || (users.length != count())) {

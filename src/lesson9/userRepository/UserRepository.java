@@ -73,6 +73,21 @@ public class UserRepository {
         return user1;
     }
 
+
+    private User findById(long id) {
+        User user1 = null;
+        for (User user : users) {
+            if (user != null) {
+                if (user.getId() == id) {
+                    user1 = user;
+                    break;
+                }
+            }
+        }
+        return user1;
+    }
+
+
     public User getUserBySessionId(String sessionId) {
         User user1 = null;
         for (User user : users) {
@@ -84,6 +99,31 @@ public class UserRepository {
             }
         }
         return user1;
+    }
+
+
+    User save(User user) {
+        User user1 = findById(user.getId());
+
+        if (user1 != null) {
+
+            user1 = null;
+
+        } else {
+            if (users.length == count()) {
+                user1 = null;
+            } else {
+                for (User user2 : users) {
+                    if (user2 == null) {
+                        user1 = user2;
+                    }
+                }
+
+            }
+        }
+        return user1;
+
+
     }
 
 

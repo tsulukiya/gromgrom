@@ -1,6 +1,5 @@
 package lesson9.userRepository;
 
-import lesson9.userRepository.User;
 
 public class UserRepository {
     private User[] users;
@@ -48,7 +47,7 @@ public class UserRepository {
         return nameUser;
     }
 
-    public User userByName(String name) {
+    public User getUserByName(String name) {
         User user1 = null;
         for (User user : users) {
             if (user.getName() == name) {
@@ -59,7 +58,7 @@ public class UserRepository {
         return user1;
     }
 
-    public User userById(long id) {
+    public User getUserById(long id) {
         User user1 = null;
         for (User user : users) {
             if (user.getId() == id) {
@@ -70,7 +69,7 @@ public class UserRepository {
         return user1;
     }
 
-    public User userBySessionId(String sessionId) {
+    public User getUserBySessionId(String sessionId) {
         User user1 = null;
         for (User user : users) {
             if (user.getSessionId() == sessionId) {

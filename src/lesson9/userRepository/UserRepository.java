@@ -156,10 +156,10 @@ public class UserRepository {
 
         for (User user : users) {
             if (user != null) {
-                if (user1 == user) {
+                if (user1 == user)
                     user = null;
-                }
-            }
+
+            } break;
         }
     }
 

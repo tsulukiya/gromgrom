@@ -55,7 +55,7 @@ public class UserRepository {
                 break;
             }
         }
-        return user1;
+        return (user1 != null) ? user1 : null;
     }
 
     public User getUserById(long id) {
@@ -66,7 +66,7 @@ public class UserRepository {
                 break;
             }
         }
-        return user1;
+        return (user1 != null) ? user1 : null;
     }
 
     public User getUserBySessionId(String sessionId) {
@@ -77,7 +77,7 @@ public class UserRepository {
                 break;
             }
         }
-        return user1;
+        return (user1 != null) ? user1 : null;
     }
 
 

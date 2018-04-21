@@ -105,22 +105,17 @@ public class UserRepository {
     public User save(User user) {
         User user1 = null;
 
-        if (user != null) {
+        if ((findById(user.getId()) != null) || (users.length == count())) {
+            user1 = null;
+        } else {
+            for (User user2 : users) {
 
-
-            if ((findById(user.getId()) != null) || (users.length == count())) {
-                user1 = null;
-            } else {
-                for (User user2 : users) {
-
-                    if (user2 == null) {
-                        user2 = user;
-                        user1 = user2;
-                    }
+                if ((user != null) && (user2 == null)) {
+                    user2 = user;
+                    user1 = user2;
                 }
             }
         }
-
         return user1;
     }
 

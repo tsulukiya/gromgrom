@@ -102,28 +102,20 @@ public class UserRepository {
     }
 
 
-    User save(User user) {
-        User user1 = findById(user.getId());
+    private User save(User user) {
+        User user1 = null;
 
-        if (user1 != null) {
-
+        if ((findById(user.getId()) != null) || (users.length != count())) {
             user1 = null;
-
         } else {
-            if (users.length == count()) {
-                user1 = null;
-            } else {
-                for (User user2 : users) {
-                    if (user2 == null) {
-                        user1 = user2;
-                    }
+            for (User user2 : users) {
+                if (user2 == null) {
+                    user2 = user;
+                    user1 = user2;
                 }
-
             }
         }
         return user1;
-
-
     }
 
 

@@ -105,14 +105,14 @@ public class UserRepository {
     public User save(User user) {
         User user1 = null;
 
-        if ((findById(user.getId()) != null) || (users.length == count())) {
+        if ((findById(user.getId()) == null) || (users.length == count())) {
             user1 = null;
         } else {
-            for (User user2 : users) {
+            for (int i = 0; i < users.length; i++) {
 
-                if ((user != null) && (user2 == null)) {
-                    user2 = user;
-                    user1 = user2;
+                if ((user != null) & (users[i] == null)) {
+                    users[i] = user;
+                    user1 = users[i];
                 }
             }
         }

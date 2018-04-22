@@ -138,10 +138,8 @@ public class UserRepository {
                         user1 = users[i];
                     }
                 }
-                
+
             }
-        } else {
-            user1 = null;
         }
         return user1;
 

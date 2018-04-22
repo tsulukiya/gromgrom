@@ -136,6 +136,7 @@ public class UserRepository {
                     if (users[i] == user) {
                         users[i] = user;
                         user1 = users[i];
+                        break;
                     }
                 }
 

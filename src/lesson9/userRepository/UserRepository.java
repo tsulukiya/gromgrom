@@ -127,7 +127,7 @@ public class UserRepository {
     }
 
 
-    public User update(User user) {
+    public User update1(User user) {
         User user1 = findById(user.getId());
 
         if (user1 == null) {

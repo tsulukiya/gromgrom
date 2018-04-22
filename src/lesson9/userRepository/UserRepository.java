@@ -132,7 +132,7 @@ public class UserRepository {
 
         if (user1 != null) {
             for (int i = 0; i < users.length; i++) {
-                if (user != null) {
+                if (users != null) {
                     if (users[i] == user) {
                         users[i] = user;
                         user1 = users[i];

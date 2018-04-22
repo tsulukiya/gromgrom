@@ -138,7 +138,7 @@ public class UserRepository {
                         user1 = users[i];
                     }
                 }
-                break;
+                
             }
         } else {
             user1 = null;

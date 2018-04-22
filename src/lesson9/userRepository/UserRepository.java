@@ -132,7 +132,7 @@ public class UserRepository {
 
         if (user1 != null) {
             for (int i = 0; i < users.length; i++) {
-                if (users != null) {
+                if ((users != null)&&(user != null)) {
                     if (users[i] == user) {
                         users[i] = user;
                         user1 = users[i];
@@ -145,6 +145,7 @@ public class UserRepository {
         return user1;
 
     }
+
 
     public void delete(long id) {
 

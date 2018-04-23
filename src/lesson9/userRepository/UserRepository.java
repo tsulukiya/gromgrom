@@ -120,7 +120,8 @@ public class UserRepository {
                 }
             }
 
-
+        } else {
+            user1 = null;
         }
         return user1;
     }

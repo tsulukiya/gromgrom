@@ -120,8 +120,7 @@ public class UserRepository {
                 }
             }
 
-        } else {
-            user1 = null;
+
         }
         return user1;
     }
@@ -132,7 +131,7 @@ public class UserRepository {
 
         for (int i = 0; i < users.length; i++) {
             if (user != null) {
-                if (users[i] == user) {
+                if (users[i].getId() == user.getId()) {
                     users[i] = user;
                     user1 = users[i];
                     break;
@@ -151,7 +150,7 @@ public class UserRepository {
         if (findById(id) != null) {
             for (int i = 0; i < users.length; i++) {
                 if (users[i] != null) {
-                    if (users[i] == findById(id))
+                    if (users[i].getId() == findById(id).getId())
                         users[i] = null;
                 }
                 break;

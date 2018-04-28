@@ -11,7 +11,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    void validateOrder() {
+    public void validateOrder() {
         if ((getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Харьков") &
                 (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков") &
                 (getBasePrice() >= 100) & (getCustomerOwned().getGender() == "Женский")) {
@@ -24,7 +24,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    void calculatePrice() {
+    public void calculatePrice() {
         setTotalPrice(deliveryPrice() + getBasePrice());
         if (getTotalPrice() > 1000)
             setTotalPrice(getTotalPrice() - (getTotalPrice() * 0.05));

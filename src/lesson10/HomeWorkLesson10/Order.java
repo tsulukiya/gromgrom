@@ -27,8 +27,8 @@ public abstract class Order {
     public abstract void calculatePrice();
 
     public void confirmShipping() {
-        if (getDateConfirmed() == null)
-            setDateConfirmed(new Date());
+        if (getDateShipped() == null)
+            setDateShipped(new Date());
     }
 
     public String getItemName() {

@@ -28,22 +28,25 @@ public class Demo {
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
 
-        electronicsOrder1.confirmShipping();
+
         electronicsOrder1.validateOrder();
+        electronicsOrder1.confirmShipping();
         electronicsOrder1.calculatePrice();
         System.out.println(electronicsOrder1);
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-        furnitureOrder.confirmShipping();
+
         furnitureOrder.validateOrder();
+        furnitureOrder.confirmShipping();
         furnitureOrder.calculatePrice();
         System.out.println(furnitureOrder);
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-        furnitureOrder1.confirmShipping();
+
         furnitureOrder1.validateOrder();
+        furnitureOrder1.confirmShipping();
         furnitureOrder1.calculatePrice();
         System.out.println(furnitureOrder1);
 

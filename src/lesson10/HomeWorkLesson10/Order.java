@@ -26,20 +26,13 @@ public abstract class Order {
 
     public abstract void calculatePrice();
 
+    public abstract double deliveryPrice();
+
     public void confirmShipping() {
         if (dateShipped == null)
             dateShipped = new Date();
     }
 
-    public double deliveryPrice() {
-        double delivery;
-        if ((getShipToCity() != "Киев") && (getShipToCity() != "Одесса")) {
-            delivery = getBasePrice() * 0.15;
-        } else {
-            delivery = getBasePrice() * 0.1;
-        }
-        return delivery;
-    }
 
     public String getItemName() {
         return itemName;

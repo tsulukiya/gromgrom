@@ -30,7 +30,8 @@ public class ElectronicsOrder extends Order {
 
     }
 
-    private double deliveryPrice() {
+    @Override
+    public double deliveryPrice() {
         double delivery;
         if ((getShipToCity() != "Киев") && (getShipToCity() != "Одесса")) {
             delivery = getBasePrice() * 0.15;

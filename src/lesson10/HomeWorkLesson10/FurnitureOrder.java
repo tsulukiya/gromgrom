@@ -26,7 +26,8 @@ public class FurnitureOrder extends Order {
         setTotalPrice(deliveryPrice() + getBasePrice());
     }
 
-    private double deliveryPrice() {
+    @Override
+    public double deliveryPrice() {
         double delivery;
         if (getBasePrice() < 5000) {
             delivery = getBasePrice() * 0.05;

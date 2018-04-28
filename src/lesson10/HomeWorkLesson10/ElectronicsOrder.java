@@ -24,7 +24,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    void calculatePrice() {
+    public void calculatePrice() {
         setTotalPrice(deliveryPrice() + getBasePrice());
         if (getTotalPrice() > 1000)
             setTotalPrice(getTotalPrice() - (getTotalPrice() * 0.05));

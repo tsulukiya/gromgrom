@@ -23,7 +23,7 @@ public class FurnitureOrder extends Order {
     void calculatePrice() {
         setTotalPrice(deliveryPrice() + getBasePrice());
     }
-    
+
     double deliveryPrice() {
         double delivery;
         if (getBasePrice() < 5000) {

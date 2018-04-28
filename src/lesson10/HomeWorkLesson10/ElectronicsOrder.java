@@ -12,9 +12,9 @@ public class ElectronicsOrder extends Order {
 
     @Override
     public void validateOrder() {
-        if ((getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") &&
-                (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipToCity() == "Харьков") &&
-                (getBasePrice() >= 100) && (getCustomerOwned().getGender() == "Женский"))
+        if ((getShipFromCity() == "Киев" || getShipFromCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipFromCity() == "Харьков") &
+                (getShipToCity() == "Киев" || getShipToCity() == "Одесса" || getShipFromCity() == "Днепр" || getShipToCity() == "Харьков") &
+                (getBasePrice() >= 100) & (getCustomerOwned().getGender() == "Женский"))
 
             confirmShipping();
 

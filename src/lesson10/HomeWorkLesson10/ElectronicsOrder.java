@@ -27,7 +27,7 @@ public class ElectronicsOrder extends Order {
     void calculatePrice() {
         setTotalPrice(deliveryPrice() + getBasePrice());
         if (getTotalPrice() > 1000)
-            setTotalPrice(getTotalPrice() * 0.05);
+            setTotalPrice(getTotalPrice() - (getTotalPrice() * 0.05));
 
     }
 

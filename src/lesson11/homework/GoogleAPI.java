@@ -15,6 +15,6 @@ public class GoogleAPI implements API {
 
     @Override
     public Room[] getAll() {
-        return new Room[0];
+        return rooms;
     }
 }

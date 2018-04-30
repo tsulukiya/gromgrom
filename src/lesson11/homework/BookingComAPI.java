@@ -12,6 +12,7 @@ public class BookingComAPI implements API {
     public Room[] findRooms(int price, int person, String city, String hotel) {
         int index = 0;
         Room[] rooms1 = new Room[rooms.length];
+        Room[] rooms2 = new Room[index];
         int priceMin = price - 100;
         int priceMax = price + 100;
         if (price <= 100) {
@@ -29,16 +30,15 @@ public class BookingComAPI implements API {
             }
         }
 
-        if (index > 0) {
-            Room[] rooms2 = new Room[index];
+        if (index > 0)
+
             for (int i = 0; i < rooms1.length; i++) {
                 if (rooms1[i] != null) {
                     rooms2[i] = rooms1[i];
                 }
             }
-            return rooms2;
-        }
-        return null;
+        return rooms2;
+
 
     }
 

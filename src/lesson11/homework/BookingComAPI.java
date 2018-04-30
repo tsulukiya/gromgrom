@@ -25,7 +25,6 @@ public class BookingComAPI implements API {
             }
         }
 
-
         Room[] rooms2 = new Room[index];
         for (int i = 0; i < rooms1.length; i++) {
             if (rooms1[i] != null) {

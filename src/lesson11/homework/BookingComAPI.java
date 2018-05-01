@@ -19,7 +19,7 @@ public class BookingComAPI implements API {
 
                 if (((rooms[i].getPrice() >= 0) && (rooms[i].getPrice() >= (price - 100)) && rooms[i].getPrice() <= (price + 100))
                         && ((rooms[i].getPersons() == persons) && (rooms[i].getCityName() == city) && (rooms[i].getHotelName() == hotel))) {
-                    rooms1[i] = getAll()[i];
+                    rooms1[i] = rooms[i];
                     index++;
                 }
             }

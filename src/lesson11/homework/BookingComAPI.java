@@ -13,7 +13,7 @@ public class BookingComAPI implements API {
         int index = 0;
 
         for (Room room : rooms) {
-            if (room != null && price >= 0 &&
+            if (room != null &&
                     room.getPrice() >= price - 100 &&
                     room.getPrice() <= price + 100 &&
                     room.getPersons() == persons &&

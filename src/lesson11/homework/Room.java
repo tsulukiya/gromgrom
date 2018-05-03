@@ -60,6 +60,6 @@ public class Room {
                 ", dateAvailableFrom=" + dateAvailableFrom +
                 ", hotelName='" + hotelName + '\'' +
                 ", cityName='" + cityName + '\'' +
-                '}';
+                '}'+"\n";
     }
 }

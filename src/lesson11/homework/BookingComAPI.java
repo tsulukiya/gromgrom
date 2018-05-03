@@ -11,33 +11,25 @@ public class BookingComAPI implements API {
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
         int index = 0;
+        Room[] rooms1 = new Room[rooms.length];
         int maxPrice = price + 100;
         int minPrice = price - 100;
-        if (minPrice <= 0)
-            minPrice = 0;
 
-        for (int i = 0; i < rooms.length; i++) {
-
-            if ((rooms[i] != null) && (price >= 0)) {
-                if (rooms[i].getPrice() >= minPrice && rooms[i].getPrice() <= maxPrice) {
-                    if ((rooms[i].getPersons() == persons) && (rooms[i].getCityName() == city) && (rooms[i].getHotelName() == hotel)) {
+        for (Room room : rooms) {
+            if ((room != null) && (price >= 0))
+                if (room.getPrice() >= minPrice && room.getPrice() <= maxPrice)
+                    if ((room.getPersons() == persons) && (room.getCityName() == city) && (room.getHotelName() == hotel)) {
+                        rooms1[index] = room;
                         index++;
-
                     }
-                }
-            }
         }
 
         Room[] rooms2 = new Room[index];
-        for (int i = 0; i < rooms.length; i++) {
+        for (Room room : rooms1) {
+            if (room != null) {
+                rooms2[index - 1] = room;
+                index--;
 
-            if ((rooms[i] != null) && (price >= 0)) {
-                if (rooms[i].getPrice() >= minPrice && rooms[i].getPrice() <= maxPrice) {
-                    if ((rooms[i].getPersons() == persons) && (rooms[i].getCityName() == city) && (rooms[i].getHotelName() == hotel)) {
-                        rooms2[i] = rooms[i];
-
-                    }
-                }
             }
         }
         return rooms2;

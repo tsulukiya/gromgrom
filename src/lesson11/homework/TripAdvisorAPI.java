@@ -9,8 +9,33 @@ public class TripAdvisorAPI implements API {
     }
 
     @Override
-    public Room[] findRooms(int price, int person, String city, String hotel) {
-        return new Room[0];
+    public Room[] findRooms(int price, int persons, String city, String hotel) {
+        int index = 0;
+
+        for (Room room : rooms) {
+            if (room != null && price >= 0 &&
+                    room.getPrice() == price &&
+                    room.getPrice() == price &&
+                    room.getPersons() >= persons - 1 &&
+                    room.getPersons() >= persons + 1 &&
+                    room.getCityName() == city &&
+                    room.getHotelName() == hotel)
+                index++;
+        }
+
+        Room[] rooms2 = new Room[index];
+        for (Room room : rooms)
+            if (room != null &&
+                    room.getPrice() == price &&
+                    room.getPrice() == price &&
+                    room.getPersons() >= persons - 1 &&
+                    room.getPersons() >= persons + 1 &&
+                    room.getCityName() == city &&
+                    room.getHotelName() == hotel) {
+                rooms2[index - 1] = room;
+                index--;
+            }
+        return rooms2;
     }
 
     @Override

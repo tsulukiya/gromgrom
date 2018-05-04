@@ -24,6 +24,7 @@ public class GoogleAPI implements API {
         }
 
         Room[] rooms2 = new Room[index];
+        index = 0;
         for (Room room : rooms)
             if (room != null &&
                     room.getPrice() == price &&
@@ -32,8 +33,8 @@ public class GoogleAPI implements API {
                     room.getPersons() >= persons &&
                     room.getCityName() == city &&
                     room.getHotelName() == hotel) {
-                rooms2[index - 1] = room;
-                index--;
+                rooms2[index] = room;
+                index++;
             }
         return rooms2;
     }

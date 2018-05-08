@@ -71,11 +71,11 @@ public abstract class Bank {
         this.avrSalaryOfEmployee = avrSalaryOfEmployee;
     }
 
-    public long getRaiting() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRaiting(long rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 

@@ -14,6 +14,7 @@ public class UkrainianBankSystem implements BankSystem {
     public void fund(User user, int amount) {
         if (user.getBank().getLimitOfFunding() >= amount)
             user.setBalance(user.getBalance() + amount);
+        System.err.println("Can't fund money " + amount + " from user " + user.toString());
     }
 
     @Override

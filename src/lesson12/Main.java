@@ -18,7 +18,7 @@ public class Main {
         //System.out.println(user1.getBalance());
 
         System.out.println("+++++++++++++++++++++++++");
-        bankSystem.transferMoney(user, user1, 11000);
+        bankSystem.transferMoney(user, user1, 1250);
         System.out.println(user.getBalance());
         System.out.println(user1.getBalance());
     }

@@ -12,8 +12,8 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void fund(User user, int amount) {
-        if (user!=null)
-        user.setBalance(user.getBalance()+amount);
+        if (user.getBank().getLimitOfFunding() >= amount)
+            user.setBalance(user.getBalance() + amount);
     }
 
     @Override
@@ -54,4 +54,6 @@ public class UkrainianBankSystem implements BankSystem {
     private void printWithdrawalErrorMsg(int amount, User user) {
         System.err.println("Can't withdraw money " + amount + " from user " + user.toString());
     }
+
+
 }

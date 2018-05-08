@@ -12,6 +12,7 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void fund(User user, int amount) {
+        if (user!=null)
         user.setBalance(user.getBalance()+amount);
     }
 

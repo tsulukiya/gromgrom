@@ -21,7 +21,7 @@ public abstract class Bank {
 
     public abstract int getLimitOfWithdrawal();
 
-    public abstract int getLimitOfFounding();
+    public abstract int getLimitOfFunding();
 
     public abstract double getMonthlyRate();
 

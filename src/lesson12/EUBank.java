@@ -15,7 +15,7 @@ public class EUBank extends Bank {
     }
 
     @Override
-    public int getLimitOfFounding() {
+    public int getLimitOfFunding() {
         if (getCurrency() == Currency.EUR)
             return 20000;
         return 10000;

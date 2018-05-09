@@ -77,9 +77,7 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkTransferMoney(User fromUser, User toUser, int amount) {
-        return checkAmountFund(amount) &&
-                checkWithdraw(fromUser, amount) &&
-                checkFund(toUser, amount);
+        return checkAmountFund(amount) && checkWithdraw(fromUser, amount) && checkFund(toUser, amount);
     }
 
 

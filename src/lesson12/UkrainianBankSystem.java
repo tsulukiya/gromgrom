@@ -21,18 +21,20 @@ public class UkrainianBankSystem implements BankSystem {
     public void transferMoney(User fromUser, User toUser, int amount) {
         //снимаем деньги с fromUser
         // пополняем toUser
-        if (amount > 0) {
 
-            if (!checkWithdraw(fromUser, amount))
-                return;
+        if (!checkAmountFund(amount))
+            return;
 
-            if (!checkFund(toUser, amount))
-                return;
+        if (!checkWithdraw(fromUser, amount))
+            return;
 
-            fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+        if (!checkFund(toUser, amount))
+            return;
 
-            toUser.setBalance(toUser.getBalance() + amount);
-        }
+        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+
+        toUser.setBalance(toUser.getBalance() + amount);
+
     }
 
     @Override
@@ -72,6 +74,14 @@ public class UkrainianBankSystem implements BankSystem {
 
     private void printFundErrorMsg(int amount, User user) {
         System.err.println("Can't fund money " + amount + " from user " + user.toString());
+    }
+
+    private boolean checkAmountFund(int amount) {
+        if (amount < 0) {
+            System.err.println(" ERROR: Value 'amount' isn't correct...");
+            return false;
+        }
+        return true;
     }
 
 

@@ -9,9 +9,7 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void fund(User user, int amount) {
-        if (!checkFund(user, amount))
-            return;
-        user.setBalance(user.getBalance() + amount);
+        checkFundFinal(user, amount);
     }
 
     @Override
@@ -30,12 +28,17 @@ public class UkrainianBankSystem implements BankSystem {
 
     private void checkWithdrawFinal(User user, int amount) {
         if (checkWithdraw(user, amount))
-             user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
+            user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
     }
 
     private boolean checkWithdraw(User user, int amount) {
         return checkWithdrawLimits(user, amount, user.getBank().getLimitOfWithdrawal()) &&
                 checkWithdrawLimits(user, amount, user.getBalance());
+    }
+
+    private void checkFundFinal(User user, int amount) {
+        if (checkFund(user, amount))
+            user.setBalance(user.getBalance() + amount);
     }
 
     private boolean checkFund(User user, int amount) {

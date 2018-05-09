@@ -20,7 +20,13 @@ public class UkrainianBankSystem implements BankSystem {
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
 
-        if (fromUser.getId()!=toUser.getId()) {
+        if (fromUser.getId()!=toUser.getId()&&
+                fromUser.getBank()!=toUser.getBank()&&
+                fromUser.getBalance()!=toUser.getBalance()&&
+                fromUser.getCompanyName()!=toUser.getCompanyName()&&
+                fromUser.getMonthsOfEmployment()!=toUser.getMonthsOfEmployment()&&
+                fromUser.getName()!=toUser.getName()&&
+                fromUser.getSalary()!=toUser.getSalary()) {
 
             if (!checkTransferMoney(fromUser, toUser, amount))
                 return;

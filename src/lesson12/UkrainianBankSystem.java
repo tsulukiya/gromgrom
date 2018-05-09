@@ -19,16 +19,8 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        //снимаем деньги с fromUser
-        // пополняем toUser
 
-        if (!checkAmountFund(amount))
-            return;
-
-        if (!checkWithdraw(fromUser, amount))
-            return;
-
-        if (!checkFund(toUser, amount))
+        if (!checkTransferMoney(fromUser, toUser, amount))
             return;
 
         fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
@@ -82,6 +74,12 @@ public class UkrainianBankSystem implements BankSystem {
             return false;
         }
         return true;
+    }
+
+    private boolean checkTransferMoney(User fromUser, User toUser, int amount) {
+        return checkAmountFund(amount) &&
+                checkWithdraw(fromUser, amount) &&
+                checkFund(toUser, amount);
     }
 
 

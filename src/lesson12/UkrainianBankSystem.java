@@ -20,15 +20,12 @@ public class UkrainianBankSystem implements BankSystem {
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
 
-        if (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency()) {
+        if (!checkTransferMoney(fromUser, toUser, amount))
+            return;
 
-            if (!checkTransferMoney(fromUser, toUser, amount))
-                return;
+        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
 
-            fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
-
-            toUser.setBalance(toUser.getBalance() + amount);
-        }
+        toUser.setBalance(toUser.getBalance() + amount);
     }
 
     @Override
@@ -79,7 +76,8 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkTransferMoney(User fromUser, User toUser, int amount) {
-        return checkAmountFund(amount) && checkWithdraw(fromUser, amount) && checkFund(toUser, amount);
+        return checkAmountFund(amount) && checkWithdraw(fromUser, amount) && checkFund(toUser, amount) &&
+                (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency());
     }
 
 

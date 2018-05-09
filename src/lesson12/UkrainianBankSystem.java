@@ -4,45 +4,35 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void withdraw(User user, int amount) {
-        checkWithdrawFinal(user, amount);
+        if (!checkWithdraw(user, amount))
+            return;
+        user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
     }
 
     @Override
     public void fund(User user, int amount) {
-        checkFundFinal(user, amount);
+        if (!checkFund(user, amount))
+            return;
+        user.setBalance(user.getBalance() + amount);
     }
 
     @Override
     public void transferMoney(User fromUser, User toUser, int amount) {
-        transferMoneyFinal(fromUser, toUser, amount);
+        if (!checkTransferMoney(fromUser, toUser, amount))
+            return;
+        fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+        toUser.setBalance(toUser.getBalance() + amount);
     }
 
     @Override
     public void paySalary(User user) {
-        checkFundFinal(user, user.getSalary());
+        //todo homework
 
-    }
-
-    private void transferMoneyFinal(User fromUser, User toUser, int amount) {
-        if (checkTransferMoney(fromUser, toUser, amount)) {
-            fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
-            toUser.setBalance(toUser.getBalance() + amount);
-        }
-    }
-
-    private void checkWithdrawFinal(User user, int amount) {
-        if (checkWithdraw(user, amount))
-            user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
     }
 
     private boolean checkWithdraw(User user, int amount) {
         return checkWithdrawLimits(user, amount, user.getBank().getLimitOfWithdrawal()) &&
                 checkWithdrawLimits(user, amount, user.getBalance());
-    }
-
-    private void checkFundFinal(User user, int amount) {
-        if (checkFund(user, amount))
-            user.setBalance(user.getBalance() + amount);
     }
 
     private boolean checkFund(User user, int amount) {
@@ -85,4 +75,6 @@ public class UkrainianBankSystem implements BankSystem {
         return checkAmountFund(amount) && checkWithdraw(fromUser, amount) && checkFund(toUser, amount) &&
                 (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency());
     }
+
+
 }

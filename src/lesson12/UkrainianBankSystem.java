@@ -21,14 +21,17 @@ public class UkrainianBankSystem implements BankSystem {
     public void transferMoney(User fromUser, User toUser, int amount) {
         //снимаем деньги с fromUser
         // пополняем toUser
+        if (amount > 0) {
 
-        if (!checkWithdraw(fromUser, amount)) {
-            if (!checkFund(toUser, amount)) {
+            if (!checkWithdraw(fromUser, amount))
+                return;
 
-                fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+            if (!checkFund(toUser, amount))
+                return;
 
-                toUser.setBalance(toUser.getBalance() + amount);
-            }
+            fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
+
+            toUser.setBalance(toUser.getBalance() + amount);
         }
     }
 

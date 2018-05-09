@@ -4,7 +4,8 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void withdraw(User user, int amount) {
-        checkWithdrawalFinal(user, amount);
+        if (!checkWithdraw(user, amount))
+            return;
         user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
     }
 
@@ -27,12 +28,6 @@ public class UkrainianBankSystem implements BankSystem {
     public void paySalary(User user) {
         //todo homework
 
-    }
-
-    private boolean checkWithdrawalFinal(User user, int amount) {
-        if (!checkWithdraw(user, amount))
-            return true;
-        return false;
     }
 
     private boolean checkWithdraw(User user, int amount) {

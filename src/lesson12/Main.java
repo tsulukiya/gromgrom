@@ -27,5 +27,8 @@ public class Main {
         bankSystem.transferMoney(user5, user3, 120);
         System.out.println(user5.getBalance());
         System.out.println(user3.getBalance());
+        System.out.println("++++++++++++++++++++++++++");
+        bankSystem.paySalary(user1);
+        System.out.println(user1.getBalance());
     }
 }

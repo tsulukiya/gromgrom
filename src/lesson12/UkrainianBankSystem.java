@@ -25,7 +25,7 @@ public class UkrainianBankSystem implements BankSystem {
 
         fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
 
-        toUser.setBalance(toUser.getBalance() + amount-amount*toUser.getBank().getMonthlyRate());
+        toUser.setBalance(toUser.getBalance() + amount);
 
     }
 
@@ -69,7 +69,7 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkAmountFund(int amount) {
-        if (amount < 0) {
+        if (amount <= 0) {
             System.err.println(" ERROR: Value 'amount' isn't correct...");
             return false;
         }

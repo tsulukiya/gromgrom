@@ -26,7 +26,9 @@ public class UkrainianBankSystem implements BankSystem {
 
     @Override
     public void paySalary(User user) {
-        //todo homework
+        if (!checkFund(user, user.getSalary()))
+            return;
+        user.setBalance(user.getBalance() + user.getSalary());
 
     }
 

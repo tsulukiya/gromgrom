@@ -31,8 +31,8 @@ public class UkrainianBankSystem implements BankSystem {
 
     private boolean checkWithdrawalFinal(User user, int amount) {
         if (checkWithdraw(user, amount))
-            return false;
-        return true;
+            return true;
+        return false;
     }
 
     private boolean checkWithdraw(User user, int amount) {

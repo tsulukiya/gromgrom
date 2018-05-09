@@ -29,7 +29,7 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private void checkWithdrawFinal(User user, int amount) {
-        if (!checkWithdraw(user, amount))
+        if (checkWithdraw(user, amount))
              user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
     }
 

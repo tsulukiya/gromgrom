@@ -102,10 +102,9 @@ public class UserRepository {
         User user1 = null;
 
         for (User user2 : users) {
-            if (user2.equals(user) && user2.hashCode() == user.hashCode()) {
+            if (user2.equals(user) && user2.hashCode() == user.hashCode())
                 user1 = user2;
-                break;
-            }
+                
         }
 
         if (user1 == null) {

@@ -104,66 +104,54 @@ public class UserRepository {
         for (User user2 : users) {
             if (user2.equals(user) && user2.hashCode() == user.hashCode())
                 user1 = user2;
-                
+
         }
 
         if (user1 == null) {
-
-            for (int i = 0; i < users.length; i++) {
-
-                if (user != null) {
-
-                    if (users[i] == null) {
-                        users[i] = user;
-                        user1 = users[i];
-                        break;
-                    }
-
+            for (User user2 : users) {
+                if (user2 == null) {
+                    user1 = user2;
                 }
             }
-
-        } else {
-            user1 = null;
-        }
-        return user1;
-    }
-
-
-    public User update(User user) {
-        User user1 = findById(user.getId());
-        if (user1 != null) {
-            for (int i = 0; i < users.length; i++) {
-                if (user != null)
-                    if (users[i].getId() == user.getId()) {
-                        users[i] = user;
-                        user1 = users[i];
-                        break;
-                    }
-            }
-
+            return user1;
         }
 
-        return user1;
 
-    }
-
-
-    public void delete(long id) {
-
-        if (findById(id) != null) {
-            for (int i = 0; i < users.length; i++) {
-                if (users[i] != null) {
-                    if (users[i].getId() == findById(id).getId())
-                        users[i] = null;
+        public User update (User user){
+            User user1 = findById(user.getId());
+            if (user1 != null) {
+                for (int i = 0; i < users.length; i++) {
+                    if (user != null)
+                        if (users[i].getId() == user.getId()) {
+                            users[i] = user;
+                            user1 = users[i];
+                            break;
+                        }
                 }
-                break;
+
+            }
+
+            return user1;
+
+        }
+
+
+        public void delete ( long id){
+
+            if (findById(id) != null) {
+                for (int i = 0; i < users.length; i++) {
+                    if (users[i] != null) {
+                        if (users[i].getId() == findById(id).getId())
+                            users[i] = null;
+                    }
+                    break;
+                }
             }
         }
-    }
 
 
-    public User[] getUsers() {
-        return users;
+        public User[] getUsers () {
+            return users;
+        }
     }
-}
 

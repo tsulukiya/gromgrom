@@ -2,11 +2,7 @@ package lesson15;
 
 
 public class UserRepository {
-    private User[] users;
-
-    public UserRepository(User[] users) {
-        this.users = users;
-    }
+    private User[] users = new User[10];
 
     public int count() {
         int count = 0;

@@ -107,7 +107,7 @@ public class UserRepository {
 
         }
 
-        if (user1 == null) {
+        if (user1 != null) {
             for (User user2 : users) {
                 if (user2 == null) {
                     user1 = user2;

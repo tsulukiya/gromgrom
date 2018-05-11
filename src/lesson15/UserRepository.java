@@ -113,45 +113,47 @@ public class UserRepository {
                     user1 = user2;
                 }
             }
-            return user1;
-        }
-
-
-        public User update (User user){
-            User user1 = findById(user.getId());
-            if (user1 != null) {
-                for (int i = 0; i < users.length; i++) {
-                    if (user != null)
-                        if (users[i].getId() == user.getId()) {
-                            users[i] = user;
-                            user1 = users[i];
-                            break;
-                        }
-                }
-
-            }
-
-            return user1;
 
         }
+        return user1;
+    }
 
 
-        public void delete ( long id){
-
-            if (findById(id) != null) {
-                for (int i = 0; i < users.length; i++) {
-                    if (users[i] != null) {
-                        if (users[i].getId() == findById(id).getId())
-                            users[i] = null;
+    public User update(User user) {
+        User user1 = findById(user.getId());
+        if (user1 != null) {
+            for (int i = 0; i < users.length; i++) {
+                if (user != null)
+                    if (users[i].getId() == user.getId()) {
+                        users[i] = user;
+                        user1 = users[i];
+                        break;
                     }
-                    break;
-                }
             }
+
         }
 
+        return user1;
 
-        public User[] getUsers () {
-            return users;
+    }
+
+
+    public void delete(long id) {
+
+        if (findById(id) != null) {
+            for (int i = 0; i < users.length; i++) {
+                if (users[i] != null) {
+                    if (users[i].getId() == findById(id).getId())
+                        users[i] = null;
+                }
+                break;
+            }
         }
     }
+
+
+    public User[] getUsers() {
+        return users;
+    }
+}
 

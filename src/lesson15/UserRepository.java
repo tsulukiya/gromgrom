@@ -24,16 +24,17 @@ public class UserRepository {
 
         if (index == 0) {
             for (User user1 : users) {
+                if(user!=null)
                 if (user1 == null) {
                     user1 = user;
-                    //userSearch = user1;
+                    userSearch = user1;
                     break;
                 }
             }
 
         }
 
-        return user;
+        return userSearch;
 
     }
 

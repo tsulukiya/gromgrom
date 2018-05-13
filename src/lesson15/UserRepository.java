@@ -14,50 +14,11 @@ public class UserRepository {
     User user9 = new User(10001, "Ann10", "qwe20");
     User user10 = null;
 
-    private User[] users = new User[]{user1, user2, user3,user4,user5,user6,user7,user8,user9,user10};
+    private User[] users = {user1, user2, user3, user4, user5, user6, user7, user8, user9, user10};
 
 
-
-
-
-    public User getUser1() {
-        return user1;
-    }
-
-    public User getUser2() {
-        return user2;
-    }
-
-    public User getUser3() {
-        return user3;
-    }
-
-    public User getUser4() {
-        return user4;
-    }
-
-    public User getUser5() {
-        return user5;
-    }
-
-    public User getUser6() {
-        return user6;
-    }
-
-    public User getUser7() {
-        return user7;
-    }
-
-    public User getUser8() {
-        return user8;
-    }
-
-    public User getUser9() {
-        return user9;
-    }
-
-    public User getUser10() {
-        return user10;
+    public User[] getUsers() {
+        return users;
     }
 
     public User save(User user) {

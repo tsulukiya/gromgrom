@@ -16,7 +16,7 @@ public class Demo {
         User user10 = null;
 
         UserRepository userRepository = new UserRepository();
-        System.out.println(userRepository.save(new User(10001, "Ann10", "qwe201")));
+        System.out.println(userRepository.save(null));
         System.out.println(Arrays.toString(userRepository.getUsers()));
 
 

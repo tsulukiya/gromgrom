@@ -16,7 +16,7 @@ public class UserRepository {
         User userSearch = null;
         for (User user1 : users) {
             if (user != null && user1 != null)
-                if (user.equals(user1)) {
+                if (user1.equals(user)) {
                     index++;
                     break;
                 }
@@ -24,7 +24,6 @@ public class UserRepository {
 
         if (index == 0) {
             for (User user1 : users) {
-                if(user!=null)
                 if (user1 == null) {
                     user1 = user;
                     userSearch = user1;

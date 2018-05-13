@@ -4,11 +4,7 @@ import java.util.Arrays;
 
 public class UserRepository {
 
-    private User[] users = new User[]{new User(1001, "Ann1", "qwe11"), new User(10012, "Ann2", "qwe12"),
-            new User(10013, "Ann3", "qwe13"), new User(10041, "Ann4", "qwe14"),
-            new User(10015, "Ann5", "qwe15"), new User(10061, "Ann6", "qwe16"),
-            new User(10017, "Ann7", "qwe17"), new User(10018, "Ann8", "qwe18"),
-            new User(10019, "Ann9", "qwe19"), new User(10001, "Ann10", "qwe20"), null};
+    private User[] users = new User[10];
 
 
     public User[] getUsers() {

@@ -21,7 +21,7 @@ public class UserRepository {
             }
         }
 
-        if (user != null && (index == 0) {
+        if (user != null && (index == 0)) {
             for (User user1 : users) {
                 if (user1 == null) {
                     user1 = user;

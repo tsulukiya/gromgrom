@@ -15,18 +15,17 @@ public class UserRepository {
         int index = 0;
         User userSearch = null;
         for (User user1 : users) {
-            if (user != null && user1 != null)
-                if (user1.equals(user)) {
-                    index++;
-                    break;
-                }
+            if (user1 != null && (user1.equals(user))) {
+                index++;
+                break;
+            }
         }
 
         if (index == 0) {
             for (User user1 : users) {
                 if (user1 == null) {
                     user1 = user;
-                    userSearch = user;
+                    userSearch = user1;
                     break;
                 }
             }

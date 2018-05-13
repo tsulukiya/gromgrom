@@ -26,7 +26,7 @@ public class UserRepository {
             for (User user1 : users) {
                 if (user1 == null) {
                     user1 = user;
-                    userSearch = user1;
+                    userSearch = user;
                     break;
                 }
             }

@@ -38,6 +38,7 @@ public class UserRepository {
                 if (users[i].equals(user)) {
                     users[i] = user;
                     userSearch = user;
+                    break;
                 }
 
         }

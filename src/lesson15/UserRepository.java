@@ -32,27 +32,29 @@ public class UserRepository {
     }
 
     public User update(User user) {
-        int index = 0;
-        User searchUser = null;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i] != null && users[i].equals(user)) {
-                index++;
-                break;
-            }
-
-        }
-        if (index != 0) {
+        if (user != null) {
+            int index = 0;
+            User searchUser = null;
             for (int i = 0; i < users.length; i++) {
                 if (users[i] != null && users[i].equals(user)) {
-                    users[i] = user;
-                    searchUser = user;
+                    index++;
                     break;
                 }
+
             }
+            if (index != 0) {
+                for (int i = 0; i < users.length; i++) {
+                    if (users[i] != null && users[i].equals(user)) {
+                        users[i] = user;
+                        searchUser = user;
+                        break;
+                    }
+                }
 
+            }
+            return searchUser;
         }
-        return searchUser;
-
+        return null;
     }
 
 

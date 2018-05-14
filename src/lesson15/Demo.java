@@ -17,11 +17,11 @@ public class Demo {
 
 
         UserRepository userRepository = new UserRepository();
-        userRepository.save(new User(100010, "Ann10", "qwe20"));
-        System.out.println("+++++++++++++++++++");
-        System.out.println(Arrays.toString(userRepository.getUsers()));
+        //userRepository.save(new User(100010, "Ann10", "qwe20"));
+        //System.out.println("+++++++++++++++++++");
+        //System.out.println(Arrays.toString(userRepository.getUsers()));
 
-        userRepository.update(null);
+        userRepository.update(user1);
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 

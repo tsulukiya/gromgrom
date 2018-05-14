@@ -34,12 +34,11 @@ public class UserRepository {
     public User update(User user) {
         User searchUser = null;
         for (int i = 0; i < users.length; i++) {
-            if ((users[i] != null) && (user != null))
-                if (users[i].equals(user)) {
-                    users[i] = user;
-                    searchUser = users[i];
-                    break;
-                }
+            if (users[i] != null && users[i].equals(user)) {
+                users[i] = user;
+                searchUser = users[i];
+                break;
+            }
 
         }
         return searchUser;

@@ -31,10 +31,18 @@ public class UserRepository {
 
     }
 
-   /* public User update (User user) {
+    public User update(User user) {
+        User userSearch = null;
+        for (User user1 : users) {
+            if (user1 != null && (user1.equals(user))) {
+                user1 = user;
+                userSearch = user;
+                break;
+            }
+        } return userSearch;
 
     }
-
+/*
     public void delete(long id) {
 
     }

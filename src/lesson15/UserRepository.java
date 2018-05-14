@@ -21,6 +21,7 @@ public class UserRepository {
                 if (users[i] == null) {
                     users[i] = user;
                     userSearch = user;
+                    break;
                 }
             }
 
@@ -48,6 +49,7 @@ public class UserRepository {
                 "users=" + Arrays.toString(users) +
                 '}';
     }
+
 
     public User[] getUsers() {
         return users;

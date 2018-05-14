@@ -33,15 +33,19 @@ public class UserRepository {
 
     public User update(User user) {
         User userSearch = null;
-        for (User user1 : users) {
-            if (user1 != null && (user1.equals(user))) {
-                user1 = user;
-                userSearch = user;
-                break;
-            }
-        } return userSearch;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null)
+                if (users[i].equals(user)) {
+                    users[i] = user;
+                    userSearch = user;
+                }
+
+        }
+        return userSearch;
 
     }
+
+
 /*
     public void delete(long id) {
 

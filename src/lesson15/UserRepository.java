@@ -32,17 +32,17 @@ public class UserRepository {
     }
 
     public User update(User user) {
-        User userSearch = null;
+        //User userSearch = null;
         for (int i = 0; i < users.length; i++) {
             if ((users[i] != null) && (user != null))
                 if (users[i].equals(user)) {
                     users[i] = user;
-                    userSearch = user;
+                    //userSearch = user;
                     break;
                 }
 
         }
-        return userSearch;
+        return user;
 
     }
 

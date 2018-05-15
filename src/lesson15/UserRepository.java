@@ -42,10 +42,9 @@ public class UserRepository {
     public User update(User user) {
         User searchUser = findById(user.getId());
         if (searchUser != null)
-            if (!(searchUser.equals(user)))
             for (int i = 0; i < users.length; i++) {
                 if (searchUser.getId()==users[i].getId())
-                    if (!(users[i].equals(searchUser))) {
+                    if (users[i].equals(searchUser)) {
                     users[i] = user;
                     break;
                 }

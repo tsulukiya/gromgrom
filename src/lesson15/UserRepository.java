@@ -24,11 +24,28 @@ public class UserRepository {
 
     }
 
-    public User update(User user) {
+   /* public User update(User user) {
         User searchUser = findById(user.getId());
         if (searchUser != null && (!(searchUser.equals(user))))
             for (int i = 0; i < users.length; i++) {
                 if (users[i].equals(user)) {
+                    users[i] = user;
+                    break;
+                }
+
+            }
+
+
+        return searchUser;
+    }*/
+
+    public User update(User user) {
+        User searchUser = findById(user.getId());
+        if (searchUser != null)
+            if (!(searchUser.equals(user)))
+            for (int i = 0; i < users.length; i++) {
+                if (user.getId()==users[i].getId())
+                    if (!(users[i].equals(user))) {
                     users[i] = user;
                     break;
                 }

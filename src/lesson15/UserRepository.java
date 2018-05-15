@@ -25,18 +25,21 @@ public class UserRepository {
     }
 
     public User update(User user) {
-        User searchUser = null;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i] != null && users[i].equals(user)) {
-                users[i] = user;
-                searchUser = user;
-                break;
+        User searchUser = findById(user.getId());
+        if (searchUser != null)
+            for (int i = 0; i < users.length; i++) {
+                if (user.equals(users[i])) {
+                    users[i] = user;
+                    break;
+
+                }
             }
 
-        }
-        return searchUser;
 
+        return searchUser;
     }
+
+
 
 
 /*

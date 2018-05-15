@@ -7,16 +7,9 @@ public class UserRepository {
     private User[] users = new User[10];
 
     public User save(User user) {
-        int index = 0;
-        User userSearch = null;
-        for (User user1 : users) {
-            if (user1 != null && (user1.equals(user))) {
-                index++;
-                break;
-            }
-        }
+        User userSearch = findById(user.getId());
 
-        if (index == 0) {
+        if (userSearch == null) {
             for (int i = 0; i < users.length; i++) {
                 if (users[i] == null) {
                     users[i] = user;
@@ -32,40 +25,37 @@ public class UserRepository {
     }
 
     public User update(User user) {
-        if (user != null) {
-            int index = 0;
-            User searchUser = null;
-            for (int i = 0; i < users.length; i++) {
-                if (users[i] != null && users[i].equals(user)) {
-                    index++;
-                    break;
-                }
-
+        User searchUser = null;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null && users[i].equals(user)) {
+                users[i] = user;
+                searchUser = user;
+                break;
             }
-            if (index != 0) {
-                for (int i = 0; i < users.length; i++) {
-                    if (users[i] != null && users[i].equals(user)) {
-                        users[i] = user;
-                        searchUser = user;
-                        break;
-                    }
-                }
 
-            }
-            return searchUser;
         }
-        return null;
+        return searchUser;
+
     }
 
 
 /*
     public void delete(long id) {
 
-    }
-
-    public User findById(long id){
-
     }*/
+
+    public User findById(long id) {
+        User user1 = null;
+        for (User user : users) {
+            if (user != null) {
+                if (user.getId() == id) {
+                    user1 = user;
+                    break;
+                }
+            }
+        }
+        return user1;
+    }
 
     @Override
     public String toString() {

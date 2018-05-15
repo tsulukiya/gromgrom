@@ -26,13 +26,13 @@ public class UserRepository {
 
     public User update(User user) {
         User searchUser = findById(user.getId());
-        if (searchUser == null)
+        if (searchUser != null && (searchUser.equals(user)))
             for (int i = 0; i < users.length; i++) {
-                if (user.equals(users[i])) {
+                if (users[i].equals(user)) {
                     users[i] = user;
                     break;
-
                 }
+
             }
 
 

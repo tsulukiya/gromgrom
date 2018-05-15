@@ -60,10 +60,19 @@ public class UserRepository {
 
 
 
-/*
-    public void delete(long id) {
 
-    }*/
+    public void delete(long id) {
+        User searchUser = findById(id);
+        if (searchUser != null)
+            for (int i = 0; i < users.length; i++) {
+                if ((users[i]!=null&&(searchUser.getId() == users[i].getId())))
+                    if (users[i].equals(searchUser)) {
+                        users[i] = null;
+                        break;
+                    }
+            }
+
+    }
 
     public User findById(long id) {
         User user1 = null;

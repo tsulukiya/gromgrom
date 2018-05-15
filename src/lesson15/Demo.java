@@ -14,14 +14,20 @@ public class Demo {
         User user7 = new User(100181, "Ann8", "qwe18");
         User user8 = new User(100191, "Ann9", "qwe19");
         User user9 = new User(100010, "Ann101", "qwe20");
+        User user90 = new User(100010, "Ann1011", "qwe20");
 
 
         UserRepository userRepository = new UserRepository();
         userRepository.save(new User(100010, "Ann10", "qwe20"));
+        userRepository.save(new User(100010, "Ann1011", "qwe20"));
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 
         System.out.println(userRepository.update(user9));
+        System.out.println("+++++++++++++++++++");
+        System.out.println(Arrays.toString(userRepository.getUsers()));
+
+        userRepository.delete(100010);
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 

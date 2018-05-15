@@ -19,7 +19,7 @@ public class Demo {
 
         UserRepository userRepository = new UserRepository();
         userRepository.save(new User(100010, "Ann10", "qwe20"));
-        userRepository.save(new User(100010, "Ann1011", "qwe20"));
+        userRepository.save(new User(1000101, "Ann1011", "qwe20"));
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 
@@ -27,7 +27,7 @@ public class Demo {
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 
-        userRepository.delete(100010);
+        userRepository.delete(1000101);
         System.out.println("+++++++++++++++++++");
         System.out.println(Arrays.toString(userRepository.getUsers()));
 

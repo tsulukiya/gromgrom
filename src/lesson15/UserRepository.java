@@ -24,20 +24,6 @@ public class UserRepository {
 
     }
 
-   /* public User update(User user) {
-        User searchUser = findById(user.getId());
-        if (searchUser != null && (!(searchUser.equals(user))))
-            for (int i = 0; i < users.length; i++) {
-                if (users[i].equals(user)) {
-                    users[i] = user;
-                    break;
-                }
-
-            }
-
-
-        return searchUser;
-    }*/
 
     public User update(User user) {
         User searchUser = findById(user.getId());
@@ -64,7 +50,7 @@ public class UserRepository {
             for (int i = 0; i < users.length; i++) {
                     if (users[i].equals(searchUser)) {
                         users[i] = null;
-                        break;
+                        
                     }
             }
 

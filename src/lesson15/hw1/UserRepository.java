@@ -1,7 +1,5 @@
 package lesson15.hw1;
 
-import lesson15.hw1.User;
-
 import java.util.Arrays;
 
 public class UserRepository {

@@ -1,7 +1,5 @@
 package lesson15.homeworkUserRepository;
 
-import lesson15.homeworkUserRepository.User;
-
 import java.util.Arrays;
 
 public class UserRepository {

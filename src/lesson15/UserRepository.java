@@ -29,12 +29,12 @@ public class UserRepository {
         User searchUser = findById(user.getId());
         if (searchUser != null)
             for (int i = 0; i < users.length; i++) {
-                if (users[i] != null)// && (searchUser.getId() == users[i].getId())))
-                    if (users[i].equals(searchUser)) {
-                        users[i] = user;
-                        searchUser = user;
-                        break;
-                    }
+                if ((users[i] != null &&
+                        users[i].equals(searchUser))) {
+                    users[i] = user;
+                    searchUser = user;
+                    break;
+                }
 
 
             }
@@ -59,12 +59,11 @@ public class UserRepository {
     public User findById(long id) {
         User user1 = null;
         for (User user : users) {
-            if (user != null) {
+            if (user != null)
                 if (user.getId() == id) {
                     user1 = user;
                     break;
                 }
-            }
         }
         return user1;
     }

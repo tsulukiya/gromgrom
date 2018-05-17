@@ -1,4 +1,4 @@
-package lesson15.homeworkUserRepository;
+package lesson15.hw1;
 
 import java.util.Arrays;
 

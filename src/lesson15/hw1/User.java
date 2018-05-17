@@ -1,6 +1,4 @@
-package lesson15.homeworkUserRepository;
-
-import java.util.Objects;
+package lesson15.hw1;
 
 public class User {
     private long id;
@@ -54,3 +52,4 @@ public class User {
                 '}';
     }
 }
+

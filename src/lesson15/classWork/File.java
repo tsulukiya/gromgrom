@@ -18,16 +18,11 @@ public class File {
 
         File file = (File) o;
 
-        if (size != file.size) return false;
-        if (!path.equals(file.path)) return false;
-        return extension.equals(file.extension);
+        return path.equals(file.path);
     }
 
     @Override
     public int hashCode() {
-        int result = size;
-        result = 31 * result + path.hashCode();
-        result = 31 * result + extension.hashCode();
-        return result;
+        return path.hashCode();
     }
 }

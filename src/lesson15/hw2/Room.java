@@ -58,10 +58,10 @@ public class Room {
 
         Room room = (Room) o;
 
-        if (id != room.id) return false;
+        //if (id != room.id) return false;
         if (price != room.price) return false;
         if (persons != room.persons) return false;
-        if (!dateAvailableFrom.equals(room.dateAvailableFrom)) return false;
+       // if (!dateAvailableFrom.equals(room.dateAvailableFrom)) return false;
         if (!hotelName.equals(room.hotelName)) return false;
         return cityName.equals(room.cityName);
     }

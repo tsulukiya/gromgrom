@@ -32,26 +32,26 @@ public class Demo {
         Room room128 = new Room(115, 190, 3, new Date(), "Vine", "Kiev");
 
         Room[] rooms = new Room[]{room1, room2, room3, room4, room5, room8, room9, room10, room11, room12};
-        Room[] rooms1 = new Room[]{room21, room33, room44, room55, room66, room77, room88, room99, room190, room119, room128};
+        //Room[] rooms1 = new Room[]{room21, room33, room44, room55, room66, room77, room88, room99, room190, room119, room128};
 
-       BookingComAPI bookingComAPI = new BookingComAPI(rooms);
+       // BookingComAPI bookingComAPI = new BookingComAPI(rooms);
         GoogleAPI googleAPI = new GoogleAPI(rooms);
         System.out.println(Arrays.toString(googleAPI.findRooms(0, 3, "Vine", "Kiev")));
-       TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI(rooms);
-       API[] apis = new API[]{bookingComAPI, googleAPI, tripAdvisorAPI};
+       // TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI(rooms);
+       // API[] apis = new API[]{bookingComAPI, googleAPI, tripAdvisorAPI};
 
-       Controller controller = new Controller(apis);
-       Room[] rooms2 = controller.requestRooms(100, 3, "Kiev", "Vine");
-       Room[] rooms3 = controller.check(bookingComAPI, googleAPI);
+       // Controller controller = new Controller(apis);
+       // Room[] rooms2 = controller.requestRooms(100, 3, "Kiev", "Vine");
+       // Room[] rooms3 = controller.check(bookingComAPI, googleAPI);
 
-       for (Room room : rooms2) {
-       System.out.println(room);
-        }
+       // for (Room room : rooms2) {
+       //     System.out.println(room);
+        //}
 
-       for (Room room : rooms3) {
-           System.out.println(room);
+       // for (Room room : rooms3) {
+       //     System.out.println(room);
 
-        }
+        //}
 
 
     }

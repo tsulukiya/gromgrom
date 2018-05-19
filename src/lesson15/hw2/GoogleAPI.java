@@ -11,13 +11,11 @@ public class GoogleAPI implements API {
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
         int index = 0;
+        Room roomSearch = new Room(price, persons, hotel, city);
 
         for (Room room : rooms) {
-            if (room != null &
-                    room.getPrice() == price &&
-                    room.getPersons() == persons &&
-                    room.getCityName() == city &&
-                    room.getHotelName() == hotel)
+            if (room != null &&
+                    room.equals(roomSearch))
                 index++;
         }
 
@@ -25,10 +23,7 @@ public class GoogleAPI implements API {
         index = 0;
         for (Room room : rooms)
             if (room != null &&
-                    room.getPrice() == price &&
-                    room.getPersons() == persons &&
-                    room.getCityName() == city &&
-                    room.getHotelName() == hotel) {
+                    room.equals(roomSearch)) {
                 rooms2[index] = room;
                 index++;
             }

@@ -13,7 +13,7 @@ public class GoogleAPI implements API {
         Room roomSearch = new Room(price, persons, city, hotel);
         int index = 0;
         for (int i = 0; i < rooms.length; i++) {
-            if (rooms[i].equals(roomSearch)) 
+            if (rooms[i].equals(roomSearch))
                 index++;
 
         }

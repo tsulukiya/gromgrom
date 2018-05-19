@@ -14,10 +14,7 @@ public class GoogleAPI implements API {
         int index = 0;
         for (Room room : rooms) {
             if (room != null &&
-                    room.getPrice() == price &&
-                    room.getPersons() == persons &&
-                    room.getCityName() == city &&
-                    room.getHotelName() == hotel)
+                    roomSearch.equals(room))
                 index++;
         }
 
@@ -25,10 +22,7 @@ public class GoogleAPI implements API {
         index = 0;
         for (Room room : rooms)
             if (room != null &&
-                    room.getPrice() == price &&
-                    room.getPersons() == persons &&
-                    room.getCityName() == city &&
-                    room.getHotelName() == hotel) {
+                    roomSearch.equals(room)) {
                 rooms2[index] = room;
                 index++;
             }

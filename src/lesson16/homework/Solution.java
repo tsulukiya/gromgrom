@@ -9,7 +9,6 @@ public class Solution {
     }
 
     public static int countWords(String input) {
-        int count = input.split(" ").length;
-        return count;
+        return input.split(" ").length;
     }
 }

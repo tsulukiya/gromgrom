@@ -27,7 +27,7 @@ public class Exercises {
 
         for (int index : indexes) {
             if (checkReplace(input, target, index)) {
-                return replace(input, target, replacement, index);
+                replace(input, target, replacement, index);
             }
 
         }

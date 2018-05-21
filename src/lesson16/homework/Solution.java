@@ -4,20 +4,21 @@ public class Solution {
     public static void main(String[] args) {
 
         String s1 = "Hello World";
-        System.out.println(countWords(s1));
+       // System.out.println(countWords(s1));
         System.out.println(s1.length());
+        s1.split(" ");
 
     }
 
-    public static int countWords(String input) {
+    int countWords(String input) {
         int count = 0;
 
-        if (input.length() != 0) {
-            count++;
-            for (int i = 0; i < input.length(); i++) {
-                if (input.charAt(i) == ' ')
-                    count++;
-            }
+
+        char[] chars = input.toCharArray();
+
+        for (char ch : chars) {
+            if (ch == ' ')
+                count++;
         }
         return count;
     }

@@ -11,15 +11,15 @@ public class Exercises {
         System.out.println(Arrays.toString(countDuplicates(test, new String[]{"or", "some", "Test"})));
 
         String str = "Today is good day... Hello dpsd";
-        System.out.println(replace(str, "is", "that"));
-        System.out.println(replace(str, "o", " "));
-        System.out.println(replace(str, "To", "PPPP"));
-        System.out.println(replace(str, "lo", "X"));
+//        System.out.println(replace(str, "is", "that"));
+//        System.out.println(replace(str, "o", " "));
+//        System.out.println(replace(str, "To", "PPPP"));
+//        System.out.println(replace(str, "lo", "X"));
 
 
     }
 
-    public static String replace(String input, String target, String replacement) {
+    String replace(String input, String target, String replacement) {
 
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
         if (indexes.length == 0)
@@ -126,3 +126,4 @@ public class Exercises {
         return new String(res1) + replacement + new String(res3);
     }
 }
+

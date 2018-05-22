@@ -5,21 +5,25 @@ import java.util.Arrays;
 public class Exercises {
     public static void main(String[] args) {
 
-        String test = "There is Test something new or jot sdf sdf sdf word Test op or";
-
-        System.out.println(deleteDuplicates(test));
-        System.out.println(Arrays.toString(countDuplicates(test, new String[]{"or", "some", "Test"})));
-
-        String str = "Today is good day... Hello dpsd";
+//        String test = "There is Test something new or jot sdf sdf sdf word Test op or";
+//
+//        System.out.println(deleteDuplicates(test));
+//        System.out.println(Arrays.toString(countDuplicates(test, new String[]{"or", "some", "Test"})));
+//
+//        String str = "Today is good day... Hello dpsd";
 //        System.out.println(replace(str, "is", "that"));
 //        System.out.println(replace(str, "o", " "));
 //        System.out.println(replace(str, "To", "PPPP"));
 //        System.out.println(replace(str, "lo", "X"));
 
+        String test = "test str here was here two time or not no test";
+        System.out.println(replace(replace(test, "here", "PPP"), "here", "PPP"));
+        
+
 
     }
 
-    String replace(String input, String target, String replacement) {
+    public static String replace(String input, String target, String replacement) {
 
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
         if (indexes.length == 0)
@@ -27,7 +31,7 @@ public class Exercises {
 
         for (int index : indexes) {
             if (checkReplace(input, target, index)) {
-                replace(input, target, replacement, index);
+              return replace(input, target, replacement, index);
             }
 
         }

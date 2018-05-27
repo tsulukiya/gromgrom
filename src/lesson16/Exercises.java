@@ -16,12 +16,12 @@ public class Exercises {
 //        System.out.println(replace(str, "To", "PPPP"));
 //        System.out.println(replace(str, "lo", "X"));
 
-        //System.out.println(replace("test str here was here two times or not no test", "here", "PPP"));
+        System.out.println(replace("test str here was here two times or not no test", "here", "PPP"));
 
 
     }
 
-    String replace(String input, String target, String replacement) {
+     static String replace(String input, String target, String replacement) {
 
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
         int sum = target.length() - replacement.length();

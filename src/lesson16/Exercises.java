@@ -16,7 +16,7 @@ public class Exercises {
 //        System.out.println(replace(str, "To", "PPPP"));
 //        System.out.println(replace(str, "lo", "X"));
 
-        String test = "test str here was here two time or not no test";
+        String test = "test str here was here two times or not no test";
         System.out.println(replace(test, "here", "PPP"));
 
 
@@ -121,6 +121,8 @@ public class Exercises {
         }
         return indexes;
     }
+
+
 
     private static String replace(String input, String target, String replacement, int index) {
         char[] res1 = new char[index];

@@ -17,8 +17,7 @@ public class Exercises {
 //        System.out.println(replace(str, "lo", "X"));
 
         String test = "test str here was here two time or not no test";
-        System.out.println(replace(replace(test, "here", "PPP"), "here", "PPP"));
-        
+        System.out.println(replace(test, "here", "PPP"));
 
 
     }
@@ -26,12 +25,20 @@ public class Exercises {
     public static String replace(String input, String target, String replacement) {
 
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
+        int sum = target.length() - replacement.length();
+
+        for (int i = 1; i < indexes.length; i++) {
+            indexes[i] -= sum;
+            sum++;
+
+        }
+
         if (indexes.length == 0)
             return input;
 
         for (int index : indexes) {
             if (checkReplace(input, target, index)) {
-              return replace(input, target, replacement, index);
+                input = replace(input, target, replacement, index);
             }
 
         }

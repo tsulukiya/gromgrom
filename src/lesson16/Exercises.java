@@ -23,6 +23,19 @@ public class Exercises {
 
      public static String replace(String input, String target, String replacement) {
 
+        if (firstIndexesFinal(input, target, replacement).length == 0)
+            return input;
+
+        for (int index : firstIndexesFinal(input, target, replacement)) {
+            if (checkReplace(input, target, index)) {
+                input = replace(input, target, replacement, index);
+            }
+
+        }
+        return input;
+    }
+
+    private static int [] firstIndexesFinal (String input, String target, String replacement) {
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
         int sum = target.length() - replacement.length();
 
@@ -31,17 +44,7 @@ public class Exercises {
             sum++;
 
         }
-
-        if (indexes.length == 0)
-            return input;
-
-        for (int index : indexes) {
-            if (checkReplace(input, target, index)) {
-                input = replace(input, target, replacement, index);
-            }
-
-        }
-        return input;
+        return indexes;
     }
 
 

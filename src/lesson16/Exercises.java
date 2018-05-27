@@ -15,9 +15,8 @@ public class Exercises {
 //        System.out.println(replace(str, "o", " "));
 //        System.out.println(replace(str, "To", "PPPP"));
 //        System.out.println(replace(str, "lo", "X"));
-
-        String test = "test str here was here two times or not no test";
-        System.out.println(replace(test, "here", "PPP"));
+        
+        System.out.println(replace("test str here was here two times or not no test", "here", "PPP"));
 
 
     }

@@ -21,7 +21,7 @@ public class Exercises {
 
     }
 
-     static String replace(String input, String target, String replacement) {
+     public static String replace(String input, String target, String replacement) {
 
         int[] indexes = findStartIndexes(input.toCharArray(), target.charAt(0));
         int sum = target.length() - replacement.length();

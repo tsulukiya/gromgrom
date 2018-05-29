@@ -1,30 +1,34 @@
 package lesson16.homework;
 
+import java.util.Arrays;
+
 public class Solution {
     public static void main(String[] args) {
 
-        int [][] array= new int[4][];
-        System.out.println(array.length);
+        String test = "Hello World is first program";
 
-        String s1 = "Hello World";
-       // System.out.println(countWords(s1));
-        System.out.println(s1.length());
-        s1.split(" ");
+        System.out.println(countWords(test));
+
 
     }
 
-    int countWords(String input) {
+    public static int countWords(String input) {
         int count = 0;
+        int count1;
 
+        String[] mas = input.split(" ");
 
-        char[] chars = input.toCharArray();
+        for (String ma : mas) {
+            count1 = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    count1++;
+                if (count1 == ma.toCharArray().length)
+                    count++;
+            }
 
-        for (char ch : chars) {
-            if (ch == ' ')
-                count++;
         }
+
         return count;
     }
-
-
 }

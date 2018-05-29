@@ -1,4 +1,4 @@
-package lesson16;
+package lesson16.classWork;
 
 import java.util.Arrays;
 

@@ -36,12 +36,11 @@ public class Solution {
 
     public static String maxWord(String input) {
 
-        String [] mas = input.split(" ");
+        String[] mas = input.split(" ");
         String maxWord = mas[0];
-        int count = 0;
 
         for (String ma : mas) {
-            count = 0;
+            int count = 0;
             for (char c : ma.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;
@@ -58,12 +57,11 @@ public class Solution {
 
     public static String minWord(String input) {
 
-        String [] mas = input.split(" ");
+        String[] mas = input.split(" ");
         String minWord = mas[0];
-        int count = 0;
 
         for (String ma : mas) {
-            count = 0;
+            int count = 0;
             for (char c : ma.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;

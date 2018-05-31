@@ -45,11 +45,11 @@ public class Solution {
             for (char c : ma.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;
-            }
-            if (count == ma.toCharArray().length)
-                if (ma.toCharArray().length > maxWord.length())
-                    maxWord = ma;
 
+                if (count == ma.toCharArray().length)
+                    if (ma.toCharArray().length > maxWord.length())
+                        maxWord = ma;
+            }
 
         }
         return maxWord;

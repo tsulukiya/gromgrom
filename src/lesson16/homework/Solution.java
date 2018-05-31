@@ -45,7 +45,6 @@ public class Solution {
             for (char c : ma.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;
-
                 if (count == ma.toCharArray().length)
                     if (ma.toCharArray().length > maxWord.length())
                         maxWord = ma;
@@ -53,8 +52,6 @@ public class Solution {
 
         }
         return maxWord;
-
-
     }
 
     public static String minWord(String input) {
@@ -71,7 +68,6 @@ public class Solution {
                     if (ma.toCharArray().length < minWord.length())
                         minWord = ma;
             }
-
         }
         return minWord;
     }

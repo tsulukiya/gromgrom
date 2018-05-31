@@ -37,17 +37,18 @@ public class Solution {
     public static String maxWord(String input) {
 
         String[] mas = input.split(" ");
-        String maxWord = mas[0];
+        String maxWord = "a";
 
         for (String ma : mas) {
             int count = 0;
             for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c))
+                if (Character.isLetter(c)&&!Character.isDigit(c))
                     count++;
-                if (count == ma.toCharArray().length)
-                    if (ma.toCharArray().length > maxWord.length())
-                        maxWord = ma;
             }
+            if (count == ma.toCharArray().length)
+                if (ma.toCharArray().length > maxWord.length())
+                    maxWord = ma;
+
 
         }
         return maxWord;

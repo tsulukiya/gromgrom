@@ -74,11 +74,10 @@ public class Solution {
 
     private static String isWord(String input) {
         String[] mas = input.split(" ");
-        int count = 0;
         String word = null;
 
         for (String s : mas) {
-            count = 0;
+           int count = 0;
             for (char c : s.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;

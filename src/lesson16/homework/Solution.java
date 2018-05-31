@@ -43,12 +43,11 @@ public class Solution {
         for (String ma : mas) {
             int count = 0;
             for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c)) {
+                if (Character.isLetter(c))
                     count++;
-                }
-                if (count == ma.toCharArray().length)
-                    if (ma.toCharArray().length >= maxWord.length())
-                        maxWord = ma;
+                if (count == ma.toCharArray().length &&
+                        (ma.toCharArray().length >= maxWord.length()))
+                maxWord = ma;
             }
 
         }
@@ -63,12 +62,11 @@ public class Solution {
         for (String ma : mas) {
             int count = 0;
             for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c)) {
+                if (Character.isLetter(c))
                     count++;
-                }
-                if (count == ma.toCharArray().length)
-                    if (ma.toCharArray().length <= minWord.length())
-                        minWord = ma;
+                if (count == ma.toCharArray().length &&
+                        (ma.toCharArray().length <= minWord.length()))
+                    minWord = ma;
             }
         }
         return minWord;

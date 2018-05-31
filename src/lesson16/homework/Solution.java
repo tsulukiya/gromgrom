@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
 
-        String test = "Hello1111 World is first  program";
+        String test = "aaaaaas";
 
         System.out.println(countWords(test));
         System.out.println(maxWord(test));
@@ -43,10 +43,11 @@ public class Solution {
         for (String ma : mas) {
             int count = 0;
             for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c))
+                if (Character.isLetter(c)) {
                     count++;
+                }
                 if (count == ma.toCharArray().length)
-                    if (ma.toCharArray().length > maxWord.length())
+                    if (ma.toCharArray().length >= maxWord.length())
                         maxWord = ma;
             }
 
@@ -62,10 +63,11 @@ public class Solution {
         for (String ma : mas) {
             int count = 0;
             for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c))
+                if (Character.isLetter(c)) {
                     count++;
+                }
                 if (count == ma.toCharArray().length)
-                    if (ma.toCharArray().length < minWord.length())
+                    if (ma.toCharArray().length <= minWord.length())
                         minWord = ma;
             }
         }
@@ -77,7 +79,7 @@ public class Solution {
         String word = null;
 
         for (String s : mas) {
-           int count = 0;
+            int count = 0;
             for (char c : s.toCharArray()) {
                 if (Character.isLetter(c))
                     count++;

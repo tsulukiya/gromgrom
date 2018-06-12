@@ -46,8 +46,8 @@ public class Solution {
                 if (Character.isLetter(c))
                     count++;
                 if (count == ma.toCharArray().length &&
-                        (ma.toCharArray().length >= maxWord.length()))
-                maxWord = ma;
+                        ma.toCharArray().length >= maxWord.length())
+                    maxWord = ma;
             }
 
         }

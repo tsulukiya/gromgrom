@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
 
-        String test = "aaaaaas";
+        String test = "First program in JAVA";
 
         System.out.println(countWords(test));
         System.out.println(maxWord(test));

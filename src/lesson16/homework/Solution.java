@@ -6,7 +6,7 @@ public class Solution {
     public static void main(String[] args) {
 
         //String test = "First program in JAVA";
-        String test = null;
+        String test = "dsaaa1111";
 
         System.out.println(countWords(test));
         System.out.println(maxWord(test));
@@ -19,32 +19,28 @@ public class Solution {
         int count = 0;
         int count1;
 
-        if (input != null) {
+        String[] mas = input.split(" ");
 
-            String[] mas = input.split(" ");
-
-            for (String ma : mas) {
-                count1 = 0;
-                for (char c : ma.toCharArray()) {
-                    if (Character.isLetter(c))
-                        count1++;
-                    if (count1 == ma.toCharArray().length)
-                        count++;
-                }
-
+        for (String ma : mas) {
+            count1 = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    count1++;
+                if (count1 == ma.toCharArray().length)
+                    count++;
             }
 
-            return count;
         }
-        return 0;
+
+        return count;
     }
 
     public static String maxWord(String input) {
 
-        if (input != null) {
+        String[] mas = input.split(" ");
+        String maxWord = isWord(input);
 
-            String[] mas = input.split(" ");
-            String maxWord = isWord(input);
+        if (maxWord != null) {
 
 
             for (String ma : mas) {
@@ -65,47 +61,39 @@ public class Solution {
 
     public static String minWord(String input) {
 
-        if (input != null) {
+        String[] mas = input.split(" ");
+        String minWord = isWord(input);
 
-            String[] mas = input.split(" ");
-            String minWord = isWord(input);
-
-            for (String ma : mas) {
-                int count = 0;
-                for (char c : ma.toCharArray()) {
-                    if (Character.isLetter(c))
-                        count++;
-                    if (count == ma.toCharArray().length &&
-                            (ma.toCharArray().length <= minWord.length()))
-                        minWord = ma;
-                }
+        for (String ma : mas) {
+            int count = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    count++;
+                if (count == ma.toCharArray().length &&
+                        (ma.toCharArray().length <= minWord.length()))
+                    minWord = ma;
             }
-            return minWord;
         }
-        return null;
+        return minWord;
     }
 
     private static String isWord(String input) {
 
-        if (input != null) {
+        String[] mas = input.split(" ");
+        String word = null;
 
-            String[] mas = input.split(" ");
-            String word = null;
-
-            for (String s : mas) {
-                int count = 0;
-                for (char c : s.toCharArray()) {
-                    if (Character.isLetter(c))
-                        count++;
-                }
-                if (count == s.length()) {
-                    word = s;
-                    break;
-                }
-
+        for (String s : mas) {
+            int count = 0;
+            for (char c : s.toCharArray()) {
+                if (Character.isLetter(c))
+                    count++;
             }
-            return word;
+            if (count == s.length()) {
+                word = s;
+                break;
+            }
+
         }
-        return null;
+        return word;
     }
 }

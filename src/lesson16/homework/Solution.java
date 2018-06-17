@@ -40,7 +40,7 @@ public class Solution {
         String[] mas = input.split(" ");
         String maxWord = isWord(input);
 
-        if (maxWord != null&&(countWords(input)!=0)) {
+        if (maxWord != null && (countWords(input) != 0)) {
 
 
             for (String ma : mas) {
@@ -64,17 +64,21 @@ public class Solution {
         String[] mas = input.split(" ");
         String minWord = isWord(input);
 
-        for (String ma : mas) {
-            int count = 0;
-            for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c))
-                    count++;
-                if (count == ma.toCharArray().length &&
-                        (ma.toCharArray().length <= minWord.length()))
-                    minWord = ma;
+        if (minWord != null && (countWords(input) != 0)) {
+
+            for (String ma : mas) {
+                int count = 0;
+                for (char c : ma.toCharArray()) {
+                    if (Character.isLetter(c))
+                        count++;
+                    if (count == ma.toCharArray().length &&
+                            (ma.toCharArray().length <= minWord.length()))
+                        minWord = ma;
+                }
             }
+            return minWord;
         }
-        return minWord;
+        return null;
     }
 
     private static String isWord(String input) {

@@ -40,23 +40,19 @@ public class Solution {
         String[] mas = input.split(" ");
         String maxWord = isWord(input);
 
-        if (maxWord != null && (countWords(input) != 0)) {
 
-
-            for (String ma : mas) {
-                int count = 0;
-                for (char c : ma.toCharArray()) {
-                    if (Character.isLetter(c))
-                        count++;
-                    if (count == ma.toCharArray().length &&
-                            ma.toCharArray().length >= maxWord.length())
-                        maxWord = ma;
-                }
-
+        for (String ma : mas) {
+            int count = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    count++;
+                if (count == ma.toCharArray().length &&
+                        ma.toCharArray().length >= maxWord.length())
+                    maxWord = ma;
             }
-            return maxWord;
+
         }
-        return null;
+        return maxWord;
     }
 
     public static String minWord(String input) {
@@ -64,22 +60,19 @@ public class Solution {
         String[] mas = input.split(" ");
         String minWord = isWord(input);
 
-        if (minWord != null && (countWords(input) != 0)) {
-
-            for (String ma : mas) {
-                int count = 0;
-                for (char c : ma.toCharArray()) {
-                    if (Character.isLetter(c))
-                        count++;
-                    if (count == ma.toCharArray().length &&
-                            (ma.toCharArray().length <= minWord.length()))
-                        minWord = ma;
-                }
+        for (String ma : mas) {
+            int count = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    count++;
+                if (count == ma.toCharArray().length &&
+                        (ma.toCharArray().length <= minWord.length()))
+                    minWord = ma;
             }
-            return minWord;
         }
-        return null;
+        return minWord;
     }
+        
 
     private static String isWord(String input) {
 
@@ -92,7 +85,7 @@ public class Solution {
                 if (Character.isLetter(c))
                     count++;
             }
-            if (count == s.length()) {
+            if (count == s.length() && countWords(input) > 0) {
                 word = s;
                 break;
             }

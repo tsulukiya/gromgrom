@@ -6,7 +6,7 @@ public class Solution {
     public static void main(String[] args) {
 
         //String test = "First program in JAVA";
-        String test = "dsaaa1111";
+        String test = "";
 
         System.out.println(countWords(test));
         System.out.println(maxWord(test));
@@ -40,7 +40,7 @@ public class Solution {
         String[] mas = input.split(" ");
         String maxWord = isWord(input);
 
-        if (maxWord != null) {
+        if (maxWord != null&&(countWords(input)!=0)) {
 
 
             for (String ma : mas) {

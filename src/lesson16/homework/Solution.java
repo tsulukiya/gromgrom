@@ -90,7 +90,7 @@ public class Solution {
         int m = 0;
 
 
-        for (String ma : mas1) {
+        for (String ma : mas) {
             int count1 = 0;
             if (ma != null)
                 for (char c : ma.toCharArray()) {

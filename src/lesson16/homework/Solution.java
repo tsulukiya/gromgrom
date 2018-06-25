@@ -9,7 +9,7 @@ public class Solution {
         System.out.println(countWords(test));
         System.out.println(maxWord(test));
         System.out.println(minWord(test));
-        System.out.println(mostCountedWord(test));
+        System.out.println(mostCountedWords(test));
 
 
     }
@@ -73,7 +73,7 @@ public class Solution {
     }
 
 
-    public static String mostCountedWord(String input) {
+    public static String mostCountedWords(String input) {
         String[] mas = input.split(" ");
         String repeatWord = isWord(input);
         int[] count = new int[mas.length];

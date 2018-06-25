@@ -4,11 +4,11 @@ public class Solution {
     public static void main(String[] args) {
 
         //String test = "First program in JAVA";
-        String test = "aaa";
+        String test = "aaa2 aaa2 aaa2 zzz4";
 
-        System.out.println(countWords(test));
-        System.out.println(maxWord(test));
-        System.out.println(minWord(test));
+        //System.out.println(countWords(test));
+        //System.out.println(maxWord(test));
+        //System.out.println(minWord(test));
         System.out.println(mostCountedWord(test));
 
 
@@ -77,10 +77,27 @@ public class Solution {
         String[] mas = input.split(" ");
         String repeatWord = isWord(input);
         int[] count = new int[mas.length];
+        String[] mas1 = new String[countWords(input)];
 
-        for (int i = 0; i < mas.length; i++) {
+        for (String ma : mas) {
+            int i = 0;
+            int f = 0;
+            for (char c : ma.toCharArray()) {
+                if (Character.isLetter(c))
+                    f++;
+            }
+
+            if (f == ma.length()) {
+                mas1[i] = ma;
+                i++;
+            }
+
+
+        }
+
+        for (int i = 0; i < mas1.length; i++) {
             for (int j = 0; j < mas.length; j++) {
-                if (mas[i].equals(mas[j])) {
+                if (mas1[i].equals(mas1[j])) {
                     count[i]++;
                 }
             }
@@ -88,12 +105,11 @@ public class Solution {
 
         for (int i = 0; i < count.length; i++) {
             for (int j = 0; j < count.length; j++) {
-                if (count[i]<count[j]) {
+                if (count[i] < count[j]) {
                     repeatWord = mas[j];
                 }
             }
         }
-
 
 
         return repeatWord;

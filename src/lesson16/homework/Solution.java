@@ -4,9 +4,9 @@ public class Solution {
     public static void main(String[] args) {
 
         //String test = "First program in JAVA";
-        String test = "aaa2 aaa2 aaa2 zzz4";
+        String test = "aaa2 aaa2 aaa2 zzz4 aaa aaa bbb ccc";
 
-        //System.out.println(countWords(test));
+        System.out.println(countWords(test));
         //System.out.println(maxWord(test));
         //System.out.println(minWord(test));
         System.out.println(mostCountedWord(test));
@@ -76,28 +76,30 @@ public class Solution {
     public static String mostCountedWord(String input) {
         String[] mas = input.split(" ");
         String repeatWord = isWord(input);
-        int[] count = new int[mas.length];
-        String[] mas1 = new String[countWords(input)];
+        int countWord = countWords(input);
+        String[] mas1 = new String[countWord];
+        int[] count = new int[mas1.length];
+        int m = 0;
 
-        for (String ma : mas) {
-            int i = 0;
-            int f = 0;
+
+        for (String ma : mas1) {
+            int count1 = 0;
+            if (ma!=null)
             for (char c : ma.toCharArray()) {
                 if (Character.isLetter(c))
-                    f++;
+                    count1++;
+                if (count1 == ma.toCharArray().length) {
+                    mas1[m] = ma;
+                    m++;
+                }
+
             }
-
-            if (f == ma.length()) {
-                mas1[i] = ma;
-                i++;
-            }
-
-
         }
 
+
         for (int i = 0; i < mas1.length; i++) {
-            for (int j = 0; j < mas.length; j++) {
-                if (mas1[i].equals(mas1[j])) {
+            for (int j = 0; j < mas1.length; j++) {
+                if (mas1[i] != null && mas1[i].equals(mas1[j])) {
                     count[i]++;
                 }
             }

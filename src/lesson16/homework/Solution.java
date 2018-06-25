@@ -5,11 +5,19 @@ public class Solution {
 
         //String test = "First program in JAVA";
         String test = "aaa2 aaa2 aaa2 zzz4 aaa aaa bbb ccc";
+        String test1 = "";
+        String test2 = "1";
+        String test3 = "aaaa aa1";
+        String test4 = "aaaa% @@@@ @@@@";
 
         System.out.println(countWords(test));
         //System.out.println(maxWord(test));
         //System.out.println(minWord(test));
         System.out.println(mostCountedWord(test));
+        System.out.println(mostCountedWord(test1));
+        System.out.println(mostCountedWord(test2));
+        System.out.println(mostCountedWord(test3));
+        System.out.println(mostCountedWord(test4));
 
 
     }
@@ -84,16 +92,16 @@ public class Solution {
 
         for (String ma : mas1) {
             int count1 = 0;
-            if (ma!=null)
-            for (char c : ma.toCharArray()) {
-                if (Character.isLetter(c))
-                    count1++;
-                if (count1 == ma.toCharArray().length) {
-                    mas1[m] = ma;
-                    m++;
-                }
+            if (ma != null)
+                for (char c : ma.toCharArray()) {
+                    if (Character.isLetter(c))
+                        count1++;
+                    if (count1 == ma.toCharArray().length) {
+                        mas1[m] = ma;
+                        m++;
+                    }
 
-            }
+                }
         }
 
 

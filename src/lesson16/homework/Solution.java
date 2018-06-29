@@ -20,11 +20,7 @@ public class Solution {
 //        System.out.println(mostCountedWord(test3));
 //        System.out.println(mostCountedWord(test4));
         System.out.println(validate(test5));
-        System.out.println(checkDomainName(test5));
-        System.out.println(checkProtocol(test5));
-        System.out.println(checkSiteName(test5));
-
-
+        
     }
 
     public static boolean validate(String address) {

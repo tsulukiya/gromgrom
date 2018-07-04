@@ -24,7 +24,7 @@ public class StringMethods {
 
         System.out.println(test);
         String phrase = "Hello there guys";
-        System.out.println(Arrays.toString(phrase.split(" ")));
+        //System.out.println(Arrays.toString(phrase.split(" ")));
 
         System.out.println(" test a".trim());
 

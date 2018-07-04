@@ -1,5 +1,6 @@
 package lesson16.homework;
 
+
 public class Solution {
     public static void main(String[] args) {
 
@@ -20,39 +21,17 @@ public class Solution {
     }
 
     public static boolean validate(String address) {
-
-        String start = checkProtocol(address);
-        String end = checkDomainName(address);
-
-        if ((checkProtocol(address)==null || checkDomainName(address)==null))
+        if (!address.startsWith("http://") && !address.startsWith("https://"))
             return false;
 
-//        if (address.startsWith("http://"))
-//            start = "http://";
-//        else start = "https://";
-//
-//        if (address.endsWith(".com"))
-//            end = ".com";
-//        if (address.endsWith(".net"))
-//            end = ".net";
-//        if (address.endsWith(".org"))
-//            end = ".org";
+        if (!address.endsWith(".net") && !address.endsWith(".com") && !address.endsWith(".org"))
+            return false;
 
+        address = address.replace("www.", "");
+        address = isValid(address, new String[]{"http://", "https://"});
+        address = isValid(address, new String[]{".net", ".com", ".org"});
 
-        address = address.substring(start.length(), (address.length() - end.length()));
-
-        if (address.startsWith("www."))
-            address = address.substring("www.".length());
-
-        char[] chars = address.toCharArray();
-
-        for (char aChar : chars) {
-            if (!Character.isLetter(aChar)) {
-                return false;
-
-            }
-        }
-        return true;
+        return address != null && checkLetterOrNumber(address);
     }
 
 
@@ -160,25 +139,26 @@ public class Solution {
 
     }
 
-    private static String checkProtocol(String address) {
-        if (address.startsWith("http://"))
-            return  "http://";
-        if (address.startsWith("https://"))
-            return "https://";
-
+    private static String isValid(String address, String[] parts) {
+        for (String part : parts) {
+            if (address.contains(part)) {
+                address = address.replace(part, "");
+                return address;
+            }
+        }
         return null;
     }
 
-    private static String checkDomainName(String address) {
+    private static boolean checkLetterOrNumber(String name) {
+        char [] chars = name.toCharArray();
 
-        if (address.endsWith(".com"))
-            return ".com";
-        if (address.endsWith(".net"))
-            return ".net";
-        if (address.endsWith(".org"))
-            return  ".org";
+        for (char c : chars) {
+            if (!Character.isLetter(c) && !Character.isDigit(c)) {
+                return false;
+            }
+        }
 
-        return null;
+        return true;
     }
 
 

@@ -52,8 +52,6 @@ public class Solution {
 
         char[] chars = address.toCharArray();
 
-        int count = 0;
-
         for (char aChar : chars) {
             if (!Character.isLetter(aChar)) {
                 return false;

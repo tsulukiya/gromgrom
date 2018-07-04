@@ -2,14 +2,8 @@ package lesson16.homework;
 
 public class Solution {
     public static void main(String[] args) {
-//
-//        String test = "First program in JAVA";
-//        String test = "aaa2 aaa2 aaa2 zzz4 aaa aaa ccc bbb";
-//        String test1 = " ";
-//        String test2 = "1";
-//        String test3 = "aaaa aa1";
-//        String test4 = "aaaa% @@@@ @@@@";
-        String test5 = "https://www.westside.org";
+
+        String test5 = "https://www.westside.net";
 //
 //        System.out.println(countWords(test));
 //        System.out.println(maxWord(test));
@@ -30,7 +24,7 @@ public class Solution {
         if (!(checkProtocol(address) && checkDomainName(address)))
             return false;
 
-        String start = null;
+        String start;
         String end = null;
 
         if (address.startsWith("http://"))
@@ -45,10 +39,9 @@ public class Solution {
             end = ".org";
 
         address = address.substring(start.length(), (address.length() - end.length()));
-        String m = "www.";
 
-        if (address.startsWith(m))
-            address = address.substring(m.length());
+        if (address.startsWith("www."))
+            address = address.substring("www.".length());
 
         char[] chars = address.toCharArray();
 
@@ -170,42 +163,6 @@ public class Solution {
 
         return (address.startsWith("http://") || address.startsWith("https://"));
     }
-
-//    private static boolean checkSiteName(String address) {
-//
-//        char[] chars = address.toCharArray();
-//        String check7 = "";
-//        String protocol = checkProtocol(address);
-//        String domain = checkDomainName(address);
-//
-//        if ((chars[protocol.length()] == 'w' &&
-//                chars[protocol.length() + 1] == 'w' &&
-//                chars[protocol.length() + 2] == 'w') &&
-//                chars[protocol.length() + 3] == '.') {
-//            for (int i = protocol.length() + 4; i < chars.length - domain.length(); i++) {
-//                check7 += chars[i];
-//            }
-//
-//        } else {
-//            for (int i = protocol.length(); i < chars.length - domain.length(); i++) {
-//                if (Character.isLetter(chars[i]))
-//                    check7 += chars[i];
-//
-//            }
-//        }
-//
-//        char[] chars1 = check7.toCharArray();
-//        int m = 0;
-//
-//        for (char c : chars1) {
-//            if (Character.isLetter(c))
-//                m++;
-//        }
-//
-//        return (chars1.length == m);
-//
-//
-//    }
 
     private static boolean checkDomainName(String address) {
 

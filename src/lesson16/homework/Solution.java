@@ -24,7 +24,7 @@ public class Solution {
         if (!(checkProtocol(address) && checkDomainName(address)))
             return false;
 
-        String start;
+        String start = null;
         String end = null;
 
         if (address.startsWith("http://"))
@@ -37,6 +37,8 @@ public class Solution {
             end = ".net";
         if (address.endsWith(".org"))
             end = ".org";
+
+        if (start!=null&&end!=null)
 
         address = address.substring(start.length(), (address.length() - end.length()));
 

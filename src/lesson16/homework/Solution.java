@@ -1,6 +1,5 @@
 package lesson16.homework;
 
-
 public class Solution {
     public static void main(String[] args) {
 
@@ -150,7 +149,7 @@ public class Solution {
     }
 
     private static boolean checkLetterOrNumber(String name) {
-        char [] chars = name.toCharArray();
+        char[] chars = name.toCharArray();
 
         for (char c : chars) {
             if (!Character.isLetter(c) && !Character.isDigit(c)) {
@@ -184,3 +183,9 @@ public class Solution {
 
 
 }
+
+
+
+
+
+

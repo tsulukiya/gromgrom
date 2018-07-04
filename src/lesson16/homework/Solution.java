@@ -21,24 +21,23 @@ public class Solution {
 
     public static boolean validate(String address) {
 
-        if (!(checkProtocol(address) && checkDomainName(address)))
+        String start = checkProtocol(address);
+        String end = checkDomainName(address);
+
+        if ((checkProtocol(address)==null || checkDomainName(address)==null))
             return false;
 
-        String start = null;
-        String end = null;
+//        if (address.startsWith("http://"))
+//            start = "http://";
+//        else start = "https://";
+//
+//        if (address.endsWith(".com"))
+//            end = ".com";
+//        if (address.endsWith(".net"))
+//            end = ".net";
+//        if (address.endsWith(".org"))
+//            end = ".org";
 
-        if (address.startsWith("http://"))
-            start = "http://";
-        else start = "https://";
-
-        if (address.endsWith(".com"))
-            end = ".com";
-        if (address.endsWith(".net"))
-            end = ".net";
-        if (address.endsWith(".org"))
-            end = ".org";
-
-        if (start!=null&&end!=null)
 
         address = address.substring(start.length(), (address.length() - end.length()));
 
@@ -161,14 +160,25 @@ public class Solution {
 
     }
 
-    private static boolean checkProtocol(String address) {
+    private static String checkProtocol(String address) {
+        if (address.startsWith("http://"))
+            return  "http://";
+        if (address.startsWith("https://"))
+            return "https://";
 
-        return (address.startsWith("http://") || address.startsWith("https://"));
+        return null;
     }
 
-    private static boolean checkDomainName(String address) {
+    private static String checkDomainName(String address) {
 
-        return (address.endsWith(".com") || (address.endsWith(".org") || (address.endsWith(".net"))));
+        if (address.endsWith(".com"))
+            return ".com";
+        if (address.endsWith(".net"))
+            return ".net";
+        if (address.endsWith(".org"))
+            return  ".org";
+
+        return null;
     }
 
 

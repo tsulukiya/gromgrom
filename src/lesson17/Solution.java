@@ -34,19 +34,34 @@ public class Solution {
     public static int[] findNumbers(String text) {
 
         String[] mas = text.split(" ");
-        int[] mas1 = new int[mas.length];
         int count1 = 0;
+        int count2 = 0;
 
         for (String s : mas) {
             int count = 0;
             for (char c : s.toCharArray()) {
-               if (Character.isLetter(c))
+                if (!Character.isDigit(c))
+                    count++;
+
+            }
+            if (count == 0) {
+                count1++;
+            }
+        }
+
+        int[] mas1 = new int[count1];
+
+
+        for (String s : mas) {
+            int count = 0;
+            for (char c : s.toCharArray()) {
+               if (!Character.isDigit(c))
                 count++;
 
             }
             if (count == 0) {
-                mas1[count1] = Integer.parseInt(s);
-                count1++;
+                mas1[count2] = Integer.parseInt(s);
+                count2++;
             }
         }
 

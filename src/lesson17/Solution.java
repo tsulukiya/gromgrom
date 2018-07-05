@@ -10,40 +10,6 @@ public class Solution {
 
     }
 
-    public static int[] findNumbers(String text) {
-
-        String[] mas = text.split(" ");
-        int count1 = 0;
-        int count2 = 0;
-
-        for (String s : mas) {
-            int count = 0;
-            for (char c : s.toCharArray()) {
-                if (!Character.isDigit(c))
-                    count++;
-
-            }
-            if (count == 0) {
-                count1++;
-            }
-        }
-
-        int[] mas1 = new int[count1];
-
-        for (String s : mas) {
-                try {
-                    mas1 [count2] = Integer.parseInt(s);
-                    count2++;
-
-                } catch (Exception e) {
-                    System.out.println("Not a number");
-                }
-
-        }
-        return mas1;
-    }
-
-
 //    public static int[] findNumbers(String text) {
 //
 //        String[] mas = text.split(" ");
@@ -64,23 +30,61 @@ public class Solution {
 //
 //        int[] mas1 = new int[count1];
 //
-//
 //        for (String s : mas) {
-//            int count = 0;
-//            for (char c : s.toCharArray()) {
-//               if (!Character.isDigit(c))
-//                count++;
+//                try {
+//                    mas1 [count2] = Integer.parseInt(s);
+//                    count2++;
 //
-//            }
-//            if (count == 0) {
-//                mas1[count2] = Integer.parseInt(s);
-//                count2++;
-//            }
+//                } catch (Exception e) {
+//                    System.out.println("Not a number");
+//                }
+//
 //        }
-//
-//
 //        return mas1;
 //    }
+
+
+    public static int[] findNumbers(String text) {
+
+        String[] mas = text.split(" ");
+        int count = 0;
+        int count2 = 0;
+
+        for (String s : mas) {
+            if (isDigit(s))
+                count++;
+
+        }
+
+        int[] mas1 = new int[count];
+
+
+        for (String s : mas) {
+            count = 0;
+            for (char c : s.toCharArray()) {
+                if (!Character.isDigit(c))
+                    count++;
+
+            }
+            if (count == 0) {
+                mas1[count2] = Integer.parseInt(s);
+                count2++;
+            }
+        }
+
+
+        return mas1;
+    }
+
+    private static boolean isDigit(String input) {
+        char[] chars = input.toCharArray();
+
+        for (char aChar : chars) {
+            if (!Character.isDigit(aChar))
+                return false;
+        }
+        return true;
+    }
 
 
 }

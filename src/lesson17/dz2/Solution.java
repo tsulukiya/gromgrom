@@ -2,8 +2,6 @@ package lesson17.dz2;
 
 import java.util.Arrays;
 
-import static lesson17.dz1.Solution.isDigit;
-
 public class Solution {
     public static void main(String[] args) {
         String test = "Departure 12 06 2018 Arrival 25 07 2019";
@@ -37,5 +35,16 @@ public class Solution {
 
         return mas1;
     }
+
+    private static boolean isDigit(String input) {
+        char[] chars = input.toCharArray();
+
+        for (char aChar : chars) {
+            if (!Character.isDigit(aChar))
+                return false;
+        }
+        return true;
+    }
+
 
 }

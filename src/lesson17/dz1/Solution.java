@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Solution {
     public static void main(String[] args) {
-        String test = "Departure 12 06 2018 Arrival 25 07 2019";
+        String test = "1 Departure 12 06 2018 Arrival 25 07 2019";
 
         System.out.println(Arrays.toString(findNumbers(test)));
 
@@ -14,19 +14,27 @@ public class Solution {
 
         String[] mas = text.split(" ");
         int count = 0;
-        int count1 = 0;
 
-        for (String s : mas) {
-            if (isDigit(s))
+        for (String ma : mas) {
+
+            try {
+                Integer.parseInt(ma);
                 count++;
+            } catch (Exception e) {
+
+            }
         }
 
         int[] mas1 = new int[count];
 
+        count = 0;
+
         for (String s : mas) {
+
             try {
-                mas1[count1] = Integer.parseInt(s);
-                count1++;
+
+                mas1[count] = Integer.parseInt(s);
+                count++;
 
             } catch (Exception e) {
                 System.out.println("Not a number");
@@ -35,16 +43,4 @@ public class Solution {
         }
         return mas1;
     }
-
-    public static boolean isDigit(String input) {
-        char[] chars = input.toCharArray();
-
-        for (char aChar : chars) {
-            if (!Character.isDigit(aChar))
-                return false;
-        }
-        return true;
-    }
-
-
 }

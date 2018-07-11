@@ -50,7 +50,7 @@ public class Controller {
 
     private static boolean checkFormat(Storage storage, File file) {
 
-        return storage.getFormatsSupported() == file.getFormat();
+        return storage.getFormatsSupported().equals(file.getFormat());
 
     }
 

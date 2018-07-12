@@ -22,12 +22,12 @@ public class Test {
             String[] format1 = new String[]{"psd", "xml", "txt"};
             String[] format2 = new String[]{"doc", "xls", "java"};
             Storage storageOne = new Storage(1001, files1, format1, "Ukraine", 20000);
-            //Storage storageTwo = new Storage(1002, files2, format2, "Russia", 10000);
+            Storage storageTwo = new Storage(1002, files2, format2, "Russia", 10000);
             Controller controller = new Controller();
             //controller.put(storageOne, file7);
-            controller.delete(storageOne, file10);
+            //controller.delete(storageOne, file10);
 
-           //controller.transferAll(storageOne, storageTwo);
+            controller.transferAll(storageOne, storageTwo);
 
             //controller.transferFile(storageOne, storageTwo, 1);
 

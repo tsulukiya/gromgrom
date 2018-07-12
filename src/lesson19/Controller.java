@@ -24,8 +24,6 @@ public class Controller {
     }
 
 
-
-
     public void delete(Storage storage, File file) throws Exception {
 
         if (!searchEqualsFile(storage, file))
@@ -50,36 +48,34 @@ public class Controller {
 
                     if (checkID(storageTo, storageFromFile))
                         throw new Exception("The item with the given id already exists in the repository. " +
-                                "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
+                                "file ID - " + storageFromFile.getId() + ", ID storage - " + storageTo.getId()
                                 + "(method transferAll in Controller class)");
 
                     if (!checkFormat(storageTo, storageFromFile))
                         throw new Exception("Incorrect file format. " +
-                                "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
+                                "file ID - " + storageFromFile.getId() + ", ID storage - " + storageTo.getId()
                                 + "(method transferAll in Controller class)");
 
 
                     if (countSizeStorage(storageTo, storageFromFile))
                         throw new Exception("Out of memory in storage. " +
-                                "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
+                                "file ID - " + storageFromFile.getId() + ", ID storage - " + storageTo.getId()
                                 + "(method transferAll in Controller class)");
 
 
                     if (!checkFreeIndex(storageTo))
                         throw new Exception("Out of free index in storage. " +
-                                "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
+                                "file ID - " + storageFromFile.getId() + ", ID storage - " + storageTo.getId()
                                 + "(method transferAll in Controller class)");
 
 
                     else {
-                        addToStorage(storageTo, storageFromFile);
                         delete(storageFrom, storageFromFile);
+                        addToStorage(storageTo, storageFromFile);
                         break;
                     }
                 }
             }
-
-
         }
     }
 

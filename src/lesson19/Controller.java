@@ -21,7 +21,7 @@ public class Controller {
                     "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
         else addToStorage(storage, file);
 
-        System.out.println("File add to storage..." + "(method put in Controller class)");
+//        System.out.println("File add to storage..." + "(method put in Controller class)");
     }
 
 
@@ -37,7 +37,7 @@ public class Controller {
 
         }
 
-        System.out.println("File is deleted..." + "(method delete in Controller class)");
+//        System.out.println("File is deleted..." + "(method delete in Controller class)");
 
     }
 
@@ -86,8 +86,8 @@ public class Controller {
         }
 
 
-        System.out.println("Transfer All files in: storageFrom " + "to: " + storageTo + "is done..."
-                + "(method transferAll in Controller class)");
+//        System.out.println("Transfer All files in: storageFrom " + "to: " + storageTo + "is done..."
+//                + "(method transferAll in Controller class)");
 
     }
 

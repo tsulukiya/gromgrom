@@ -19,8 +19,10 @@ public class Test {
             File file10 = new File(11, "disk10", "jpeg", 902);
             File[] files1 = new File[]{file1, file2, file3, file4, file5};
             File[] files2 = new File[]{file4, null, null, null, null, null};
-            Storage storageOne = new Storage(1001, files1, "jpeg", "Ukraine", 20000);
-            Storage storageTwo = new Storage(1002, files2, "psd", "Russia", 10000);
+            String [] format1 = new String[] {"psd", "xml", "txt"};
+            String [] format2 = new String[] {"doc", "xls", "java"};
+            Storage storageOne = new Storage(1001, files1, format1, "Ukraine", 20000);
+            Storage storageTwo = new Storage(1002, files2,format2, "Russia", 10000);
             Controller controller = new Controller();
 //            controller.put(storageOne, file7);
 //            controller.delete(storageOne, file9);

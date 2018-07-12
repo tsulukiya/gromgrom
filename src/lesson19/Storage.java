@@ -5,11 +5,12 @@ import java.util.Arrays;
 public class Storage {
     private long id;
     private File [] files;
-    private String formatsSupported;
+    private String [] formatsSupported;
     private String storageCountry;
     private long storageSize;
 
-    public Storage(long id, File[] files, String formatsSupported, String storageCountry, long storageSize) {
+
+    public Storage(long id, File[] files, String[] formatsSupported, String storageCountry, long storageSize) {
         this.id = id;
         this.files = files;
         this.formatsSupported = formatsSupported;
@@ -25,7 +26,7 @@ public class Storage {
         return files;
     }
 
-    public String getFormatsSupported() {
+    public String[] getFormatsSupported() {
         return formatsSupported;
     }
 

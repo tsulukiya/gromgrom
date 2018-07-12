@@ -2,27 +2,28 @@ package lesson19;
 
 public class Controller {
 
-    public void put(Storage storage, File file) throws Exception {
+    public static void put(Storage storage, File file) throws Exception {
 
         if (checkID(storage, file))
             throw new Exception("The item with the given id already exists in the repository. " +
-                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
+                    "file ID - " + file.getId() + ", ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (!checkFormat(storage, file))
             throw new Exception("Incorrect file format. " +
-                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
+                    "file ID - " + file.getId() + ", ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (countSizeStorage(storage, file))
             throw new Exception("Out of memory in storage. " +
-                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
+                    "file ID - " + file.getId() + ", ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (!checkFreeIndex(storage))
             throw new Exception("Out of free index in storage. " +
-                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
+                    "file ID - " + file.getId() + ", ID storage - " + storage.getId() + "(method put in Controller class)");
         else addToStorage(storage, file);
 
-//        System.out.println("File add to storage..." + "(method put in Controller class)");
     }
+
+
 
 
     public void delete(Storage storage, File file) throws Exception {
@@ -34,11 +35,7 @@ public class Controller {
             if (storage.getFiles()[i] != null)
                 if (storage.getFiles()[i].getId() == file.getId() && storage.getFiles()[i].getName().equals(file.getName()))
                     storage.getFiles()[i] = null;
-
         }
-
-//        System.out.println("File is deleted..." + "(method delete in Controller class)");
-
     }
 
 
@@ -84,11 +81,6 @@ public class Controller {
 
 
         }
-
-
-//        System.out.println("Transfer All files in: storageFrom " + "to: " + storageTo + "is done..."
-//                + "(method transferAll in Controller class)");
-
     }
 
 
@@ -150,7 +142,6 @@ public class Controller {
         for (int i = 0; i < storage.getFiles().length; i++) {
             if (storage.getFiles()[i] == null) {
                 storage.getFiles()[i] = file;
-                System.out.println("File id - " + file.getId() + " file name - " + file.getName() + " is add to storage");
                 break;
             }
         }

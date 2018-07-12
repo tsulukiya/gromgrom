@@ -13,9 +13,9 @@ public class File {
         this.format = format;
         this.size = size;
 
-        if (name.length()>=10)
-            throw new Exception  ("name is not correct... rename file please and restart compile..." +
-                    "File name:"+ name + ". ID file :"+id);
+        if (name.length() > 10)
+            throw new Exception("name is not correct... rename file please and restart compile..." +
+                    "File name:" + name + ". ID file :" + id);
 
     }
 

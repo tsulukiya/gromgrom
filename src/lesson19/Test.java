@@ -13,23 +13,23 @@ public class Test {
             File file4 = new File(4, "disk4", "psd", 920);
             File file5 = new File(5, "disk5", "psd", 92);
             File file6 = new File(6, "disk6", "psd", 921);
-            File file7 = new File(7, "disk7", "doc", 922);
+            File file7 = new File(7, "disk777777", "doc", 922);
             File file8 = new File(12, "disk8", "jpeg", 800);
             File file9 = new File(10, "disk9", "jpeg", 890);
             File file10 = new File(11, "disk10", "jpeg", 902);
-            File[] files1 = new File[]{file1, file2, file3, file4, file5};
+            File[] files1 = new File[]{file1, file2, file3, file4, file5, null};
             File[] files2 = new File[]{file4, null, null, null, null, null};
-            String [] format1 = new String[] {"psd", "xml", "txt"};
-            String [] format2 = new String[] {"doc", "xls", "java"};
+            String[] format1 = new String[]{"psd", "xml", "txt"};
+            String[] format2 = new String[]{"doc", "xls", "java"};
             Storage storageOne = new Storage(1001, files1, format1, "Ukraine", 20000);
-            Storage storageTwo = new Storage(1002, files2,format2, "Russia", 10000);
+            Storage storageTwo = new Storage(1002, files2, format2, "Russia", 10000);
             Controller controller = new Controller();
-//            controller.put(storageOne, file7);
-//            controller.delete(storageOne, file9);
-//
-//            controller.transferAll(storageOne, storageTwo);
+            controller.put(storageOne, file7);
+            //controller.delete(storageOne, file9);
 
-            controller.transferFile(storageOne, storageTwo, 1);
+           //controller.transferAll(storageOne, storageTwo);
+
+            //controller.transferFile(storageOne, storageTwo, 1);
 
 
             System.out.println(storageOne);

@@ -6,19 +6,19 @@ public class Controller {
 
         if (checkID(storage, file))
             throw new Exception("The item with the given id already exists in the repository. " +
-                    "file NAME - " + file.getName() + "ID file - " + file.getId() + "(method put in Controller class)");
+                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (checkFormat(storage, file))
             throw new Exception("Incorrect file format. " +
-                    "file NAME - " + file.getName() + "ID file - " + file.getId() + "(method put in Controller class)");
+                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (countSizeStorage(storage, file))
             throw new Exception("Out of memory in storage. " +
-                    "file NAME - " + file.getName() + "ID file - " + file.getId() + "(method put in Controller class)");
+                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
 
         if (!checkFreeIndex(storage))
             throw new Exception("Out of free index in storage. " +
-                    "file NAME - " + file.getName() + "ID file - " + file.getId() + "(method put in Controller class)");
+                    "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
         else addToStorage(storage, file);
 
         System.out.println("File add to storage..." + "(method put in Controller class)");

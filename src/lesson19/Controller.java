@@ -30,7 +30,7 @@ public class Controller {
 
         if (!searchEqualsFile(storage, file))
             throw new Exception("Out of file in storage. " +
-                    "file NAME - " + file.getName() + "ID file - " + file.getId() + "(method delete in Controller class)");
+                    "file ID - " + file.getId() + "ID storage - " + storage.getId() + "(method delete in Controller class)");
         for (int i = 0; i < storage.getFiles().length; i++) {
             if (storage.getFiles()[i] != null)
                 if (storage.getFiles()[i].getId() == file.getId() && storage.getFiles()[i].getName().equals(file.getName()))

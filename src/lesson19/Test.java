@@ -16,16 +16,16 @@ public class Test {
             File file7 = new File(7, "disk777777", "txt", 922);
             File file8 = new File(12, "disk8", "jpeg", 800);
             File file9 = new File(10, "disk9", "jpeg", 890);
-            File file10 = new File(11, "disk10", "jpeg", 902);
-            File[] files1 = new File[]{file1, null};
+            File file10 = new File(10, "disk9", "jpeg", 902);
+            File[] files1 = new File[]{file1, file9, null};
             File[] files2 = new File[]{file4, null, null, null, null, null};
             String[] format1 = new String[]{"psd", "xml", "txt"};
             String[] format2 = new String[]{"doc", "xls", "java"};
             Storage storageOne = new Storage(1001, files1, format1, "Ukraine", 20000);
             //Storage storageTwo = new Storage(1002, files2, format2, "Russia", 10000);
             Controller controller = new Controller();
-            controller.put(storageOne, file7);
-            //controller.delete(storageOne, file9);
+            //controller.put(storageOne, file7);
+            controller.delete(storageOne, file10);
 
            //controller.transferAll(storageOne, storageTwo);
 

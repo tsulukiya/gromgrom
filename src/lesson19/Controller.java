@@ -8,7 +8,7 @@ public class Controller {
             throw new Exception("The item with the given id already exists in the repository. " +
                     "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
 
-        if (checkFormat(storage, file))
+        if (!checkFormat(storage, file))
             throw new Exception("Incorrect file format. " +
                     "file NAME - " + file.getId() + "ID storage - " + storage.getId() + "(method put in Controller class)");
 
@@ -56,7 +56,7 @@ public class Controller {
                                 "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
                                 + "(method transferAll in Controller class)");
 
-                    if (checkFormat(storageTo, storageFromFile))
+                    if (!checkFormat(storageTo, storageFromFile))
                         throw new Exception("Incorrect file format. " +
                                 "file NAME - " + storageFromFile.getName() + "ID file - " + storageFromFile.getId()
                                 + "(method transferAll in Controller class)");

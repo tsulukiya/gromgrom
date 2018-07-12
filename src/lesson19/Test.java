@@ -13,7 +13,7 @@ public class Test {
             File file4 = new File(4, "disk4", "psd", 920);
             File file5 = new File(5, "disk5", "psd", 92);
             File file6 = new File(6, "disk6", "psd", 921);
-            File file7 = new File(7, "disk777777", "doc", 922);
+            File file7 = new File(7, "disk777777", "xml", 922);
             File file8 = new File(12, "disk8", "jpeg", 800);
             File file9 = new File(10, "disk9", "jpeg", 890);
             File file10 = new File(11, "disk10", "jpeg", 902);

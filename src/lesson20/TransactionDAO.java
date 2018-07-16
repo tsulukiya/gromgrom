@@ -13,7 +13,7 @@ public class TransactionDAO {
     private Utils utils = new Utils();
 
     public Transaction save(Transaction transaction) throws Exception {
-        if (!validate(transaction))
+        if (validate(transaction))
             return transaction;
         return null;
     }

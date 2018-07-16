@@ -13,9 +13,9 @@ public class TransactionDAO {
     private Utils utils = new Utils();
 
     public Transaction save(Transaction transaction) throws Exception {
-        if (validate(transaction))
-            return Exception;
-
+        if (!validate(transaction))
+            return transaction;
+        return null;
     }
 
 
@@ -73,7 +73,7 @@ public class TransactionDAO {
         if (count == 0) {
             throw new InternalServerException("Transaction from this city isn't possible " + transaction.getId() + ". Can't be saved");
         }
-
+        return true;
 
     }
 

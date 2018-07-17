@@ -17,9 +17,9 @@ public class TransactionDAO {
             return null;
         }
         else {
-            for (int i = 0; i < transactions.length ; i++) {
-                if (transactions[i] == null)
-                    transactions[i] = transaction;
+            for (Transaction tran : transactions) {
+                if (tran == null)
+                    tran = transaction;
             }
             return transaction;
         }

@@ -13,16 +13,14 @@ public class TransactionDAO {
     private Utils utils = new Utils();
 
     public Transaction save(Transaction transaction) throws Exception {
-        if (!validate(transaction)) {
-            return null;
+        validate(transaction);
+
+
+        for (Transaction tran : transactions) {
+            if (tran == null)
+                tran = transaction;
         }
-        else {
-            for (Transaction tran : transactions) {
-                if (tran == null)
-                    tran = transaction;
-            }
-            return transaction;
-        }
+        return transaction;
     }
 
 
@@ -41,7 +39,7 @@ public class TransactionDAO {
         return null;
     }
 
-    private boolean validate(Transaction transaction) throws Exception {
+    private void validate(Transaction transaction) throws Exception {
 
         if (transaction.getAmount() >= utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Transaction limit exceed " + transaction.getId() + ". Can't be saved");
@@ -80,7 +78,7 @@ public class TransactionDAO {
         if (count == 0) {
             throw new InternalServerException("Transaction from this city isn't possible " + transaction.getId() + ". Can't be saved");
         }
-        return true;
+
 
     }
 

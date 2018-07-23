@@ -80,7 +80,7 @@ public class TransactionDAO {
                 count++;
         }
         if (count == 0) {
-            throw new InternalServerException("Transaction from this city isn't possible " + transaction.getId() + ". Can't be saved");
+            throw new InternalServerException("Transaction isn't possible " + transaction.getId() + ". Can't be saved");
         }
 
 

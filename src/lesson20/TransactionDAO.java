@@ -30,7 +30,7 @@ public class TransactionDAO {
 
 
     Transaction[] transactionList() {
-        return null;
+        return getTransactions();
 
     }
 

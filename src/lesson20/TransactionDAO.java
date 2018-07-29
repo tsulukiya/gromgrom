@@ -51,7 +51,23 @@ public class TransactionDAO {
 
 
     public Transaction[] transactionList(String city) {
-        return null;
+
+        int count = 0;
+
+        for (Transaction transaction : getTransactions()) {
+            if (transaction != null && (city.equals(transaction.getCity())))
+                count++;
+        }
+
+        Transaction[] transactionsListByCity = new Transaction[count];
+
+        for (int i = 0; i < getTransactions().length; i++) {
+            if (getTransactions()[i] != null && getTransactions()[i].getCity().equals(city))
+                transactionsListByCity[i] = getTransactions()[i];
+
+        }
+
+        return transactionsListByCity;
     }
 
 

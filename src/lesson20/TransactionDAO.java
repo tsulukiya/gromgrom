@@ -61,10 +61,11 @@ public class TransactionDAO {
 
         Transaction[] transactionsListByCity = new Transaction[count];
 
-        for (int i = 0; i < getTransactions().length; i++) {
-            if (getTransactions()[i] != null && getTransactions()[i].getCity().equals(city))
-                transactionsListByCity[i] = getTransactions()[i];
-
+        for (int i = 0; i < transactionsListByCity.length; i++) {
+            for (int j = 0; j < getTransactions().length; j++) {
+                if (getTransactions()[j] != null && getTransactions()[j].getCity().equals(city))
+                    transactionsListByCity[i] = getTransactions()[j];
+            }
         }
 
         return transactionsListByCity;

@@ -52,8 +52,8 @@ public class TransactionDAO {
         int sum = 0;
         int count = 0;
         for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
-                sum += tr.getAmount();
-                count++;
+            sum += tr.getAmount();
+            count++;
         }
 
         if (sum > utils.getLimitTransactionsPerDayAmount()) {
@@ -68,13 +68,12 @@ public class TransactionDAO {
         for (String city : utils.getCities()) {
             if (city.equals(transaction.getCity())) {
                 count++;
-
-            }
-            if (count == 0) {
-                throw new BadRequestException("Transaction from this city isn't possible " + transaction.getId() + ". Can't be saved");
             }
         }
 
+        if (count == 0) {
+            throw new BadRequestException("Transaction from this city isn't possible " + transaction.getId() + ". Can't be saved");
+        }
         count = 0;
         for (Transaction tr : transactions) {
             if (tr == null) {
@@ -126,5 +125,7 @@ public class TransactionDAO {
         return result;
     }
 
-
+    public Transaction[] getTransactions() {
+        return transactions;
+    }
 }

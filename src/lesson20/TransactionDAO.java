@@ -50,7 +50,7 @@ public class TransactionDAO {
     }
 
 
-    public Transaction[] transactionList(String city) {
+    public Transaction[] transactionList(String city) throws BadRequestException {
 
         int count = 0;
 
@@ -58,6 +58,9 @@ public class TransactionDAO {
             if (transaction != null && (transaction.getCity().equals(city)))
                 count++;
         }
+
+        if (count==0)
+            throw new BadRequestException("Is not possible...");
 
         Transaction[] transactionsListByCity = new Transaction[count];
 

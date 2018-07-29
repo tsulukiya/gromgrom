@@ -29,13 +29,28 @@ public class TransactionDAO {
     }
 
 
-    Transaction[] transactionList() {
-        return getTransactions();
+    public Transaction[] transactionList() {
+
+        int count = 0;
+
+        for (Transaction transaction : getTransactions()) {
+            if (transaction != null)
+                count++;
+        }
+
+        Transaction[] transactions = new Transaction[count];
+
+        for (int i = 0; i < getTransactions().length; i++) {
+            if (getTransactions()[i] != null)
+                transactions[i] = getTransactions()[i];
+        }
+
+        return transactions;
 
     }
 
 
-    Transaction[] transactionList(String city) {
+    public Transaction[] transactionList(String city) {
         return null;
     }
 

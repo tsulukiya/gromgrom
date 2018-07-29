@@ -74,6 +74,21 @@ public class TransactionDAO {
 
 
     Transaction[] transactionList(int amount) {
+        int count = 0;
+
+        for (Transaction transaction : getTransactions()) {
+            if (transaction != null && transaction.getAmount() == amount)
+                count++;
+        }
+
+        Transaction[] transactionsListByAmount = new Transaction[count];
+
+        for (int i = 0; i < transactionsListByAmount.length; i++) {
+            for (int j = 0; j < getTransactions().length; j++) {
+                if (getTransactions()[j] != null && getTransactions()[j].getAmount() == amount)
+                    transactionsListByAmount[i] = getTransactions()[j];
+            }
+        }
         return null;
     }
 

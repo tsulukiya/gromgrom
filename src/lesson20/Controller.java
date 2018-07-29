@@ -13,12 +13,12 @@ public class Controller {
     }
 
     Transaction [] transactionList(String city) {
-        return transactionDAO.transactionList();
+        return transactionDAO.transactionList(city);
 
     }
 
    Transaction [] transactionList(int amount) {
-        return null;
+        return transactionDAO.transactionList(amount);
 
     }
 

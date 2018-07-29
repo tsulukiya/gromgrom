@@ -59,9 +59,6 @@ public class TransactionDAO {
                 count++;
         }
 
-        if (count==0)
-            throw new BadRequestException("Is not possible...");
-
         Transaction[] transactionsListByCity = new Transaction[count];
 
         for (int i = 0; i < transactionsListByCity.length; i++) {

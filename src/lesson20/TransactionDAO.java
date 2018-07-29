@@ -51,7 +51,7 @@ public class TransactionDAO {
     }
 
 
-    public Transaction[] transactionList(String city) throws BadRequestException {
+    public Transaction[] transactionList(String city) {
 
         int count = 0;
 
@@ -60,8 +60,8 @@ public class TransactionDAO {
                 count++;
         }
 
-        if (count==0)
-            throw new BadRequestException("dddd");
+        if (count == 0)
+            return null;
 
         Transaction[] transactionsListByCity = new Transaction[count];
 

@@ -89,7 +89,7 @@ public class TransactionDAO {
                     transactionsListByAmount[i] = getTransactions()[j];
             }
         }
-        return null;
+        return transactionsListByAmount;
     }
 
     private void validate(Transaction transaction) throws Exception {

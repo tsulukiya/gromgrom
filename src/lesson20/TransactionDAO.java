@@ -49,7 +49,7 @@ public class TransactionDAO {
         if (transaction.getAmount() >= utils.getLimitSimpleTransactionAmount()) //todo >
             throw new LimitExceeded("Transaction limit exceed " + transaction.getId() + ". Can't be saved");
 
-        int sum = 0;
+        int sum = transaction.getAmount();
         int count = 0;
         for (Transaction tr : getTransactionsPerDay(transaction.getDateCreated())) {
             sum += tr.getAmount();
@@ -82,7 +82,7 @@ public class TransactionDAO {
             }
         }
         if (count == 0) {
-            throw new InternalServerException("Transaction isn't possible " + transaction.getId() + ". Can't be saved");
+            throw new InternalServerException("Transaction isn't possible (out of memory) " + transaction.getId() + ". Can't be saved");
         }
 
 

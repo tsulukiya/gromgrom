@@ -56,14 +56,13 @@ public class TransactionDAO {
         int count = 0;
 
         for (Transaction transaction : getTransactions()) {
-            if (transaction != null && transaction.getCity().equals(city)
-                    &&transaction.getCity().hashCode() == city.hashCode())
+            if (transaction != null && transaction.getCity().equals(city))
                 count++;
         }
 
         Transaction[] transactionsListByCity = new Transaction[count];
 
-        for (int i = 0; i < transactionsListByCity.length; i++) {
+        for (int i = 0; i <= transactionsListByCity.length; i++) {
             for (int j = 0; j < getTransactions().length; j++) {
                 if (getTransactions()[j] != null && getTransactions()[j].getCity().equals(city))
                     transactionsListByCity[i] = getTransactions()[j];

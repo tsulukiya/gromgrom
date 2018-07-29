@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class Demo {
     public static void main(String[] args) throws Exception {
-        Transaction transaction = new Transaction(101, "Odessa", 20, "asas", TransactionType.OUTCOME, new Date());
-        Transaction transaction1 = new Transaction(100, "Kiev", 20, "asas", TransactionType.OUTCOME, new Date());
-        Transaction transaction2 = new Transaction(102, "Kiev", 20, "asas", TransactionType.OUTCOME, new Date());
-        Transaction transaction3 = new Transaction(103, "Kiev", 25, "asas", TransactionType.OUTCOME, new Date());
-        Transaction transaction4 = new Transaction(104, "Kiev", 25, "asas", TransactionType.OUTCOME, new Date());
+        Transaction transaction = new Transaction(101, "Odessa", 2, "asas", TransactionType.OUTCOME, new Date());
+        Transaction transaction1 = new Transaction(100, "Kiev", 2, "asas", TransactionType.OUTCOME, new Date());
+        Transaction transaction2 = new Transaction(102, "Kiev", 2, "asas", TransactionType.OUTCOME, new Date());
+        Transaction transaction3 = new Transaction(103, "Kiev", 5, "asas", TransactionType.OUTCOME, new Date());
+        Transaction transaction4 = new Transaction(104, "Kiev", 2, "asas", TransactionType.OUTCOME, new Date());
         Transaction transaction5 = new Transaction(105, "Kiev", 16, "asas", TransactionType.OUTCOME, new Date());
         Transaction transaction6 = new Transaction(106, "Kiev", 10, "asas", TransactionType.OUTCOME, new Date());
         Transaction transaction7 = new Transaction(107, "Kiev", 1, "asas", TransactionType.OUTCOME, new Date());
@@ -28,9 +28,10 @@ public class Demo {
         transactionDAO.save(transaction8);
         transactionDAO.save(transaction9);
         //transactionDAO.save(transaction10);
+        System.out.println(Arrays.toString(transactionDAO.transactionList("")));
 
 
-        System.out.println(Arrays.toString(transactionDAO.getTransactions()));
+
 
 
     }

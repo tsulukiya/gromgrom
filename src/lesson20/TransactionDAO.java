@@ -4,6 +4,7 @@ import lesson20.exception.BadRequestException;
 import lesson20.exception.InternalServerException;
 import lesson20.exception.LimitExceeded;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -50,7 +51,7 @@ public class TransactionDAO {
     }
 
 
-    public Transaction[] transactionList(String city) throws BadRequestException {
+    public Transaction[] transactionList(String city) {
 
         int count = 0;
 
@@ -159,5 +160,13 @@ public class TransactionDAO {
 
     public Transaction[] getTransactions() {
         return transactions;
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionDAO{" +
+                "transactions=" + Arrays.toString(transactions) +
+                ", utils=" + utils +
+                '}';
     }
 }

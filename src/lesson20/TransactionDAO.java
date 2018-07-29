@@ -51,7 +51,17 @@ public class TransactionDAO {
     }
 
 
-    public Transaction[] transactionList(String city) {
+    public Transaction[] transactionList(String city) throws BadRequestException {
+
+        int count1 = 0;
+
+        for (String s : utils.getCities()) {
+            if (s.equals(city))
+                count1++;
+        }
+
+        if (count1==0)
+            throw new BadRequestException("aaaa");
 
         int count = 0;
 

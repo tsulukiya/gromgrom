@@ -17,5 +17,7 @@ public class Demo {
         Long variable2 = new Long(222);
         generalDAO.validate(variable2);
         generalDAO.validate(test);
+
+
     }
 }

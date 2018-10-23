@@ -2,36 +2,24 @@ package lesson25.homeWork;
 
 public class GeneralDAO<T> {
 
-//    private T [] mas = new T  [10];
+    public void save(T[] mas, T t) throws Exception {
 
-//    public void save(T t) throws Exception {
-//
-//        if (!(t instanceof String)) {
-//            throw new Exception("Incorrect type variable. Element don't save...");
-//        }
-//
-//        int count = 0;
-//        for (String el : mas) {
-//            if (el == null) {
-//                count++;
-//            }
-//            if (count == 0) {
-//                throw new Exception("Access is full. Element don't save...");
-//            }
-//
-//
-//        }
-//        count = 0;
-//        for (int i = 0; i < mas.length; i++) {
-//            if (mas[i] == null) {
-//                mas[i] = (String) t;
-//                return (T) mas[i];
-//            }
-//
-//
-//        }
-//        return null;
-//    }
+        int count = 0;
+        for (T ma : mas) {
+            if (ma == null)
+                count++;
+        }
+        if (count == 0) {
+            throw new Exception("Access is full. Element don't save...");
+        }
+
+        for (int i = 0; i < mas.length; i++) {
+            if (mas[i] == null) {
+                mas[i] = t;
+                break;
+            }
+        }
+    }
 
     public T[] getAll(T[] mas) {
         return mas;

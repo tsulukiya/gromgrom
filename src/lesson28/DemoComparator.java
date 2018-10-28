@@ -7,10 +7,11 @@ import java.util.TreeSet;
 
 public class DemoComparator {
     public static void main(String[] args) {
-        Capability capability2 = new Capability(1005, "test", "rrrr", false, new Date());
-        Capability capability4 = new Capability(900, "test", "rrrr", false, new Date());
-        Capability capability3 = new Capability(900, "test", "rrrr", true, new Date());
-        Capability capability1 = new Capability(1001, "test", "rrrr", true, new Date());
+        Capability capability2 = new Capability(1005, "aa", "a", false, new Date());
+        Capability capability4 = new Capability(900, "aa", "a", false, new Date());
+        Capability capability3 = new Capability(900, "aa", "a", true, new Date());
+        Capability capability1 = new Capability(1004, "aa", "a", true, new Date());
+
 
         ArrayList <Capability> capabilities = new ArrayList<>();
         capabilities.add(capability1);
@@ -18,9 +19,10 @@ public class DemoComparator {
         capabilities.add(capability3);
         capabilities.add(capability4);
 
+
         System.out.println(capabilities);
 
-        capabilities.sort(new IsActiveComparator());
+        capabilities.sort(new FullComparator());
 
         System.out.println(capabilities);
     }

@@ -14,8 +14,8 @@ public class DemoComparator {
 
 
         ArrayList <Capability> capabilities = new ArrayList<>();
-        capabilities.add(capability1);
-        capabilities.add(capability2);
+        capabilities.add(null);
+        capabilities.add(null);
         capabilities.add(capability3);
         capabilities.add(capability4);
 

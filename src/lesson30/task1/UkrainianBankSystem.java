@@ -1,12 +1,21 @@
 package lesson30.task1;
 
+import java.util.Date;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class UkrainianBankSystem implements BankSystem {
+
+    private Set<Transaction> transactions = new TreeSet<>();
 
     @Override
     public void withdraw(User user, int amount) {
         if (!checkWithdraw(user, amount))
             return;
         user.setBalance(user.getBalance() - amount - amount * user.getBank().getCommission(amount));
+
+        createAndSaveTransaction(new Date(), TransactionType.WITHDRAWAL, amount, "withdrawal");
     }
 
     @Override
@@ -14,6 +23,8 @@ public class UkrainianBankSystem implements BankSystem {
         if (!checkFund(user, amount))
             return;
         user.setBalance(user.getBalance() + amount);
+
+        createAndSaveTransaction(new Date(), TransactionType.FUNDING, amount, "fund");
     }
 
     @Override
@@ -22,6 +33,8 @@ public class UkrainianBankSystem implements BankSystem {
             return;
         fromUser.setBalance(fromUser.getBalance() - amount - amount * fromUser.getBank().getCommission(amount));
         toUser.setBalance(toUser.getBalance() + amount);
+
+        createAndSaveTransaction(new Date(), TransactionType.TRANSFER, amount, "transfer");
     }
 
     @Override
@@ -29,6 +42,8 @@ public class UkrainianBankSystem implements BankSystem {
         if (!checkFund(user, user.getSalary()))
             return;
         user.setBalance(user.getBalance() + user.getSalary());
+
+        createAndSaveTransaction(new Date(), TransactionType.SALARY_INCOME, user.getSalary(), "salary");
 
     }
 
@@ -76,6 +91,18 @@ public class UkrainianBankSystem implements BankSystem {
     private boolean checkTransferMoney(User fromUser, User toUser, int amount) {
         return checkAmountFund(amount) && checkWithdraw(fromUser, amount) && checkFund(toUser, amount) &&
                 (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency());
+    }
+
+
+    private Transaction createAndSaveTransaction(Date dateCreated, TransactionType type, int amount, String descr) {
+        Random random = new Random();
+        Transaction tr = new Transaction(random.nextInt(), dateCreated, null, type, amount, descr);
+        transactions.add(tr);
+        return tr;
+    }
+
+    public Set<Transaction> getTransactions() {
+        return transactions;
     }
 
 

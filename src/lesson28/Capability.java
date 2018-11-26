@@ -51,7 +51,7 @@ public class Capability implements Comparable<Capability> {
                 ", fingerprint='" + fingerprint + '\'' +
                 ", isActive=" + isActive +
                 ", dateCreated=" + dateCreated +
-                '}';
+                '}' + "\n";
     }
 
 

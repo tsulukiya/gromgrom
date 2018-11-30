@@ -7,4 +7,12 @@ public class Project {
     public Project(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "name='" + name + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }

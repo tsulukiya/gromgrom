@@ -7,30 +7,25 @@ import java.util.Set;
 
 public class Demo {
     public static void main(String[] args) {
-        List <Employee> employees = new ArrayList<>();
+        EmployeesDAO employeesDAO = new EmployeesDAO();
         Set<Project> projectSet = new HashSet<>();
         projectSet.add(new Project("rem"));
         projectSet.add(new Project("item"));
         projectSet.add(new Project("item1"));
 
         Set<Project> projectSet1 = new HashSet<>();
-        projectSet.add(new Project("rem1"));
-        projectSet.add(new Project("item"));
-        projectSet.add(new Project("item1"));
+        projectSet1.add(new Project("rem1"));
+        projectSet1.add(new Project("item"));
+        projectSet1.add(new Project("item1"));
 
         Set<Project> projectSet2 = new HashSet<>();
-        projectSet.add(new Project("rem2"));
-        projectSet.add(new Project("item"));
-        projectSet.add(new Project("item1"));
-
-        employees.add(new Employee("Igor",projectSet));
-        employees.add(new Employee("Andrey", projectSet));
-        employees.add(new Employee("Andre", projectSet1));
-        employees.add(new Employee("Ivan", projectSet2));
-        employees.add(new Employee("Andrey1", projectSet2));
+        projectSet2.add(new Project("rem2"));
+        projectSet2.add(new Project("item"));
+        projectSet2.add(new Project("item1"));
 
 
         Controller controller = new Controller();
-        System.out.println(controller.EmployeesByProject("rem"));
+
+        System.out.println(controller.employeesByProject("rem"));
     }
 }

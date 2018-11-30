@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Controller {
 
-    public List<Employee> EmployeesByProject(String projectName) {
+    public List<Employee> employeesByProject(String projectName) {
         EmployeesDAO employeesDAO = new EmployeesDAO();
         return employeesDAO.employeesByProject(projectName);
     }

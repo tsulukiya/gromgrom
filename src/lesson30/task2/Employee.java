@@ -44,5 +44,15 @@ public class Employee {
         return projects;
     }
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateHired=" + dateHired +
+                ", position=" + position +
+                ", department=" + department +
+                ", projects=" + projects +
+                '}';
+    }
 }

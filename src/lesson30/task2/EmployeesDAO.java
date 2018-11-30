@@ -8,18 +8,19 @@ public class EmployeesDAO {
 
     List <Employee> employees = new ArrayList<>();
 
+
     public List<Employee> employeesByProject (String projectName) {
 
-        List<Employee> employeesByProject = new ArrayList<>();
+        List<Employee> employeesByProject1 = new ArrayList<>();
 
         for (Employee employee : employees) {
             for (Project project : employee.getProjects()) {
-                if (project.equals(projectName)) {
-                    employeesByProject.add(employee);
-                }
+                if (project.equals(projectName))
+                    employeesByProject1.add(employee);
             }
         }
-        return employeesByProject;
+
+        return employeesByProject1;
 
     }
 

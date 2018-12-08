@@ -27,7 +27,7 @@ public class Demo {
         transactionDAO.save(transaction7);
         transactionDAO.save(transaction8);
         transactionDAO.save(transaction9);
-        //transactionDAO.save(transaction10);
+        transactionDAO.save(transaction10);
         System.out.println(Arrays.toString(transactionDAO.transactionList("")));
 
 

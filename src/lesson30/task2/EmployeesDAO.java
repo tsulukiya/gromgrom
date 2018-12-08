@@ -11,7 +11,6 @@ public class EmployeesDAO {
         this.employees = employees;
     }
 
-
     public Set<Employee> employeesByProject(String projectName) {
 
         Set<Employee> employeesByProject1 = new HashSet<>();

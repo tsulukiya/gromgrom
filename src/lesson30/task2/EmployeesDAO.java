@@ -1,27 +1,26 @@
 package lesson30.task2;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EmployeesDAO {
 
-    List <Employee> employees = new ArrayList<>();
+    private Set<Employee> employees;
 
-
-    public List<Employee> employeesByProject (String projectName) {
-
-        List<Employee> employeesByProject1 = new ArrayList<>();
-
-        for (Employee employee : employees) {
-            for (Project project : employee.getProjects()) {
-                if (project.equals(projectName))
-                    employeesByProject1.add(employee);
-            }
-        }
-
-        return employeesByProject1;
-
+    public EmployeesDAO(Set<Employee> employees) {
+        this.employees = employees;
     }
 
+
+    public Set<Employee> employeesByProject(String projectName) {
+
+        Set<Employee> employeesByProject1 = new HashSet<>();
+
+        for (Employee employee : employees) {
+           if (employee.getProjects().contains(new Project(projectName)))
+               employeesByProject1.add(employee);
+
+        }
+        return employeesByProject1;
+    }
 }

@@ -78,19 +78,24 @@ public class Demo {
         departmentDevelopment.setEmployees(employeeSetDeveloperDepartment);
         departmentDesign.setEmployees(employeeSetDesignerDepartment);
 
-        Set<Employee>employeeSet = new HashSet<>();
-        employeeSet.addAll(employeeSetAnalystDepartment);
-        employeeSet.addAll(employeeSetDeveloperDepartment);
-        employeeSet.addAll(employeeSetDesignerDepartment);
+//        Set<Employee>employeeSet = new HashSet<>();
+//        employeeSet.addAll(employeeSetAnalystDepartment);
+//        employeeSet.addAll(employeeSetDeveloperDepartment);
+//        employeeSet.addAll(employeeSetDesignerDepartment);
+//
+//        System.out.println(employeeSet);
+//
+//        System.out.println("+++++++++++++++++++++++++++++++++++++");
+//
+//        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
+//
+//        Controller controller = new Controller(employeesDAO);
+//        System.out.println(controller.employeesByProject("Found1"));
 
-        System.out.println(employeeSet);
+        ProjectDAO projectDAO = new ProjectDAO(projectSet1);
 
-        System.out.println("+++++++++++++++++++++++++++++++++++++");
-        
-        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
-
-        Controller controller = new Controller(employeesDAO);
-        System.out.println(controller.employeesByProject("Found1"));
+        Controller controller = new Controller(projectDAO);
+        System.out.println(controller.projectsByEmployee(employeeAnalyst1));
 
 
 

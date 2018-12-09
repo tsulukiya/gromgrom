@@ -19,10 +19,18 @@ public class Department {
         this.employees = employees;
     }
 
+    public DepartmentType getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Department{" +
                 "type=" + type +
                 '}';
     }
+
+
+
+
 }

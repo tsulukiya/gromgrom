@@ -56,7 +56,7 @@ public class Demo {
         Employee employeeDev3 = new Employee("Alex6", "Gordon6", new Date(), Position.DEVELOPER, departmentDevelopment, projectSet2);
         Employee employeeDesigner1 = new Employee("Alex7", "Gordon7", new Date(), Position.DESIGNER, departmentDesign, projectSet3);
         Employee employeeDesigner2 = new Employee("Alex8", "Gordon8", new Date(), Position.DESIGNER, departmentDesign, projectSet3);
-        Employee employeeDesigner3 = new Employee("Alex9", "Gordon9", new Date(), Position.DESIGNER, departmentDesign, projectSet3);
+        Employee employeeDesigner3 = new Employee("Alex9", "Gordon9", new Date(), Position.DESIGNER, departmentDesign, null);
 
         Set<Employee>employeeSetAnalystDepartment = new HashSet<>();
         Set<Employee>employeeSetDeveloperDepartment = new HashSet<>();
@@ -87,14 +87,19 @@ public class Demo {
 
         System.out.println("+++++++++++++++++++++++++++++++++++++");
 
-        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
-        Controller controller = new Controller(employeesDAO);
-        System.out.println(controller.employeesByProject("Found1"));
+//        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
+//        Controller controller = new Controller(employeesDAO);
+//        System.out.println(controller.employeesByProject("Found1"));
+//
+//
+//        ProjectDAO projectDAO = new ProjectDAO();
+//        Controller controller1 = new Controller(projectDAO);
+//        System.out.println(controller1.projectsByEmployee(employeeAnalyst1));
 
 
-        ProjectDAO projectDAO = new ProjectDAO();
-        Controller controller1 = new Controller(projectDAO);
-        System.out.println(controller1.projectsByEmployee(employeeAnalyst1));
+        DepartmentDAO departmentDAO = new DepartmentDAO(employeeSet);
+        Controller controller2 = new Controller(departmentDAO);
+        System.out.println(controller2.EmployeesByDepartmentWithoutProject(DepartmentType.DESIGN));
 
 
 

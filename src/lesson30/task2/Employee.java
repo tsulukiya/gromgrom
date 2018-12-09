@@ -39,26 +39,30 @@ public class Employee {
 
         Employee employee = (Employee) o;
 
-        if (!firstName.equals(employee.firstName)) return false;
-        if (!lastName.equals(employee.lastName)) return false;
-        if (!dateHired.equals(employee.dateHired)) return false;
+        if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
+        if (dateHired != null ? !dateHired.equals(employee.dateHired) : employee.dateHired != null) return false;
         if (position != employee.position) return false;
-        if (!department.equals(employee.department)) return false;
-        return projects.equals(employee.projects);
+        if (department != null ? !department.equals(employee.department) : employee.department != null) return false;
+        return projects != null ? projects.equals(employee.projects) : employee.projects == null;
     }
 
     @Override
     public int hashCode() {
-        int result = firstName.hashCode();
-        result = 31 * result + lastName.hashCode();
-        result = 31 * result + dateHired.hashCode();
-        result = 31 * result + position.hashCode();
-        result = 31 * result + department.hashCode();
-        result = 31 * result + projects.hashCode();
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (dateHired != null ? dateHired.hashCode() : 0);
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        result = 31 * result + (department != null ? department.hashCode() : 0);
+        result = 31 * result + (projects != null ? projects.hashCode() : 0);
         return result;
     }
 
     public Set<Project> getProjects() {
         return projects;
+    }
+
+    public Department getDepartment() {
+        return department;
     }
 }

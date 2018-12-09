@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class ProjectDAO {
 
-    public static Set<Project> projectByEmployee(Employee employee) {
+    public Set<Project> projectByEmployee(Employee employee) {
         return employee.getProjects();
     }
 }

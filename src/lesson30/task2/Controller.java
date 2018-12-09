@@ -42,6 +42,10 @@ public class Controller {
         return employeesDAO.employeesByTeamLead(lead);
     }
 
+    public Set<Employee> teamLeadsByEmployee(Employee employee) {
+        return employeesDAO.teamLeadsByEmployee(employee);
+    }
+
 
     @Override
     public String toString() {

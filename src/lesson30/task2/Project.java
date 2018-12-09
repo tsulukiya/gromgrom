@@ -37,5 +37,7 @@ public class Project {
         return name.hashCode();
     }
 
-
+    public String getName() {
+        return name;
+    }
 }

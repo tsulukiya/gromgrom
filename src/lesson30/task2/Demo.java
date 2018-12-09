@@ -55,7 +55,7 @@ public class Demo {
         Employee employeeDev2 = new Employee("Alex5", "Gordon5", new Date(), Position.DEVELOPER, departmentDevelopment, projectSet2);
         Employee employeeDev3 = new Employee("Alex6", "Gordon6", new Date(), Position.DEVELOPER, departmentDevelopment, projectSet2);
         Employee employeeDesigner1 = new Employee("Alex7", "Gordon7", new Date(), Position.DESIGNER, departmentDesign, projectSet3);
-        Employee employeeDesigner2 = new Employee("Alex8", "Gordon8", new Date(), Position.DESIGNER, departmentDesign, projectSet3);
+        Employee employeeDesigner2 = new Employee("Alex8", "Gordon8", new Date(), Position.LEAD_DESIGNER, departmentDesign, projectSet3);
         Employee employeeDesigner3 = new Employee("Alex9", "Gordon9", new Date(), Position.DESIGNER, departmentDesign, null);
 
         Set<Employee>employeeSetAnalystDepartment = new HashSet<>();
@@ -92,7 +92,8 @@ public class Demo {
 //        System.out.println(controller.employeesByProject("Found1"));
 //        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
 //        System.out.println(controller.employeesWithoutProject());
-        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
+//        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
+        System.out.println(controller.teamLeadsByEmployee(employeeDesigner1));
 //
 //
 //        ProjectDAO projectDAO = new ProjectDAO();

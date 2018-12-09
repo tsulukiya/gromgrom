@@ -57,4 +57,16 @@ public class EmployeesDAO {
     }
 
 
+    public Set<Employee> teamLeadsByEmployee(Employee employee) {
+        Set<Employee> employeeSet5 = new HashSet<>();
+        for (Employee employee1 : employees) {
+            if ((employee.getPosition() != Position.TEAM_LEAD && employee.getPosition() != Position.LEAD_DESIGNER)&&
+            (employee1.getDepartment().getType().name().equals(employee.getDepartment().getType().name()) &&
+                    employee1.getPosition().equals(Position.TEAM_LEAD) || (employee1.getDepartment().getType().name().
+                    equals(employee.getDepartment().getType().name()) && employee1.getPosition().equals(Position.LEAD_DESIGNER))))
+            employeeSet5.add(employee1);
+        }
+        return employeeSet5;
+    }
+
 }

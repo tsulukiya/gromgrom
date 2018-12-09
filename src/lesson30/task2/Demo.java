@@ -48,7 +48,7 @@ public class Demo {
         Department departmentDesign = new Department(DepartmentType.DESIGN);
 
 
-        Employee employeeAnalyst1 = new Employee("Alex1", "Gordon1", new Date(), Position.ANALYST, departmentAnalytics, projectSet1);
+        Employee employeeAnalyst1 = new Employee("Alex1", "Gordon1", new Date(), Position.TEAM_LEAD, departmentAnalytics, projectSet1);
         Employee employeeAnalyst2 = new Employee("Alex2", "Gordon2", new Date(), Position.ANALYST, departmentAnalytics, projectSet1);
         Employee employeeAnalyst3 = new Employee("Alex3", "Gordon3", new Date(), Position.ANALYST, departmentAnalytics, projectSet1);
         Employee employeeDev1 = new Employee("Alex4", "Gordon4", new Date(), Position.DEVELOPER, departmentDevelopment, projectSet2);
@@ -87,11 +87,12 @@ public class Demo {
 
         System.out.println("+++++++++++++++++++++++++++++++++++++");
 
-//        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
-//        Controller controller = new Controller(employeesDAO);
+        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
+        Controller controller = new Controller(employeesDAO);
 //        System.out.println(controller.employeesByProject("Found1"));
 //        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
 //        System.out.println(controller.employeesWithoutProject());
+        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
 //
 //
 //        ProjectDAO projectDAO = new ProjectDAO();

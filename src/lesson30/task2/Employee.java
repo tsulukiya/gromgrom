@@ -65,4 +65,8 @@ public class Employee {
     public Department getDepartment() {
         return department;
     }
+
+    public Position getPosition() {
+        return position;
+    }
 }

@@ -13,32 +13,43 @@ public class EmployeesDAO {
 
     public Set<Employee> employeesByProject(String projectName) {
 
-        Set<Employee> employeesByProject1 = new HashSet<>();
+        Set<Employee> employeesSet1 = new HashSet<>();
 
         for (Employee employee : employees) {
             if (employee.getProjects().contains(new Project(projectName)))
-                employeesByProject1.add(employee);
+                employeesSet1.add(employee);
         }
-        return employeesByProject1;
+        return employeesSet1;
     }
 
     public Set<Employee> employeesByDepartmentWithoutProject(DepartmentType departmentType) {
-        Set<Employee> employees1 = new HashSet<>();
+        Set<Employee> employeesSet2 = new HashSet<>();
         for (Employee employee : employees) {
             if (employee.getDepartment().getType().name().equals(departmentType.name()) && (employee.getProjects() == null))
-                employees1.add(employee);
+                employeesSet2.add(employee);
         }
-        return employees1;
+        return employeesSet2;
     }
 
     public Set<Employee> employeesWithoutProject() {
-        Set<Employee> employeeSet = new HashSet<>();
+        Set<Employee> employeeSet3 = new HashSet<>();
 
         for (Employee employee : employees) {
             if (employee.getProjects() == null)
-                employeeSet.add(employee);
+                employeeSet3.add(employee);
         }
-        return employeeSet;
+        return employeeSet3;
+    }
+
+    public Set<Employee> employeesByTeamLead(Employee lead) {
+        Set<Employee> employeeSet4 = new HashSet<>();
+
+        for (Employee employee : employees) {
+            if (employee.getPosition() != lead.getPosition() && employee.getDepartment().
+                    getType().name().equals(lead.getDepartment().getType().name()))
+                employeeSet4.add(employee);
+        }
+        return employeeSet4;
     }
 
 

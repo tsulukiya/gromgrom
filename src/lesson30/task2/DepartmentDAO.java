@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class DepartmentDAO {
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Employee> employees;
 
     public DepartmentDAO(Set<Employee> employees) {
         this.employees = employees;

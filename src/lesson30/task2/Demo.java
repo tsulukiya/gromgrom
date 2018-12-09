@@ -90,6 +90,8 @@ public class Demo {
 //        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
 //        Controller controller = new Controller(employeesDAO);
 //        System.out.println(controller.employeesByProject("Found1"));
+//        System.out.println(controller.EmployeesByDepartmentWithoutProject(DepartmentType.DESIGN));
+//        System.out.println(controller.employeesWithoutProject());
 //
 //
 //        ProjectDAO projectDAO = new ProjectDAO();
@@ -97,9 +99,10 @@ public class Demo {
 //        System.out.println(controller1.projectsByEmployee(employeeAnalyst1));
 
 
-        DepartmentDAO departmentDAO = new DepartmentDAO(employeeSet);
-        Controller controller2 = new Controller(departmentDAO);
-        System.out.println(controller2.EmployeesByDepartmentWithoutProject(DepartmentType.DESIGN));
+//
+
+
+
 
 
 

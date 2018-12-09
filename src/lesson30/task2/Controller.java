@@ -22,7 +22,7 @@ public class Controller {
 
 
     public Set<Employee> EmployeesByDepartmentWithoutProject(DepartmentType departmentType) {
-        return departmentDAO.EmployeesByDepartmentWithoutProject(departmentType);
+        return employeesDAO.EmployeesByDepartmentWithoutProject(departmentType);
     }
 
 
@@ -32,6 +32,10 @@ public class Controller {
 
     public Set<Employee> employeesByProject(String projectName) {
         return employeesDAO.employeesByProject(projectName);
+    }
+
+    public Set<Employee> employeesWithoutProject() {
+        return employeesDAO.employeesWithoutProject();
     }
 
 

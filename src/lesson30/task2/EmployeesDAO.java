@@ -22,7 +22,7 @@ public class EmployeesDAO {
         return employeesByProject1;
     }
 
-    public Set<Employee> EmployeesByDepartmentWithoutProject(DepartmentType departmentType) {
+    public Set<Employee> employeesByDepartmentWithoutProject(DepartmentType departmentType) {
         Set<Employee> employees1 = new HashSet<>();
         for (Employee employee : employees) {
             if (employee.getDepartment().getType().name().equals(departmentType.name()) && (employee.getProjects() == null))

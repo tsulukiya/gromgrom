@@ -21,8 +21,8 @@ public class Controller {
     }
 
 
-    public Set<Employee> EmployeesByDepartmentWithoutProject(DepartmentType departmentType) {
-        return employeesDAO.EmployeesByDepartmentWithoutProject(departmentType);
+    public Set<Employee> employeesByDepartmentWithoutProject(DepartmentType departmentType) {
+        return employeesDAO.employeesByDepartmentWithoutProject(departmentType);
     }
 
 

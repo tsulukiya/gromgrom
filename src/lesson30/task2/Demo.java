@@ -90,7 +90,7 @@ public class Demo {
 //        EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
 //        Controller controller = new Controller(employeesDAO);
 //        System.out.println(controller.employeesByProject("Found1"));
-//        System.out.println(controller.EmployeesByDepartmentWithoutProject(DepartmentType.DESIGN));
+//        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
 //        System.out.println(controller.employeesWithoutProject());
 //
 //

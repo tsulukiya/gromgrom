@@ -4,12 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class EmployeesDAO {
-
     private Set<Employee> employees;
+
 
     public EmployeesDAO(Set<Employee> employees) {
         this.employees = employees;
     }
+
 
     public Set<Employee> employeesByProject(String projectName) {
 
@@ -22,6 +23,7 @@ public class EmployeesDAO {
         return employeesSet1;
     }
 
+
     public Set<Employee> employeesByDepartmentWithoutProject(DepartmentType departmentType) {
         Set<Employee> employeesSet2 = new HashSet<>();
         for (Employee employee : employees) {
@@ -30,6 +32,7 @@ public class EmployeesDAO {
         }
         return employeesSet2;
     }
+
 
     public Set<Employee> employeesWithoutProject() {
         Set<Employee> employeeSet3 = new HashSet<>();
@@ -40,6 +43,7 @@ public class EmployeesDAO {
         }
         return employeeSet3;
     }
+    
 
     public Set<Employee> employeesByTeamLead(Employee lead) {
         Set<Employee> employeeSet4 = new HashSet<>();

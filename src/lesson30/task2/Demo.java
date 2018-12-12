@@ -93,7 +93,8 @@ public class Demo {
 //        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
 //        System.out.println(controller.employeesWithoutProject());
 //        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
-        System.out.println(controller.teamLeadsByEmployee(employeeDesigner1));
+//        System.out.println(controller.teamLeadsByEmployee(employeeDesigner1));
+        System.out.println(controller.employeesByProjectEmployee(employeeDesigner1));
 //
 //
 //        ProjectDAO projectDAO = new ProjectDAO();

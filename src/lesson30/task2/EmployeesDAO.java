@@ -81,4 +81,16 @@ public class EmployeesDAO {
         }
         return employeeSet6;
     }
+
+    public Set<Employee> employeesByCustomerProjects(Customer customer) {
+        Set<Employee> employeeSet6 = new HashSet<>();
+        for (Employee employee : employees) {
+            if (employee.getProjects()!=null)
+            for (Project project : employee.getProjects()) {
+                if (project.getCustomer().equals(customer))
+                    employeeSet6.add(employee);
+            }
+        }
+        return employeeSet6;
+    }
 }

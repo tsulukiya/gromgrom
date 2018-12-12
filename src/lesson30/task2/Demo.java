@@ -20,9 +20,9 @@ public class Demo {
 
         Project project1 = new Project("Found1", customer1);
         Project project2 = new Project("Found2", customer2);
-        Project project3 = new Project("Found3", customer3);
+        Project project3 = new Project("Found3", customer1);
         Project project4 = new Project("Found4", customer4);
-        Project project5 = new Project("Found5", customer5);
+        Project project5 = new Project("Found5", customer1);
         Project project6 = new Project("Found6", customer6);
         Project project7 = new Project("Found7", customer7);
         Project project8 = new Project("Found8", customer8);
@@ -58,9 +58,9 @@ public class Demo {
         Employee employeeDesigner2 = new Employee("Alex8", "Gordon8", new Date(), Position.LEAD_DESIGNER, departmentDesign, projectSet3);
         Employee employeeDesigner3 = new Employee("Alex9", "Gordon9", new Date(), Position.DESIGNER, departmentDesign, null);
 
-        Set<Employee>employeeSetAnalystDepartment = new HashSet<>();
-        Set<Employee>employeeSetDeveloperDepartment = new HashSet<>();
-        Set<Employee>employeeSetDesignerDepartment = new HashSet<>();
+        Set<Employee> employeeSetAnalystDepartment = new HashSet<>();
+        Set<Employee> employeeSetDeveloperDepartment = new HashSet<>();
+        Set<Employee> employeeSetDesignerDepartment = new HashSet<>();
 
         employeeSetAnalystDepartment.add(employeeAnalyst1);
         employeeSetAnalystDepartment.add(employeeAnalyst2);
@@ -78,7 +78,7 @@ public class Demo {
         departmentDevelopment.setEmployees(employeeSetDeveloperDepartment);
         departmentDesign.setEmployees(employeeSetDesignerDepartment);
 
-        Set<Employee>employeeSet = new HashSet<>();
+        Set<Employee> employeeSet = new HashSet<>();
         employeeSet.addAll(employeeSetAnalystDepartment);
         employeeSet.addAll(employeeSetDeveloperDepartment);
         employeeSet.addAll(employeeSetDesignerDepartment);
@@ -89,28 +89,17 @@ public class Demo {
 
         EmployeesDAO employeesDAO = new EmployeesDAO(employeeSet);
         Controller controller = new Controller(employeesDAO);
-//        System.out.println(controller.employeesByProject("Found1"));
-//        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
-//        System.out.println(controller.employeesWithoutProject());
-//        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
-//        System.out.println(controller.teamLeadsByEmployee(employeeDesigner1));
+        System.out.println(controller.employeesByProject("Found1"));
+        System.out.println(controller.employeesByDepartmentWithoutProject(DepartmentType.DESIGN));
+        System.out.println(controller.employeesWithoutProject());
+        System.out.println(controller.employeesByTeamLead(employeeAnalyst1));
+        System.out.println(controller.teamLeadsByEmployee(employeeDesigner1));
         System.out.println(controller.employeesByProjectEmployee(employeeDesigner1));
-//
-//
-//        ProjectDAO projectDAO = new ProjectDAO();
-//        Controller controller1 = new Controller(projectDAO);
-//        System.out.println(controller1.projectsByEmployee(employeeAnalyst1));
+        System.out.println(controller.employeesByCustomerProjects(customer1));
 
-
-//
-
-
-
-
-
-
-
-
+        ProjectDAO projectDAO = new ProjectDAO(projectSet1);
+        Controller controller1 = new Controller(projectDAO);
+        System.out.println(controller1.projectByCustomer(customer1));
 
     }
 }

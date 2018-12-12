@@ -30,6 +30,10 @@ public class Controller {
         return projectDAO.projectByEmployee(employee);
     }
 
+    public Set<Project> projectByCustomer(Customer customer) {
+        return projectDAO.projectByCustomer(customer);
+    }
+
     public Set<Employee> employeesByProject(String projectName) {
         return employeesDAO.employeesByProject(projectName);
     }
@@ -48,6 +52,10 @@ public class Controller {
 
     public Set<Employee> employeesByProjectEmployee(Employee employee) {
         return employeesDAO.employeesByProjectEmployee(employee);
+    }
+
+    public Set<Employee> employeesByCustomerProjects(Customer customer) {
+        return employeesDAO.employeesByCustomerProjects(customer);
     }
 
 

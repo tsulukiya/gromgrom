@@ -40,4 +40,8 @@ public class Project {
     public String getName() {
         return name;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
 }

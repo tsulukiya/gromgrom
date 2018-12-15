@@ -1,7 +1,5 @@
 package lesson32;
 
-import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,6 +31,6 @@ public class ReadFromKeyboard {
         if (count == name.length()) {
             System.out.println("Hello, " + name + "!");
         }
-        else throw new IOException("Name is not correct...");
+        else System.err.println("Name is not correct...");
     }
 }

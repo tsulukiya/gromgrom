@@ -1,4 +1,4 @@
-package lesson33;
+package lesson33.classWork;
 
 import org.apache.commons.io.IOUtils;
 

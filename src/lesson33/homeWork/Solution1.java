@@ -1,4 +1,4 @@
-package lesson33.homeWork2;
+package lesson33.homeWork;
 
 import lesson33.classWork.ReadWriteFile;
 import org.apache.commons.io.IOUtils;

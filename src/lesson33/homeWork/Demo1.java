@@ -1,6 +1,4 @@
-package lesson33.homeWork2;
-
-import lesson31.Solution;
+package lesson33.homeWork;
 
 public class Demo1 {
 

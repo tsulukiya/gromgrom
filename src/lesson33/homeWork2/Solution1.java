@@ -5,7 +5,7 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 
-public class Solution {
+public class Solution1 {
 
     public static void readFileByConsolePath() throws Exception {
 
@@ -22,8 +22,9 @@ public class Solution {
             if (!file.exists()) {
                 throw new Exception("File with path " + path + " not found");
             }
-
             ReadWriteFile.readFile(path);
+
+
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

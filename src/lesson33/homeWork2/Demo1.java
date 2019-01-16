@@ -1,10 +1,10 @@
 package lesson33.homeWork2;
 
-import lesson33.homeWork2.Solution;
+import lesson31.Solution;
 
-public class Demo {
+public class Demo1 {
 
     public static void main(String[] args) throws Exception {
-        Solution.readFileByConsolePath();
+        Solution1.readFileByConsolePath();
     }
 }

@@ -6,12 +6,6 @@ import java.io.*;
 
 public class ReadWriteFile {
 
-    public static void main(String[] args) {
-
-        readFile("/Users/macbook/Downloads/test.txt");
-        writeFile("/Users/macbook/Downloads/test2.txt");
-
-    }
 
     public static void readFile(String patch) {
         FileReader reader;

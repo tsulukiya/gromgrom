@@ -23,9 +23,6 @@ public class Solution1 {
                 throw new Exception("File with path " + path + " not found");
             }
             ReadWriteFile.readFile(path);
-
-
-
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {

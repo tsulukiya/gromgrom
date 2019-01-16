@@ -13,7 +13,7 @@ public class ReadWriteFile {
 
     }
 
-    private static void readFile(String patch) {
+    public static void readFile(String patch) {
         FileReader reader;
 
         try {

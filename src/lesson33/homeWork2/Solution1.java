@@ -1,6 +1,6 @@
 package lesson33.homeWork2;
 
-import lesson33.classWork.ReadWriteFile;
+
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
@@ -22,12 +22,37 @@ public class Solution1 {
             if (!file.exists()) {
                 throw new Exception("File with path " + path + " not found");
             }
-            ReadWriteFile.readFile(path);
+            readFile(path);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {
             IOUtils.closeQuietly(bufferedReader);
             IOUtils.closeQuietly(inputStreamReader);
+        }
+    }
+
+
+    private static void readFile(String patch) {
+        FileReader reader;
+
+        try {
+            reader = new FileReader(patch);
+        } catch (FileNotFoundException e) {
+            System.err.println("File does not exist");
+            return;
+        }
+        BufferedReader br = new BufferedReader(reader);
+
+        try {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Can't read file by path" + patch);
+        } finally {
+            IOUtils.closeQuietly(br);
+            IOUtils.closeQuietly(reader);
         }
     }
 }

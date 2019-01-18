@@ -19,7 +19,9 @@ public class Solution {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 res.append(line);
+                res.append("\n");
             }
+            res.replace(res.length()-1, res.length(), "");
         } catch (IOException e) {
             System.err.println(e.getMessage() + path);
         }

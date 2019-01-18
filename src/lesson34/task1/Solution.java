@@ -5,35 +5,42 @@ import java.io.*;
 public class Solution {
 
     public static void copyFileContent(String fileFromPath, String fileToPath) throws Exception {
-        File fileFrom = new File(fileFromPath);
-        File fileTo = new File(fileToPath);
 
-        validate(fileFrom, fileTo);
+        validate(fileFromPath, fileToPath);
 
-        try (FileReader fileReader = new FileReader(fileFrom);
-             BufferedReader bufferedReader = new BufferedReader(fileReader);
-             FileWriter fileWriter = new FileWriter(fileTo);
-             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+        writeToFile(fileToPath, readFromFile(fileFromPath));
 
-            String text;
 
-            while ((text = bufferedReader.readLine()) != null) {
+    }
 
-                bufferedWriter.write(text);
-                bufferedWriter.append("\n");
-
+    private static  StringBuffer readFromFile(String path) {
+        StringBuffer res = new StringBuffer();
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                res.append(line);
             }
-
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage() + fileFrom.getName());
         } catch (IOException e) {
-            System.out.println(e.getMessage() + fileFrom.getName());
+            System.err.println(e.getMessage() + path);
+        }
+        return res;
+
+    }
+
+
+    private static void writeToFile(String path, StringBuffer contentToWrite) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path, true))) {
+            bufferedWriter.append(contentToWrite);
+        }catch (IOException e) {
+            System.err.println(e.getMessage() + path);
         }
 
     }
 
 
-    private static void validate(File fileFrom, File fileTo) throws Exception {
+    private static void validate(String fileFromPath, String fileToPath) throws Exception {
+        File fileFrom = new File(fileFromPath);
+        File fileTo = new File(fileToPath);
 
         if (!fileFrom.exists()) {
             throw new FileNotFoundException("File " + fileFrom + "does not exist");

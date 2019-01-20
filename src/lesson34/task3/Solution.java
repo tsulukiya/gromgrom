@@ -12,8 +12,6 @@ public class Solution {
         readFromFileToBuffer(fileFromPath);
 
         writeToFile(fileToPath, contentToPath(readFromFileToBuffer(fileFromPath), word));
-
-
     }
 
 
@@ -25,7 +23,6 @@ public class Solution {
         } catch (IOException e) {
             System.err.println(e.getMessage() + path);
         }
-
     }
 
     private static ArrayList<String> contentToPath(StringBuffer contentFromFile, String word) {
@@ -43,7 +40,6 @@ public class Solution {
                 }
             }
         }
-
         return sentence;
 
     }
@@ -60,7 +56,6 @@ public class Solution {
             System.err.println(e.getMessage() + path);
         }
         return contentFileFrom;
-
     }
 
     private static void validateFile(String fileFromPath, String fileToPath) throws Exception {

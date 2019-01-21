@@ -15,7 +15,7 @@ public class ReadFromKeyboard {
 
     }
 
-    private static void readKeyboardWithIOStream1() throws IOException {
+    private static void readKeyboardWithIOStream1() {
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(reader);
 

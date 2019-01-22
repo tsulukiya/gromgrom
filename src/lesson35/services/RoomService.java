@@ -10,14 +10,17 @@ public class RoomService {
     private RoomRepository roomRepository = new RoomRepository();
 
     public Set<Room> findRoom(Filter filter) {
+        // TODO: 22.01.2019 VALIDATE LOGIC
         return roomRepository.findRoom(filter);
     }
 
     public Room addRoom(Room room) {
+        // TODO: 22.01.2019 VALIDATE LOGIC
         return roomRepository.addRoom(room);
     }
 
     public Room deleteRoom(long roomId) {
+        // TODO: 22.01.2019 VALIDATE LOGIC
         return roomRepository.deleteRoom(roomId);
     }
 }

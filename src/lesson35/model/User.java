@@ -1,4 +1,6 @@
-package lesson35;
+package lesson35.model;
+
+import lesson35.enums.UserType;
 
 public class User {
     private long id;

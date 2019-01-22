@@ -1,4 +1,4 @@
-package lesson35;
+package lesson35.model;
 
 public class Hotel {
     private long id;

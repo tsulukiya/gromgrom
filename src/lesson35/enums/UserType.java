@@ -1,4 +1,4 @@
-package lesson35;
+package lesson35.enums;
 
 public enum UserType {
     ADMIN, USER

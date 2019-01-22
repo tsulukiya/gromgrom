@@ -1,13 +1,18 @@
 package lesson35.controller;
 
+import lesson35.model.Filter;
 import lesson35.model.Hotel;
+import lesson35.model.Room;
 import lesson35.model.User;
 import lesson35.services.UserService;
+
+import java.util.Set;
 
 public class UserController {
     private UserService userService = new UserService();
     private HotelController hotelController = new HotelController();
     private OrderController orderController = new OrderController();
+    private RoomController roomController = new RoomController();
 
     public User registerUser(User user) {
         //// TODO: 22.01.2019 VALIDATE LOGIC
@@ -42,5 +47,20 @@ public class UserController {
     public void cancelReservation(long roomId, long userId) {
         //// TODO: 22.01.2019 VALIDATE LOGIC
         orderController.cancelReservation(roomId, userId);
+    }
+
+    public Set<Room> findRoom(Filter filter) {
+        //// TODO: 22.01.2019 VALIDATE LOGIC
+        return roomController.findRoom(filter);
+    }
+
+    public Room addRoom(Room room) {
+        //// TODO: 22.01.2019 VALIDATE LOGIC
+        return roomController.addRoom(room);
+    }
+
+    public Room deleteRoom(long roomId) {
+        //// TODO: 22.01.2019 VALIDATE LOGIC
+        return roomController.deleteRoom(roomId);
     }
 }

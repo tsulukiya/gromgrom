@@ -1,18 +1,16 @@
 package lesson35.repository;
 
 import lesson35.model.User;
-import lesson35.services.UserService;
+
 
 public class UserRepository {
-    private UserService userService = new UserService();
+    ShareRepository shareRepository = new ShareRepository();
 
-    public User registerUser(User user) {
-
-        //some logic
-
-        return null;
+    public User registerUser(User user, String userDbPath) {
+        String contentToUserDb = user.getId() + "," + user.getUserName() + "," + user.getCountry() +
+                "," + user.getPassword() + "," + user.getUserType();
+        shareRepository.writeObjectToDb(contentToUserDb, userDbPath);
+        return user;
     }
 
-    // считывание данных - считывание файла
-    // обработка данных - маппинг данных
 }

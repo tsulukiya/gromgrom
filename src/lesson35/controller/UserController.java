@@ -6,6 +6,7 @@ import lesson35.model.Room;
 import lesson35.model.User;
 import lesson35.services.UserService;
 
+import java.io.IOException;
 import java.util.Set;
 
 public class UserController {
@@ -14,8 +15,8 @@ public class UserController {
     private OrderController orderController = new OrderController();
     private RoomController roomController = new RoomController();
 
-    public User registerUser(User user) {
-        return userService.registerUser(user);
+    public User registerUser(User user, String userDbPath) throws IOException{
+        return userService.registerUser(user, userDbPath);
     }
 
     public Hotel findHotelByName(String name) {

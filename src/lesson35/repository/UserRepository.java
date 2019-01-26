@@ -4,12 +4,13 @@ import lesson35.model.User;
 
 
 public class UserRepository {
-    ShareRepository shareRepository = new ShareRepository();
+    private ShareRepository shareRepository = new ShareRepository();
 
-    public User registerUser(User user, String userDbPath) {
+    public User registerUser(User user) {
+        String pathToDb = "/Users/macbook/Documents/DB final project/UserDb.txt";
         String contentToUserDb = user.getId() + "," + user.getUserName() + "," + user.getCountry() +
                 "," + user.getPassword() + "," + user.getUserType();
-        shareRepository.writeObjectToDb(contentToUserDb, userDbPath);
+        shareRepository.writeObjectToDb(contentToUserDb, pathToDb);
         return user;
     }
 

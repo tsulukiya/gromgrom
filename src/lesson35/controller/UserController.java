@@ -15,8 +15,8 @@ public class UserController {
     private OrderController orderController = new OrderController();
     private RoomController roomController = new RoomController();
 
-    public User registerUser(User user, String userDbPath) throws IOException{
-        return userService.registerUser(user, userDbPath);
+    public User registerUser(User user) throws IOException {
+        return userService.registerUser(user);
     }
 
     public Hotel findHotelByName(String name) {

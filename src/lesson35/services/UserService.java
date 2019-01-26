@@ -12,24 +12,14 @@ public class UserService {
     private long idUser = 101;
 
 
-    public User registerUser(User user, String userDbPath) throws IOException {
+    public User registerUser(User user) throws IOException {
         user.setId(idUser++);
-        validateWriteToDb(user, userDbPath);
-        return userRepository.registerUser(user, userDbPath);
+        validateWriteToDb(user);
+        return userRepository.registerUser(user);
     }
 
 
-    private static void validateWriteToDb(User user, String userDbPath) throws IOException {
-        File fileTo = new File(userDbPath);
-
-        if (!fileTo.exists()) {
-            throw new FileNotFoundException("File " + fileTo + "does not exist. Method - validateWriteToDb");
-        }
-
-        if (!fileTo.canWrite()) {
-            throw new IOException("File " + fileTo + " does not have permission to be written. " +
-                    "Method - validateWriteToDb");
-        }
+    private static void validateWriteToDb(User user) throws IOException {
 
         if (user.getUserType() == null || user.getPassword() == null || user.getCountry() == null ||
                 user.getUserName() == null) {

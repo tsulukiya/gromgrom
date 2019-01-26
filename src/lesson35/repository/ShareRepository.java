@@ -4,6 +4,8 @@ import java.io.*;
 
 public class ShareRepository {
 
+
+
     public void writeObjectToDb(String contentToWriteDb, String pathDb) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathDb, true))) {
             bufferedWriter.append(contentToWriteDb);

@@ -17,7 +17,6 @@ public class HotelService {
     }
 
     public Hotel addHotel(Hotel hotel) {
-        // TODO: 22.01.2019 VALIDATE LOGIC
         return hotelRepository.addHotel(hotel);
     }
 

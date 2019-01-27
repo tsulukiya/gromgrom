@@ -5,13 +5,12 @@ import java.io.*;
 public class ShareRepository {
 
 
-
-    public void writeObjectToDb(String contentToWriteDb, String pathDb) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathDb, true))) {
+    public void writeObjectToDb(String contentToWriteDb, String pathToDb) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathToDb, true))) {
             bufferedWriter.append(contentToWriteDb);
             bufferedWriter.append("\n");
         } catch (IOException e) {
-            System.err.println(e.getMessage() + pathDb);
+            System.err.println(e.getMessage() + pathToDb);
         }
     }
 }

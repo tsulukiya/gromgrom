@@ -15,43 +15,43 @@ public class UserController {
     private OrderController orderController = new OrderController();
     private RoomController roomController = new RoomController();
 
-    public User registerUser(User user) throws IOException {
-        return userService.registerUser(user);
+    public User registerUser(User user, String pathToDb) throws IOException {
+        return userService.registerUser(user, pathToDb);
     }
 
-    public Hotel findHotelByName(String name) {
-        return hotelController.findHotelByName(name);
+//    public Hotel findHotelByName(String name) {
+//        return hotelController.findHotelByName(name);
+//    }
+
+//    public Hotel findHotelByCity(String city) {
+//        return hotelController.findHotelByCity(city);
+//    }
+
+    public Hotel addHotel(Hotel hotel, String pathToDb) {
+        return hotelController.addHotel(hotel, pathToDb);
     }
 
-    public Hotel findHotelByCity(String city) {
-        return hotelController.findHotelByCity(city);
-    }
+//    public Hotel deleteHotel(long hotelId) {
+//        return hotelController.deleteHotel(hotelId);
+//    }
 
-    public Hotel addHotel(Hotel hotel) {
-        return hotelController.addHotel(hotel);
-    }
-
-    public Hotel deleteHotel(long hotelId) {
-        return hotelController.deleteHotel(hotelId);
-    }
-
-    public void bookRoom(long roomId, long userId) {
-        orderController.bookRoom(roomId, userId);
-    }
-
-    public void cancelReservation(long roomId, long userId) {
-        orderController.cancelReservation(roomId, userId);
-    }
-
-    public Set<Room> findRoom(Filter filter) {
-        return roomController.findRoom(filter);
-    }
-
-    public Room addRoom(Room room) {
-        return roomController.addRoom(room);
-    }
-
-    public Room deleteRoom(long roomId) {
-        return roomController.deleteRoom(roomId);
-    }
+//    public void bookRoom(long roomId, long userId) {
+//        orderController.bookRoom(roomId, userId);
+//    }
+//
+//    public void cancelReservation(long roomId, long userId) {
+//        orderController.cancelReservation(roomId, userId);
+//    }
+//
+//    public Set<Room> findRoom(Filter filter) {
+//        return roomController.findRoom(filter);
+//    }
+//
+//    public Room addRoom(Room room) {
+//        return roomController.addRoom(room);
+//    }
+//
+//    public Room deleteRoom(long roomId) {
+//        return roomController.deleteRoom(roomId);
+//    }
 }

@@ -9,23 +9,30 @@ import java.io.IOException;
 
 public class UserService {
     private UserRepository userRepository = new UserRepository();
+    private ShareService shareService = new ShareService();
     private long idUser = 101;
 
 
-    public User registerUser(User user) throws IOException {
+    public User registerUser(User user, String pathToDb) {
         user.setId(idUser++);
-        validateWriteToDb(user);
-        return userRepository.registerUser(user);
+        validateWriteToDb(user, pathToDb);
+        return userRepository.registerUser(user, pathToDb);
     }
 
 
-    private static void validateWriteToDb(User user) throws IOException {
+    private void validateWriteToDb(User user, String pathToDb) {
 
         if (user.getUserType() == null || user.getPassword() == null || user.getCountry() == null ||
-                user.getUserName() == null) {
+                user.getUserName() == null || user.getId() == 0) {
             throw new NullPointerException("User with ID: " +user.getId() +
                     " have null field. Method - validateWriteToDb");
         }
+        try {
+            shareService.validatePathFileTo(pathToDb);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 

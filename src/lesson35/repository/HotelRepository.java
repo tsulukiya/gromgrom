@@ -17,8 +17,7 @@ public class HotelRepository {
     }
 
 
-    public Hotel addHotel(Hotel hotel) {
-        String pathToDb = "/Users/macbook/Documents/DB final project/HotelDb.txt";
+    public Hotel addHotel(Hotel hotel, String pathToDb) {
         hotel.setId(hotelId++);
         String contentToHotelDb = hotel.getId() + "," + hotel.getName() + "," + hotel.getCountry() + "," +
                 hotel.getCity() + "," + hotel.getStreet();

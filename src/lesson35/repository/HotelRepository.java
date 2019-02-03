@@ -1,6 +1,11 @@
 package lesson35.repository;
 
 import lesson35.model.Hotel;
+import org.apache.commons.io.FileUtils;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HotelRepository {
     private ShareRepository shareRepository = new ShareRepository();
@@ -25,10 +30,22 @@ public class HotelRepository {
         return hotel;
     }
 
-    public Hotel deleteHotel(long hotelId) {
-        // TODO: 22.01.2019 some logic for HotelDb.txt
+    public Hotel deleteHotel(long hotelId, String path) {
+        List<Hotel> hotelList = shareRepository.listHotel(path);
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
+            bufferedWriter.write("");
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        for (Hotel hotel : hotelList) {
+            if (hotel.getId() != hotelId) {
+                String contentToHotelDb = hotel.getId() + "," + hotel.getName() + "," + hotel.getCountry() + "," +
+                        hotel.getCity() + "," + hotel.getStreet();
+                shareRepository.writeObjectToDb(contentToHotelDb, path);
+            }
+        }
         return null;
+
     }
-
-
 }

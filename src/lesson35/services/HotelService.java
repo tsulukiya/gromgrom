@@ -27,10 +27,10 @@ public class HotelService {
 
     }
 
-//    public Hotel deleteHotel(long hotelId) {
-//        // TODO: 22.01.2019 VALIDATE LOGIC
-//        return hotelRepository.deleteHotel(hotelId);
-//    }
+    public Hotel deleteHotel(long hotelId, String path) {
+        // TODO: 22.01.2019 VALIDATE LOGIC
+        return hotelRepository.deleteHotel(hotelId, path);
+    }
 
     private void validateWriteToDb(Hotel hotel, String pathToDb) {
 

@@ -18,7 +18,7 @@ public class HotelController {
         return hotelService.addHotel(hotel, pathToDb);
     }
 
-//    public Hotel deleteHotel(long hotelId) {
-//        return hotelService.deleteHotel(hotelId);
-//    }
+    public Hotel deleteHotel(long hotelId, String path) {
+        return hotelService.deleteHotel(hotelId, path);
+    }
 }

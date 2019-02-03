@@ -31,9 +31,9 @@ public class UserController {
         return hotelController.addHotel(hotel, pathToDb);
     }
 
-//    public Hotel deleteHotel(long hotelId) {
-//        return hotelController.deleteHotel(hotelId);
-//    }
+    public Hotel deleteHotel(long hotelId, String path) {
+        return hotelController.deleteHotel(hotelId, path);
+    }
 
 //    public void bookRoom(long roomId, long userId) {
 //        orderController.bookRoom(roomId, userId);

@@ -13,5 +13,8 @@ public class DemoHotel {
         hotelController.addHotel(hotel, "/Users/macbook/Documents/DB final project/HotelDb.txt");
         hotelController.addHotel(hotel2, "/Users/macbook/Documents/DB final project/HotelDb.txt");
         hotelController.addHotel(hotel3, "/Users/macbook/Documents/DB final project/HotelDb.txt");
+
+
+        hotelController.deleteHotel(203, "/Users/macbook/Documents/DB final project/HotelDb.txt");
     }
 }

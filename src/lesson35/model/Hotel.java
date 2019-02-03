@@ -8,7 +8,6 @@ public class Hotel {
     private String street;
 
 
-
     public Hotel(long id, String name, String country, String city, String street) {
         this.id = id;
         this.name = name;

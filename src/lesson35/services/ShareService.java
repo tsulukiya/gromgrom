@@ -1,8 +1,12 @@
 package lesson35.services;
 
-import java.io.*;
+import lesson35.model.Hotel;
+import lesson35.repository.ShareRepository;
 
-public class ShareService {
+import java.io.*;
+import java.util.List;
+
+public abstract class ShareService extends ShareRepository {
 
     public void validatePathFileTo(String path) throws IOException {
         File fileTo = new File(path);
@@ -12,6 +16,16 @@ public class ShareService {
         }
         if (!fileTo.canWrite()) {
             throw new IOException("File " + fileTo + " does not have permission to be written");
+        }
+    }
+
+    public void validateAddDuplicatesHotelToDb(Hotel hotel, String path) throws IOException {
+        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+
+        for (Hotel hotel1 : hotelList) {
+            if (hotel.getId() == hotel1.getId()) {
+                throw new IOException("Hotel with ID - " + hotel.getId() + "is in hotelDb" );
+            }
         }
     }
 }

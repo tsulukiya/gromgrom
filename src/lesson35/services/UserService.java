@@ -7,14 +7,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class UserService {
+public class UserService extends ShareService {
     private UserRepository userRepository = new UserRepository();
-    private ShareService shareService = new ShareService();
-    private long idUser = 101;
-
+    private static long countId = 101;
 
     public User registerUser(User user, String pathToDb) {
-        user.setId(idUser++);
+        user.setId(countId++);
         validateWriteToDb(user, pathToDb);
         return userRepository.registerUser(user, pathToDb);
     }
@@ -24,15 +22,22 @@ public class UserService {
 
         if (user.getUserType() == null || user.getPassword() == null || user.getCountry() == null ||
                 user.getUserName() == null || user.getId() == 0) {
-            throw new NullPointerException("User with ID: " +user.getId() +
+            throw new NullPointerException("User with ID: " + user.getId() +
                     " have null field. Method - validateWriteToDb");
         }
         try {
-            shareService.validatePathFileTo(pathToDb);
+            validatePathFileTo(pathToDb);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
+
+    }
+
+    @Override
+    public void validatePathFileTo(String path) throws IOException {
+        super.validatePathFileTo(path);
     }
 }
 

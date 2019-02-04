@@ -6,7 +6,7 @@ import lesson35.repository.RoomRepository;
 
 import java.util.Set;
 
-public class RoomService {
+public class RoomService extends ShareService {
     private RoomRepository roomRepository = new RoomRepository();
 
     public Set<Room> findRoom(Filter filter) {
@@ -14,13 +14,13 @@ public class RoomService {
         return roomRepository.findRoom(filter);
     }
 
-    public Room addRoom(Room room) {
+    public Room addRoom(Room room, String pathToDb) {
         // TODO: 22.01.2019 VALIDATE LOGIC
-        return roomRepository.addRoom(room);
+        return roomRepository.addRoom(room, pathToDb);
     }
 
-    public Room deleteRoom(long roomId) {
+    public Room deleteRoom(long roomId, String path) {
         // TODO: 22.01.2019 VALIDATE LOGIC
-        return roomRepository.deleteRoom(roomId);
+        return roomRepository.deleteRoom(roomId, path);
     }
 }

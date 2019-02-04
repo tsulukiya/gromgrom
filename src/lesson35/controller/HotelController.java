@@ -3,6 +3,8 @@ package lesson35.controller;
 import lesson35.model.Hotel;
 import lesson35.services.HotelService;
 
+import java.io.IOException;
+
 public class HotelController {
     private HotelService hotelService = new HotelService();
 
@@ -18,7 +20,7 @@ public class HotelController {
         return hotelService.addHotel(hotel, pathToDb);
     }
 
-    public Hotel deleteHotel(long hotelId, String path) {
+    public Hotel deleteHotel(long hotelId, String path) throws IOException{
         return hotelService.deleteHotel(hotelId, path);
     }
 }

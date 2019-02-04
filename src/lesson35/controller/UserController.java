@@ -31,11 +31,11 @@ public class UserController {
         return hotelController.addHotel(hotel, pathToDb);
     }
 
-    public Hotel deleteHotel(long hotelId, String path) {
+    public Hotel deleteHotel(long hotelId, String path) throws IOException {
         return hotelController.deleteHotel(hotelId, path);
     }
 
-//    public void bookRoom(long roomId, long userId) {
+    //    public void bookRoom(long roomId, long userId) {
 //        orderController.bookRoom(roomId, userId);
 //    }
 //
@@ -47,9 +47,9 @@ public class UserController {
 //        return roomController.findRoom(filter);
 //    }
 //
-//    public Room addRoom(Room room) {
-//        return roomController.addRoom(room);
-//    }
+    public Room addRoom(Room room, String path) {
+        return roomController.addRoom(room, path);
+    }
 //
 //    public Room deleteRoom(long roomId) {
 //        return roomController.deleteRoom(roomId);

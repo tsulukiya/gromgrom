@@ -13,11 +13,11 @@ public class RoomController {
         return roomService.findRoom(filter);
     }
 
-    public Room addRoom(Room room) {
-        return roomService.addRoom(room);
+    public Room addRoom(Room room, String pathToDb) {
+        return roomService.addRoom(room,pathToDb );
     }
 
-    public Room deleteRoom(long roomId) {
-        return roomService.deleteRoom(roomId);
+    public Room deleteRoom(long roomId, String path) {
+        return roomService.deleteRoom(roomId, path);
     }
 }

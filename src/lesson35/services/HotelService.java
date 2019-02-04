@@ -5,9 +5,8 @@ import lesson35.repository.HotelRepository;
 
 import java.io.IOException;
 
-public class HotelService {
+public class HotelService extends ShareService {
     private HotelRepository hotelRepository = new HotelRepository();
-    private ShareService shareService = new ShareService();
     private long idHotel = 201;
 
 //    public Hotel findHotelByName(String name) {
@@ -28,21 +27,20 @@ public class HotelService {
     }
 
     public Hotel deleteHotel(long hotelId, String path) {
-        // TODO: 22.01.2019 VALIDATE LOGIC
-        return hotelRepository.deleteHotel(hotelId, path);
+       return hotelRepository.deleteHotel(hotelId, path);
     }
 
     private void validateWriteToDb(Hotel hotel, String pathToDb) {
 
         if (hotel.getId() == 0 || hotel.getName() == null || hotel.getCountry() == null ||
                 hotel.getCity() == null || hotel.getStreet() == null) {
-            throw new NullPointerException("Hotel with ID: " +hotel.getId() +
+            throw new NullPointerException("Hotel with ID: " + hotel.getId() +
                     " have null field. Method - validateWriteToDb");
         }
         try {
-            shareService.validatePathFileTo(pathToDb);
+            validatePathFileTo(pathToDb);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
 
     }

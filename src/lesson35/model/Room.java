@@ -11,6 +11,22 @@ public class Room {
     private Date dateAvailableFrom;
     private Hotel hotel;
 
+    public Room(int numberOfGuests, double price, boolean breakfastIncluded, boolean petsAllowed, Hotel hotel) {
+        this.numberOfGuests = numberOfGuests;
+        this.price = price;
+        this.breakfastIncluded = breakfastIncluded;
+        this.petsAllowed = petsAllowed;
+        this.hotel = hotel;
+    }
+
+    public Room(int numberOfGuests, double price, boolean breakfastIncluded, boolean petsAllowed, Date dateAvailableFrom, Hotel hotel) {
+        this.numberOfGuests = numberOfGuests;
+        this.price = price;
+        this.breakfastIncluded = breakfastIncluded;
+        this.petsAllowed = petsAllowed;
+        this.dateAvailableFrom = dateAvailableFrom;
+        this.hotel = hotel;
+    }
 
     public Room(long id, int numberOfGuests, double price, boolean breakfastIncluded, boolean petsAllowed, Date dateAvailableFrom, Hotel hotel) {
         this.id = id;
@@ -20,5 +36,37 @@ public class Room {
         this.petsAllowed = petsAllowed;
         this.dateAvailableFrom = dateAvailableFrom;
         this.hotel = hotel;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public int getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isBreakfastIncluded() {
+        return breakfastIncluded;
+    }
+
+    public boolean isPetsAllowed() {
+        return petsAllowed;
+    }
+
+    public Date getDateAvailableFrom() {
+        return dateAvailableFrom;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

@@ -6,7 +6,10 @@ import lesson35.model.Room;
 import lesson35.model.User;
 
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public abstract class ShareRepository {
@@ -38,6 +41,36 @@ public abstract class ShareRepository {
         return hotelList;
     }
 
+    public List<Room> convertContentFromPathToListRoom(String path) {
+        File file = new File(path);
+        List<Room> roomList = new ArrayList<>();
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] mas = line.split(",");
+                Room room = new Room(Long.parseLong(mas[0]), Integer.parseInt(mas[1]), Double.parseDouble(mas[2]),
+                        Boolean.valueOf(mas[3]), Boolean.valueOf(mas[4]), convertStringToDate(mas[5]),
+                        new Hotel(Long.parseLong(mas[6])));
+                roomList.add(room);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return roomList;
+    }
+
+    private Date convertStringToDate(String dateString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = null;
+        try {
+            date = dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            System.err.println(e.getErrorOffset());
+        }
+        return date;
+    }
+
 
     public void deleteContentFromDb(String path) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
@@ -60,7 +93,7 @@ public abstract class ShareRepository {
 
     public String convertObjectToStringContent(Room room) {
         return room.getId() + "," + room.getNumberOfGuests() + "," + room.getPrice() + "," + room.isBreakfastIncluded()
-                + "," + room.isPetsAllowed() + "," + room.getDateAvailableFrom() + "," + room.getHotel();
+                + "," + room.isPetsAllowed() + "," + dateFormat(room.getDateAvailableFrom()) + "," + room.getHotel().getId();
     }
 
 
@@ -73,6 +106,11 @@ public abstract class ShareRepository {
         if (!fileTo.canWrite()) {
             throw new IOException("File " + fileTo + " does not have permission to be written.");
         }
+    }
+
+    private String dateFormat(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(date);
     }
 
 

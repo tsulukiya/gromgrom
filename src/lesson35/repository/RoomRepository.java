@@ -3,6 +3,7 @@ package lesson35.repository;
 import lesson35.model.Filter;
 import lesson35.model.Room;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
@@ -15,26 +16,34 @@ public class RoomRepository extends ShareRepository {
     }
 
     public Room addRoom(Room room, String pathToDb) {
-        room.setId(111); //todo method Random for hotelID
-        room.getHotel().setId(111); //todo method Random for hotelID
+        try {
+            validatePathFileTo(pathToDb);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         writeObjectToDb(convertObjectToStringContent(room), pathToDb);
         return room;
     }
 
     public Room deleteRoom(long roomId, String path) {
-//        List<Room> hotelList = convertContentFromPathToListRoom(path);
-//        Room roomDelete = null;
-//
-//        deleteContentFromDb(path);
-//
-//        for (Hotel hotel : hotelList) {
-//            if (hotel.getId() != hotelId) {
-//                writeObjectToDb(convertObjectToStringContent(hotel), path);
-//            } else {
-//                hotelDelete = hotel;
-//            }
-//        }
-        return null;
+        try {
+            validatePathFileTo(path);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        List<Room> roomList = convertContentFromPathToListRoom(path);
+        Room roomDelete = null;
+
+        deleteContentFromDb(path);
+
+        for (Room room : roomList) {
+            if (room.getId() != roomId) {
+                writeObjectToDb(convertObjectToStringContent(room), path);
+            } else {
+               roomDelete = room;
+            }
+        }
+        return roomDelete;
     }
 }
 

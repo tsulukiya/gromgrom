@@ -13,8 +13,8 @@ public class RoomController {
         return roomService.findRoom(filter);
     }
 
-    public Room addRoom(Room room, String pathToDb) {
-        return roomService.addRoom(room,pathToDb );
+    public Room addRoom(Room room, String pathToDb, String pathToHotelDb) {
+        return roomService.addRoom(room, pathToDb, pathToHotelDb);
     }
 
     public Room deleteRoom(long roomId, String path) {

@@ -12,9 +12,9 @@ public class DemoHotel {
         Hotel hotel3 = new Hotel("Redisson", "Ukraine", "Kiev", "Yaroslaviv Val" );
 
         HotelController hotelController = new HotelController();
-//        hotelController.addHotel(hotel, "/Users/macbook/Documents/DB final project/HotelDb.txt");
-//        hotelController.addHotel(hotel2, "/Users/macbook/Documents/DB final project/HotelDb.txt");
-//        hotelController.addHotel(hotel3, "/Users/macbook/Documents/DB final project/HotelDb.txt");
+        hotelController.addHotel(hotel, "/Users/macbook/Documents/DB final project/HotelDb.txt");
+        hotelController.addHotel(hotel2, "/Users/macbook/Documents/DB final project/HotelDb.txt");
+        hotelController.addHotel(hotel3, "/Users/macbook/Documents/DB final project/HotelDb.txt");
 
 
        hotelController.deleteHotel(300, "/Users/macbook/Documents/DB final project/HotelDb.txt");

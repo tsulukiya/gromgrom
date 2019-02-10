@@ -44,7 +44,7 @@ public class HotelService {
         if (hotel.getId() == 0 || hotel.getName() == null || hotel.getCountry() == null ||
                 hotel.getCity() == null || hotel.getStreet() == null) {
             throw new NullPointerException("Hotel with ID: " + hotel.getId() + " have null field. Method - " +
-                    "validateUserToNullFields. Class - HotelService");
+                    "validateHotelToNullFields. Class - HotelService");
         }
     }
 

@@ -40,7 +40,7 @@ public class RoomRepository extends ShareRepository {
             if (room.getId() != roomId) {
                 writeObjectToDb(convertObjectToStringContent(room), path);
             } else {
-               roomDelete = room;
+                roomDelete = room;
             }
         }
         return roomDelete;

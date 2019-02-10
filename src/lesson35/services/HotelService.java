@@ -16,15 +16,13 @@ import java.util.Random;
 public class HotelService {
     private HotelRepository hotelRepository = new HotelRepository();
 
-//    public Hotel findHotelByName(String name) {
-//        // TODO: 22.01.2019 VALIDATE LOGIC
-//        return hotelRepository.findHotelByName(name);
-//    }
-//
-//    public Hotel findHotelByCity(String city) {
-//        // TODO: 22.01.2019 VALIDATE LOGIC
-//        return hotelRepository.findHotelByCity(city);
-//    }
+    public Hotel findHotelByName(String name, String pathHotelDb) {
+        return hotelRepository.findHotelByName(name, pathHotelDb);
+    }
+
+    public Hotel findHotelByCity(String city, String pathHotelDb) {
+        return hotelRepository.findHotelByCity(city, pathHotelDb);
+    }
 
     public Hotel addHotel(Hotel hotel, String pathToDb) {
         hotel.setId(setHotelId());

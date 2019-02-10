@@ -7,14 +7,30 @@ import java.util.List;
 
 public class HotelRepository extends ShareRepository {
 
-    public Hotel findHotelByName(String name) {
-        // TODO: 22.01.2019 some logic for HotelDb.txt
-        return null;
+    public Hotel findHotelByName(String name, String pathHotelDb) {
+        List<Hotel>hotelList = convertContentFromPathToListHotel(pathHotelDb);
+        Hotel hotelRes = null;
+
+        for (Hotel hotel : hotelList) {
+            if (hotel.getName().equals(name)) {
+                hotelRes = hotel;
+            }
+        }
+        System.out.println(hotelRes);
+        return hotelRes;
     }
 
-    public Hotel findHotelByCity(String city) {
-        // TODO: 22.01.2019 some logic for HotelDb.txt
-        return null;
+    public Hotel findHotelByCity(String city, String pathHotelDb) {
+        List<Hotel>hotelList = convertContentFromPathToListHotel(pathHotelDb);
+        Hotel hotelRes = null;
+
+        for (Hotel hotel : hotelList) {
+            if (hotel.getCity().equals(city)) {
+                hotelRes = hotel;
+            }
+        }
+        System.out.println(hotelRes);
+        return hotelRes;
     }
 
 

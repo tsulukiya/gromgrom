@@ -15,8 +15,8 @@ public class RoomRepository extends ShareRepository {
     }
 
     public Room addRoom(Room room, String pathToDb) {
-        room.setId(roomId++);
-        room.getHotel().setId(hotelId++);
+        room.setId(111); //todo method Random for hotelID
+        room.getHotel().setId(111); //todo method Random for hotelID
         writeObjectToDb(convertObjectToStringContent(room), pathToDb);
         return room;
     }

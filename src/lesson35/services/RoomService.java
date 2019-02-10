@@ -3,10 +3,11 @@ package lesson35.services;
 import lesson35.model.Filter;
 import lesson35.model.Room;
 import lesson35.repository.RoomRepository;
+import lesson35.repository.ShareRepository;
 
 import java.util.Set;
 
-public class RoomService extends ShareService {
+public class RoomService extends ShareRepository {
     private RoomRepository roomRepository = new RoomRepository();
 
     public Set<Room> findRoom(Filter filter) {

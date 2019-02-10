@@ -10,12 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ShareRepository {
-    public static long roomId = 201;
-    public static long hotelId = 301;
-
 
     public void writeObjectToDb(String contentToWriteDb, String pathToDb) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathToDb, true))) {
+            validatePathFileTo(pathToDb);
             bufferedWriter.append(contentToWriteDb);
             bufferedWriter.append("\n");
         } catch (IOException e) {
@@ -81,6 +79,18 @@ public abstract class ShareRepository {
     public String convertObjectToStringContent(Room room) {
         return room.getId() + "," + room.getNumberOfGuests() + "," + room.getPrice() + "," + room.isBreakfastIncluded()
                 + "," + room.isPetsAllowed() + "," + room.getDateAvailableFrom() + "," + room.getHotel();
+    }
+
+
+    public void validatePathFileTo(String path) throws IOException {
+        File fileTo = new File(path);
+
+        if (!fileTo.exists()) {
+            throw new FileNotFoundException("File " + fileTo + "does not exist");
+        }
+        if (!fileTo.canWrite()) {
+            throw new IOException("File " + fileTo + " does not have permission to be written");
+        }
     }
 
 

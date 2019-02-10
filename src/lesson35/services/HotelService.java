@@ -5,7 +5,7 @@ import lesson35.repository.HotelRepository;
 
 import java.io.IOException;
 
-public class HotelService extends ShareService {
+public class HotelService {
     private HotelRepository hotelRepository = new HotelRepository();
     private long idHotel = 201;
 
@@ -27,7 +27,7 @@ public class HotelService extends ShareService {
     }
 
     public Hotel deleteHotel(long hotelId, String path) {
-       return hotelRepository.deleteHotel(hotelId, path);
+        return hotelRepository.deleteHotel(hotelId, path);
     }
 
     private void validateWriteToDb(Hotel hotel, String pathToDb) {
@@ -37,11 +37,5 @@ public class HotelService extends ShareService {
             throw new NullPointerException("Hotel with ID: " + hotel.getId() +
                     " have null field. Method - validateWriteToDb");
         }
-        try {
-            validatePathFileTo(pathToDb);
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-
     }
 }

@@ -34,6 +34,7 @@ public class HotelService {
     }
 
     public Hotel deleteHotel(long hotelId, String path) {
+        validateHaveHotelWithSearchIdInHotelDb(hotelId, path);
         return hotelRepository.deleteHotel(hotelId, path);
     }
 
@@ -55,7 +56,7 @@ public class HotelService {
 
 
     private void validateHotelDuplicatesInHotelDb(Hotel hotel, String path) {
-        List<Hotel> hotelList = convertContentFromPathToListUser(path);
+        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
 
         for (Hotel hotel1 : hotelList) {
             if (hotel.getId() == hotel1.getId()) {
@@ -66,7 +67,24 @@ public class HotelService {
     }
 
 
-    public List<Hotel> convertContentFromPathToListUser(String path) {
+    private void validateHaveHotelWithSearchIdInHotelDb(long hotelId, String path) {
+        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+
+        int count = 0;
+
+        for (Hotel hotel1 : hotelList) {
+            if (hotelId == hotel1.getId()) {
+                count++;
+            }
+        }
+        if (count == 0) {
+            throw new IllegalArgumentException("Hotel with ID:" + hotelId + " is not have HotelDB" + path +
+                    "Class - HotelService. Method - validateHaveHotelWithSearchIdInHotelDb.");
+        }
+    }
+
+
+    private List<Hotel> convertContentFromPathToListHotel(String path) {
         File file = new File(path);
         List<Hotel> hotelList = new ArrayList<>();
 

@@ -30,6 +30,11 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel deleteHotel(long hotelId, String path) {
+        try {
+            validatePathFileTo(path);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         List<Hotel> hotelList = convertContentFromPathToListHotel(path);
         Hotel hotelDelete = null;
 

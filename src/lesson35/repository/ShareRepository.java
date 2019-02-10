@@ -38,24 +38,6 @@ public abstract class ShareRepository {
         return hotelList;
     }
 
-//    public List<Room> convertContentFromPathToListRoom(String path) {
-//        File file = new File(path);
-//        List<Room> roomsList = new ArrayList<>();
-//
-//        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-//            String line;
-//            while ((line = bufferedReader.readLine()) != null) {
-//                String[] mas = line.split(",");
-//                Room room = new Room(Long.parseLong(mas[0]), Integer.parseInt(mas[1]), Double.parseDouble(mas[2]),
-//                        Boolean.parseBoolean(mas[3]), Boolean.parseBoolean(mas[4]),
-//                        Date.parseDate(mas[5]),  mas[6]);
-//                roomsList.add(room);
-//            }
-//        } catch (IOException e) {
-//            System.err.println(e.getMessage());
-//        }
-//        return hotelList;
-//    }
 
     public void deleteContentFromDb(String path) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))) {
@@ -86,10 +68,10 @@ public abstract class ShareRepository {
         File fileTo = new File(path);
 
         if (!fileTo.exists()) {
-            throw new FileNotFoundException("File " + fileTo + "does not exist");
+            throw new FileNotFoundException("File " + fileTo + " does not exist.");
         }
         if (!fileTo.canWrite()) {
-            throw new IOException("File " + fileTo + " does not have permission to be written");
+            throw new IOException("File " + fileTo + " does not have permission to be written.");
         }
     }
 

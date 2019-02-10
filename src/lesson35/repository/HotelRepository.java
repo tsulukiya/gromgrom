@@ -2,6 +2,7 @@ package lesson35.repository;
 
 import lesson35.model.Hotel;
 
+import java.io.IOException;
 import java.util.List;
 
 public class HotelRepository extends ShareRepository {
@@ -18,7 +19,11 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel addHotel(Hotel hotel, String pathToDb) {
-        hotel.setId(222);//todo method Random for hotelID
+        try {
+            validatePathFileTo(pathToDb);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         writeObjectToDb(convertObjectToStringContent(hotel), pathToDb);
         return hotel;
     }

@@ -16,9 +16,9 @@ public class UserService {
     private UserRepository userRepository = new UserRepository();
 
     public User registerUser(User user, String pathToDb) {
-        user.setId(setUserID());
-        validateUserDuplicatesInUserDb(user, pathToDb);
+        user.setId(setUserId());
         validateUserToNullFields(user);
+        validateUserDuplicatesInUserDb(user, pathToDb);
         return userRepository.registerUser(user, pathToDb);
     }
 
@@ -32,7 +32,7 @@ public class UserService {
         }
     }
 
-    private long setUserID() {
+    private long setUserId() {
         Random random = new Random();
         return random.nextInt(10000) + 101;
 

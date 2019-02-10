@@ -1,13 +1,20 @@
 package lesson35.services;
 
 import lesson35.model.Hotel;
+import lesson35.model.User;
 import lesson35.repository.HotelRepository;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.List;
+import java.util.Random;
 
 public class HotelService {
     private HotelRepository hotelRepository = new HotelRepository();
-    private long idHotel = 201;
 
 //    public Hotel findHotelByName(String name) {
 //        // TODO: 22.01.2019 VALIDATE LOGIC
@@ -20,22 +27,60 @@ public class HotelService {
 //    }
 
     public Hotel addHotel(Hotel hotel, String pathToDb) {
-        hotel.setId(idHotel++);
-        validateWriteToDb(hotel, pathToDb);
+        hotel.setId(setHotelId());
+        validateHotelToNullFields(hotel);
+        validateHotelDuplicatesInHotelDb(hotel, pathToDb);
         return hotelRepository.addHotel(hotel, pathToDb);
-
     }
 
     public Hotel deleteHotel(long hotelId, String path) {
         return hotelRepository.deleteHotel(hotelId, path);
     }
 
-    private void validateWriteToDb(Hotel hotel, String pathToDb) {
+
+    private void validateHotelToNullFields(Hotel hotel) {
 
         if (hotel.getId() == 0 || hotel.getName() == null || hotel.getCountry() == null ||
                 hotel.getCity() == null || hotel.getStreet() == null) {
-            throw new NullPointerException("Hotel with ID: " + hotel.getId() +
-                    " have null field. Method - validateWriteToDb");
+            throw new NullPointerException("Hotel with ID: " + hotel.getId() + " have null field. Method - " +
+                    "validateUserToNullFields. Class - HotelService");
         }
     }
+
+
+    private long setHotelId() {
+        Random random = new Random();
+        return random.nextInt(10000) + 101;
+    }
+
+
+    private void validateHotelDuplicatesInHotelDb(Hotel hotel, String path) {
+        List<Hotel> hotelList = convertContentFromPathToListUser(path);
+
+        for (Hotel hotel1 : hotelList) {
+            if (hotel.getId() == hotel1.getId()) {
+                throw new ConcurrentModificationException("Hotel with ID:" + hotel.getId() + " is have DB" + path +
+                        "Class - HotelService. Method - validateHotelDuplicatesInUserDb.");
+            }
+        }
+    }
+
+
+    public List<Hotel> convertContentFromPathToListUser(String path) {
+        File file = new File(path);
+        List<Hotel> hotelList = new ArrayList<>();
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] mas = line.split(",");
+                Hotel hotel = new Hotel(Long.parseLong(mas[0]));
+                hotelList.add(hotel);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return hotelList;
+    }
+
 }

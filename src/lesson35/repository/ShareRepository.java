@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public abstract class ShareRepository {
+public abstract class ShareRepository <T> {
 
     public void writeObjectToDb(String contentToWriteDb, String pathToDb) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathToDb, true))) {
@@ -24,21 +24,35 @@ public abstract class ShareRepository {
         }
     }
 
-    public List<Hotel> convertContentFromPathToListHotel(String path) {
+    public List<T> convertContentFromPathToList(String path) {
         File file = new File(path);
-        List<Hotel> hotelList = new ArrayList<>();
+        T t;
+        List<T> objectList = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] mas = line.split(",");
-                Hotel hotel = new Hotel(Long.parseLong(mas[0]), mas[1], mas[2], mas[3], mas[4]);
-                hotelList.add(hotel);
+                t = initObject(mas, t);
+
+                objectList.add(mas, t );
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-        return hotelList;
+        return objectList;
+    }
+
+    private Hotel initObject (String [] mas, Hotel hotel) {
+        hotel = new Hotel(Long.parseLong(mas[0]), mas[1], mas[2], mas[3], mas[4]);
+        return hotel;
+    }
+
+    private Room initObject (String [] mas, Room room) {
+        room = new Room(Long.parseLong(mas[0]), Integer.parseInt(mas[1]), Double.parseDouble(mas[2]),
+                Boolean.valueOf(mas[3]), Boolean.valueOf(mas[4]), convertStringToDate(mas[5]),
+                new Hotel(Long.parseLong(mas[6])));
+        return room;
     }
 
     public List<Room> convertContentFromPathToListRoom(String path) {

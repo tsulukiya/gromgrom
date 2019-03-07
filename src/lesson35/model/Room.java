@@ -38,6 +38,18 @@ public class Room {
         this.hotel = hotel;
     }
 
+    @Override
+    public String toString() {
+        return
+                id +
+                ", numberOfGuests=" + numberOfGuests +
+                ", price=" + price +
+                ", breakfastIncluded=" + breakfastIncluded +
+                ", petsAllowed=" + petsAllowed +
+                ", dateAvailableFrom=" + dateAvailableFrom +
+                ", hotel=" + hotel;
+    }
+
     public long getId() {
         return id;
     }

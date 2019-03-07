@@ -16,4 +16,8 @@ public class UserRepository extends ShareRepository {
         return user;
     }
 
+    @Override
+    Object initObject(String[] mas) {
+        return null;
+    }
 }

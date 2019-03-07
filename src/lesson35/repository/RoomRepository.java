@@ -1,6 +1,7 @@
 package lesson35.repository;
 
 import lesson35.model.Filter;
+import lesson35.model.Hotel;
 import lesson35.model.Room;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class RoomRepository extends ShareRepository {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        List<Room> roomList = convertContentFromPathToListRoom(path);
+        List<Room> roomList = convertContentFromPathToList(path);
         Room roomDelete = null;
 
         deleteContentFromDb(path);
@@ -44,6 +45,13 @@ public class RoomRepository extends ShareRepository {
             }
         }
         return roomDelete;
+    }
+
+    @Override
+    Room initObject(String[] mas) {
+        return new Room(Long.parseLong(mas[0]), Integer.parseInt(mas[1]), Double.parseDouble(mas[2]),
+                Boolean.valueOf(mas[3]), Boolean.valueOf(mas[4]), convertStringToDate(mas[5]),
+                new Hotel(Long.parseLong(mas[6])));
     }
 }
 

@@ -6,9 +6,14 @@ import java.io.IOException;
 import java.util.List;
 
 public class HotelRepository extends ShareRepository {
+    @Override
+    Hotel initObject(String[] mas) {
+       return new Hotel(Long.parseLong(mas[0]), mas[1], mas[2], mas[3], mas[4]);
+
+    }
 
     public Hotel findHotelByName(String name, String pathHotelDb) {
-        List<Hotel>hotelList = convertContentFromPathToListHotel(pathHotelDb);
+        List<Hotel>hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
         for (Hotel hotel : hotelList) {
@@ -20,8 +25,9 @@ public class HotelRepository extends ShareRepository {
         return hotelRes;
     }
 
+
     public Hotel findHotelByCity(String city, String pathHotelDb) {
-        List<Hotel>hotelList = convertContentFromPathToListHotel(pathHotelDb);
+        List<Hotel>hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
         for (Hotel hotel : hotelList) {
@@ -51,7 +57,7 @@ public class HotelRepository extends ShareRepository {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+        List<Hotel> hotelList = convertContentFromPathToList(path);
         Hotel hotelDelete = null;
 
         deleteContentFromDb(path);
@@ -65,4 +71,5 @@ public class HotelRepository extends ShareRepository {
         }
         return hotelDelete;
     }
+
 }

@@ -53,12 +53,10 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
-                "id=" + id +
+        return "id=" + id +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                '}';
+                ", street='" + street + '\'';
     }
 }

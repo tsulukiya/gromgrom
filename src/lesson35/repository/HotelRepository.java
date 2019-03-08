@@ -41,22 +41,12 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel addHotel(Hotel hotel, String pathToDb) {
-        try {
-            validatePathFileTo(pathToDb);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        writeObjectToDb(convertObjectToStringContent(hotel), pathToDb);
+        writeObjectToDb(hotel.toString(), pathToDb);
         return hotel;
     }
 
 
     public Hotel deleteHotel(long hotelId, String path) {
-        try {
-            validatePathFileTo(path);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
         List<Hotel> hotelList = convertContentFromPathToList(path);
         Hotel hotelDelete = null;
 
@@ -64,7 +54,7 @@ public class HotelRepository extends ShareRepository {
 
         for (Hotel hotel : hotelList) {
             if (hotel.getId() != hotelId) {
-                writeObjectToDb(convertObjectToStringContent(hotel), path);
+                writeObjectToDb(hotel.toString(), path);
             } else {
                 hotelDelete = hotel;
             }

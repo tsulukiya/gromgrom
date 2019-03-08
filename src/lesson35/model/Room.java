@@ -1,5 +1,6 @@
 package lesson35.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Room {
@@ -38,18 +39,6 @@ public class Room {
         this.hotel = hotel;
     }
 
-    @Override
-    public String toString() {
-        return
-                id +
-                ", numberOfGuests=" + numberOfGuests +
-                ", price=" + price +
-                ", breakfastIncluded=" + breakfastIncluded +
-                ", petsAllowed=" + petsAllowed +
-                ", dateAvailableFrom=" + dateAvailableFrom +
-                ", hotel=" + hotel;
-    }
-
     public long getId() {
         return id;
     }
@@ -80,5 +69,16 @@ public class Room {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    private String dateFormat(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(date);
+    }
+
+    @Override
+    public String toString() {
+        return id + "," + numberOfGuests + "," + price + "," + breakfastIncluded + "," + petsAllowed +
+                "," + dateFormat(dateAvailableFrom) + "," + hotel.getId();
     }
 }

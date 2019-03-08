@@ -55,9 +55,6 @@ public class User {
 
     @Override
     public String toString() {
-        return  ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", country='" + country + '\'' +
-                ", userType=" + userType;
+        return id + "," + userName + "," + password + "," + country + "," + userType;
     }
 }

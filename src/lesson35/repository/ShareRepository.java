@@ -64,4 +64,9 @@ public abstract class ShareRepository<T> {
         if (!fileTo.canWrite())
             throw new IOException("File " + fileTo + " does not have permission to be written.");
     }
+
+    public String dateFormat(Date date) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        return dateFormat.format(date);
+    }
 }

@@ -8,12 +8,12 @@ import java.util.List;
 public class HotelRepository extends ShareRepository {
     @Override
     Hotel initObject(String[] mas) {
-       return new Hotel(Long.parseLong(mas[0]), mas[1], mas[2], mas[3], mas[4]);
+        return new Hotel(Long.parseLong(mas[0]), mas[1], mas[2], mas[3], mas[4]);
 
     }
 
     public Hotel findHotelByName(String name, String pathHotelDb) {
-        List<Hotel>hotelList = convertContentFromPathToList(pathHotelDb);
+        List<Hotel> hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
         for (Hotel hotel : hotelList) {
@@ -27,7 +27,7 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel findHotelByCity(String city, String pathHotelDb) {
-        List<Hotel>hotelList = convertContentFromPathToList(pathHotelDb);
+        List<Hotel> hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
         for (Hotel hotel : hotelList) {

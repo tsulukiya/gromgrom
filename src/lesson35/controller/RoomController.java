@@ -9,8 +9,8 @@ import java.util.Set;
 public class RoomController {
     private RoomService roomService = new RoomService();
 
-    public Set<Room> findRoom(Filter filter) {
-        return roomService.findRoom(filter);
+    public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) {
+        return roomService.findRoom(filter, pathToRoomDb, pathToHotelDb);
     }
 
     public Room addRoom(Room room, String pathToDb, String pathToHotelDb) {

@@ -1,7 +1,5 @@
 package lesson35.model;
 
-import lesson35.model.Hotel;
-
 import java.util.Date;
 
 public class Filter {
@@ -21,5 +19,46 @@ public class Filter {
         this.dateAvailableFrom = dateAvailableFrom;
         this.country = country;
         this.city = city;
+    }
+
+    public int getNumberOfGuests() {
+        return numberOfGuests;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isBreakfastIncluded() {
+        return breakfastIncluded;
+    }
+
+    public boolean isPetsAllowed() {
+        return petsAllowed;
+    }
+
+    public Date getDateAvailableFrom() {
+        return dateAvailableFrom;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public String toString() {
+        return "Filter{" +
+                "numberOfGuests=" + numberOfGuests +
+                ", price=" + price +
+                ", breakfastIncluded=" + breakfastIncluded +
+                ", petsAllowed=" + petsAllowed +
+                ", dateAvailableFrom=" + dateAvailableFrom +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                '}';
     }
 }

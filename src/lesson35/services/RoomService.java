@@ -4,6 +4,7 @@ import lesson35.model.Filter;
 import lesson35.model.Hotel;
 import lesson35.model.Room;
 import lesson35.repository.RoomRepository;
+import lesson35.repository.ShareRepository;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,9 +17,9 @@ import java.util.*;
 public class RoomService {
     private RoomRepository roomRepository = new RoomRepository();
 
-    public Set<Room> findRoom(Filter filter) {
+    public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) {
         // TODO: 22.01.2019 VALIDATE LOGIC
-        return roomRepository.findRoom(filter);
+        return roomRepository.findRoom(filter, pathToRoomDb, pathToHotelDb);
     }
 
     public Room addRoom(Room room, String pathToDb, String pathToHotelDb) {
@@ -94,7 +95,7 @@ public class RoomService {
         }
     }
 
-    public List<Room> convertContentFromPathToListRoom(String path) {
+    private List<Room> convertContentFromPathToListRoom(String path) {
         File file = new File(path);
         List<Room> roomList = new ArrayList<>();
 
@@ -123,8 +124,5 @@ public class RoomService {
         }
         return date;
     }
-
-
-
 
 }

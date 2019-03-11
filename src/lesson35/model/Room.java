@@ -1,5 +1,7 @@
 package lesson35.model;
 
+import lesson35.repository.ShareRepository;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

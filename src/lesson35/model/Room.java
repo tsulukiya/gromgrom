@@ -84,3 +84,4 @@ public class Room {
                 "," + dateFormat(dateAvailableFrom) + "," + hotel.getId();
     }
 }
+

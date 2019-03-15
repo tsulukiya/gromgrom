@@ -4,8 +4,7 @@ import lesson35.model.Filter;
 import lesson35.model.Hotel;
 import lesson35.model.Room;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,26 +12,28 @@ public class RoomRepository extends ShareRepository {
 
 
     public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) {
+        @SuppressWarnings("unchecked")
         List<Room> roomSet = convertContentFromPathToList(pathToRoomDb);
-        Set<Room> searchRooms = null;
+        Set<Room> searchRooms = new HashSet<>();
 
         for (Room room : roomSet) {
-            if (room.getNumberOfGuests() == filter.getNumberOfGuests() && room.getPrice() == filter.getPrice() &&
+            if (room.getNumberOfGuests() == filter.getNumberOfGuests() &&
+                    room.getPrice() == filter.getPrice() &&
                     room.isBreakfastIncluded() == filter.isBreakfastIncluded() &&
                     room.isPetsAllowed() == filter.isPetsAllowed() &&
-//                    dateFormat(room.getDateAvailableFrom()) == dateFormat(filter.getDateAvailableFrom())&&
-                    checkHotelFields(filter.getCity(), filter.getCountry(), pathToHotelDb)) {
+                    dateFormat(room.getDateAvailableFrom()).contains(dateFormat(filter.getDateAvailableFrom())) &&
+                    checkHotelFields(room, pathToHotelDb)) {
                 searchRooms.add(room);
             }
         }
         return searchRooms;
     }
 
-    private boolean checkHotelFields(String city, String country, String path) {
-        List<Hotel> hotelList = convertContentFromPathToList(path); //todo: CHECK ERROR!!!!!!!!!
-
+    private boolean checkHotelFields(Room room, String path) {
+        @SuppressWarnings("unchecked")
+        List<Hotel> hotelList = new HotelRepository().convertContentFromPathToList(path); //todo: CHECK ERROR!!!!!!!!!
         for (Hotel hotel : hotelList) {
-            if (hotel.getCity().equals(city) && hotel.getCountry().equals(country)) {
+            if (hotel.getId() == room.getHotel().getId()) {
                 return true;
             }
         }
@@ -45,6 +46,7 @@ public class RoomRepository extends ShareRepository {
     }
 
     public Room deleteRoom(long roomId, String path) {
+        @SuppressWarnings("unchecked")
         List<Room> roomList = convertContentFromPathToList(path);
         Room roomDelete = null;
         deleteContentFromDb(path);

@@ -13,6 +13,7 @@ public class HotelRepository extends ShareRepository {
     }
 
     public Hotel findHotelByName(String name, String pathHotelDb) {
+        @SuppressWarnings("unchecked")
         List<Hotel> hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
@@ -27,6 +28,7 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel findHotelByCity(String city, String pathHotelDb) {
+        @SuppressWarnings("unchecked")
         List<Hotel> hotelList = convertContentFromPathToList(pathHotelDb);
         Hotel hotelRes = null;
 
@@ -47,6 +49,7 @@ public class HotelRepository extends ShareRepository {
 
 
     public Hotel deleteHotel(long hotelId, String path) {
+        @SuppressWarnings("unchecked")
         List<Hotel> hotelList = convertContentFromPathToList(path);
         Hotel hotelDelete = null;
 

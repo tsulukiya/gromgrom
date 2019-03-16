@@ -3,7 +3,9 @@ package lesson35.services;
 import lesson35.model.Hotel;
 import lesson35.model.User;
 import lesson35.repository.HotelRepository;
+import lesson35.repository.UserRepository;
 
+import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -15,23 +17,30 @@ import java.util.Random;
 
 public class HotelService {
     private HotelRepository hotelRepository = new HotelRepository();
+    private UserRepository userRepository = new UserRepository();
 
-    public Hotel findHotelByName(String name, String pathHotelDb) {
+    public Hotel findHotelByName(String name, String pathHotelDb) throws LoginException {
+        userRepository.checkLoginUser();
         return hotelRepository.findHotelByName(name, pathHotelDb);
     }
 
-    public Hotel findHotelByCity(String city, String pathHotelDb) {
+    public Hotel findHotelByCity(String city, String pathHotelDb) throws LoginException {
+        userRepository.checkLoginUser();
         return hotelRepository.findHotelByCity(city, pathHotelDb);
     }
 
-    public Hotel addHotel(Hotel hotel, String pathToDb) {
+    public Hotel addHotel(Hotel hotel, String pathToDb) throws LoginException {
+        userRepository.checkLoginUser();
+        userRepository.checkUserType();
         hotel.setId(setHotelId());
         validateHotelToNullFields(hotel);
         validateHotelDuplicatesInHotelDb(hotel, pathToDb);
         return hotelRepository.addHotel(hotel, pathToDb);
     }
 
-    public Hotel deleteHotel(long hotelId, String path) {
+    public Hotel deleteHotel(long hotelId, String path) throws LoginException {
+        userRepository.checkLoginUser();
+        userRepository.checkUserType();
         validateHaveHotelWithSearchIdInHotelDb(hotelId, path);
         return hotelRepository.deleteHotel(hotelId, path);
     }
@@ -54,7 +63,8 @@ public class HotelService {
 
 
     private void validateHotelDuplicatesInHotelDb(Hotel hotel, String path) {
-        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+        @SuppressWarnings("unchecked")
+        List<Hotel> hotelList = hotelRepository.convertContentFromPathToList(path);
 
         for (Hotel hotel1 : hotelList) {
             if (hotel.getId() == hotel1.getId()) {
@@ -66,7 +76,8 @@ public class HotelService {
 
 
     private void validateHaveHotelWithSearchIdInHotelDb(long hotelId, String path) {
-        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+        @SuppressWarnings("unchecked")
+        List<Hotel> hotelList = hotelRepository.convertContentFromPathToList(path);
 
         int count = 0;
 
@@ -79,24 +90,6 @@ public class HotelService {
             throw new IllegalArgumentException("Hotel with ID:" + hotelId + " is not have HotelDB" + path +
                     "Class - HotelService. Method - validateHaveHotelWithSearchIdInHotelDb.");
         }
-    }
-
-
-    private List<Hotel> convertContentFromPathToListHotel(String path) {
-        File file = new File(path);
-        List<Hotel> hotelList = new ArrayList<>();
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] mas = line.split(",");
-                Hotel hotel = new Hotel(Long.parseLong(mas[0]));
-                hotelList.add(hotel);
-            }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        return hotelList;
     }
 
 }

@@ -1,5 +1,10 @@
 package lesson35.repository;
 
+import lesson35.enums.UserType;
+import lesson35.model.User;
+
+import javax.security.auth.login.AccountException;
+import javax.security.auth.login.LoginException;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -3,6 +3,7 @@ package lesson35.services;
 import lesson35.model.Filter;
 import lesson35.model.Hotel;
 import lesson35.model.Room;
+import lesson35.repository.HotelRepository;
 import lesson35.repository.RoomRepository;
 import lesson35.repository.ShareRepository;
 
@@ -18,7 +19,6 @@ public class RoomService {
     private RoomRepository roomRepository = new RoomRepository();
 
     public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) {
-        // TODO: 22.01.2019 VALIDATE LOGIC
         return roomRepository.findRoom(filter, pathToRoomDb, pathToHotelDb);
     }
 
@@ -49,7 +49,8 @@ public class RoomService {
     }
 
     private void validateHaveHotelWithSearchIdInHotelDb(long hotelId, String path) {
-        List<Hotel> hotelList = convertContentFromPathToListHotel(path);
+        @SuppressWarnings("unchecked")
+        List<Hotel> hotelList = new HotelRepository().convertContentFromPathToList(path);
 
         int count = 0;
 
@@ -64,25 +65,9 @@ public class RoomService {
         }
     }
 
-    private List<Hotel> convertContentFromPathToListHotel(String path) {
-        File file = new File(path);
-        List<Hotel> hotelList = new ArrayList<>();
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] mas = line.split(",");
-                Hotel hotel = new Hotel(Long.parseLong(mas[0]));
-                hotelList.add(hotel);
-            }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        return hotelList;
-    }
-
     private void validateHaveRoomWithSearchIdInRoomDb(long roomId, String path) {
-        List<Room> roomList = convertContentFromPathToListRoom(path);
+        @SuppressWarnings("unchecked")
+        List<Room> roomList = roomRepository.convertContentFromPathToList(path);
         int count = 0;
         for (Room room1 : roomList) {
             if (roomId == room1.getId()) {
@@ -93,36 +78,6 @@ public class RoomService {
             throw new IllegalArgumentException("Room with ID:" + roomId + " is not have RoomDB" + path +
                     "Class - RoomService. Method - validateHaveRoomWithSearchIdInRoomDb.");
         }
-    }
-
-    private List<Room> convertContentFromPathToListRoom(String path) {
-        File file = new File(path);
-        List<Room> roomList = new ArrayList<>();
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] mas = line.split(",");
-                Room room = new Room(Long.parseLong(mas[0]),Integer.parseInt(mas[1]), Double.parseDouble(mas[2]),
-                        Boolean.valueOf(mas[3]), Boolean.valueOf(mas[4]), convertStringToDate(mas[5]),
-                        new Hotel(Long.valueOf(mas[6])));
-                roomList.add(room);
-            }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        return roomList;
-    }
-
-    private Date convertStringToDate(String dateString) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = null;
-        try {
-            date = dateFormat.parse(dateString);
-        } catch (ParseException e) {
-            System.err.println(e.getErrorOffset());
-        }
-        return date;
     }
 
 }

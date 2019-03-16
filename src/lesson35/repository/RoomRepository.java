@@ -1,5 +1,6 @@
 package lesson35.repository;
 
+import lesson35.enums.UserType;
 import lesson35.model.Filter;
 import lesson35.model.Hotel;
 import lesson35.model.Room;

@@ -3,6 +3,7 @@ package lesson35.services;
 import lesson35.repository.UserRepository;
 import lesson35.model.User;
 
+import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -20,6 +21,28 @@ public class UserService {
         validateUserToNullFields(user);
         validateUserDuplicatesInUserDb(user, pathToDb);
         return userRepository.registerUser(user, pathToDb);
+    }
+
+    public void login(String userName, String password, String pathUserDb) throws LoginException {
+        @SuppressWarnings("unchecked")
+        List<User> userList = userRepository.convertContentFromPathToList(pathUserDb);
+        int count = 0;
+        for (User user : userList) {
+            if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+               userRepository.login(userName, password, pathUserDb);
+               count++;
+               break;
+            }
+        }
+        if (count == 0) {
+            throw new IllegalArgumentException("User with name:" + userName + " is not in UserDB" + pathUserDb +
+                    "Class.UserService. Method - login.");
+        }
+    }
+
+
+    public void logout() {
+        userRepository.logout();
     }
 
 
@@ -40,34 +63,16 @@ public class UserService {
 
 
     private void validateUserDuplicatesInUserDb(User user, String path) {
-        List<User> userList = convertContentFromPathToListUser(path);
+        @SuppressWarnings("unchecked")
+        List<User> userList = userRepository.convertContentFromPathToList(path);
 
         for (User user1 : userList) {
             if (user1.getId() == user.getId()) {
                 throw new ConcurrentModificationException("User with ID:" + user.getId() + " is in DB" + path +
                         "Class.UserService. Method - validateUserDuplicatesInUserDb.");
             }
-
         }
 
-
-    }
-
-    public List<User> convertContentFromPathToListUser(String path) {
-        File file = new File(path);
-        List<User> userList = new ArrayList<>();
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] mas = line.split(",");
-                User user = new User(Long.parseLong(mas[0]));
-                userList.add(user);
-            }
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
-        return userList;
     }
 }
 

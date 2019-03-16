@@ -6,7 +6,9 @@ import lesson35.model.Room;
 import lesson35.repository.HotelRepository;
 import lesson35.repository.RoomRepository;
 import lesson35.repository.ShareRepository;
+import lesson35.repository.UserRepository;
 
+import javax.security.auth.login.LoginException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,19 +19,25 @@ import java.util.*;
 
 public class RoomService {
     private RoomRepository roomRepository = new RoomRepository();
+    private UserRepository userRepository = new UserRepository();
 
-    public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) {
+    public Set<Room> findRoom(Filter filter, String pathToRoomDb, String pathToHotelDb) throws LoginException {
+        userRepository.checkLoginUser();
         return roomRepository.findRoom(filter, pathToRoomDb, pathToHotelDb);
     }
 
-    public Room addRoom(Room room, String pathToDb, String pathToHotelDb) {
+    public Room addRoom(Room room, String pathToDb, String pathToHotelDb) throws LoginException {
+        userRepository.checkUserType();
+        userRepository.checkLoginUser();
         room.setId(setRoomId());
         validateRoomToNullFields(room);
         validateHaveHotelWithSearchIdInHotelDb(room.getHotel().getId(), pathToHotelDb);
         return roomRepository.addRoom(room, pathToDb);
     }
 
-    public Room deleteRoom(long roomId, String path) {
+    public Room deleteRoom(long roomId, String path) throws LoginException {
+        userRepository.checkUserType();
+        userRepository.checkLoginUser();
         validateHaveRoomWithSearchIdInRoomDb(roomId, path);
         return roomRepository.deleteRoom(roomId, path);
     }

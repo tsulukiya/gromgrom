@@ -1,5 +1,6 @@
 package lesson35.Demo;
 
+import lesson35.Connection.Session;
 import lesson35.controller.UserController;
 import lesson35.enums.UserType;
 import lesson35.model.User;
@@ -20,7 +21,11 @@ public class DemoUser {
         userController.login("Ivan", "qwe",
                 "/Users/macbook/Documents/DB final project/UserDb.txt");
 
-       // userController.logout();
+
+        //userController.login("Ivan", "qwe",
+                //"/Users/macbook/Documents/DB final project/UserDb.txt");
+
+
 
     }
 }

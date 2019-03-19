@@ -1,5 +1,6 @@
 package lesson35.repository;
 
+import lesson35.Connection.Session;
 import lesson35.enums.UserType;
 import lesson35.model.User;
 
@@ -17,17 +18,14 @@ public class UserRepository extends ShareRepository {
     public void login(String userName, String password, String pathUserDb) throws LoginException {
         @SuppressWarnings("unchecked")
         List<User> userList = convertContentFromPathToList(pathUserDb);
-        @SuppressWarnings("unchecked")
-        List<User> userList1 = convertContentFromPathToList("/Users/macbook/Documents/DB final project/UserLoginDb.txt");
 
-        if (!userList1.isEmpty()) {
+        if (Session.user != null) {
             throw new LoginException("This user is already logged in");
         }
 
         for (User user : userList) {
             if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
-
-                writeObjectToDb(user, "/Users/macbook/Documents/DB final project/UserLoginDb.txt");
+                Session.user = user;
                 System.out.println("Login user with name: " + user.getUserName() + " is OK");
                 break;
             }
@@ -41,27 +39,23 @@ public class UserRepository extends ShareRepository {
         } catch (LoginException e) {
             System.err.println("User is not login...Method logout. Class UserRepository");
         }
-        deleteContentFromDb("/Users/macbook/Documents/DB final project/UserLoginDb.txt");
+        Session.user = null;
     }
 
 
     public void checkLoginUser() throws LoginException {
-        @SuppressWarnings("unchecked")
-        List<User> list = convertContentFromPathToList("/Users/macbook/Documents/DB final project/UserLoginDb.txt");
-        if (list.isEmpty()) {
+
+        if (Session.user == null) {
             throw new LoginException("User is not login");
         }
 
     }
 
     public void checkUserType() throws AccountException {
-        @SuppressWarnings("unchecked")
-        List<User> listUser = convertContentFromPathToList("/Users/macbook/Documents/DB final project/UserLoginDb.txt");
-        for (User user : listUser) {
-            if (user.getUserType().equals(UserType.USER)) {
+
+            if (Session.user.getUserType().equals(UserType.USER)) {
                 throw new AccountException("Not enough rights. This method for admin");
             }
-        }
     }
 
 

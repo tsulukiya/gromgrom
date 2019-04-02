@@ -8,8 +8,8 @@ import java.io.IOException;
 public class DemoHotel {
     public static void main(String[] args) throws Exception {
         Hotel hotel = new Hotel("Redisson ParkInn", "Ukraine", "Sevastopol", "Yaroslaviv Val" );
-//        Hotel hotel2 = new Hotel("Redisson Blue", "Ukraine", "Kiev", "Yaroslaviv Val" );
-//        Hotel hotel3 = new Hotel("Redisson Red", "Ukraine", "Kiev", "Yaroslaviv Val" );
+        Hotel hotel2 = new Hotel("Redisson Blue", "Ukraine", "Kiev", "Yaroslaviv Val" );
+        Hotel hotel3 = new Hotel("Redisson Red", "Ukraine", "Kiev", "Yaroslaviv Val" );
 
         HotelController hotelController = new HotelController();
        hotelController.addHotel(hotel, "/Users/macbook/Documents/DB final project/HotelDb.txt");
